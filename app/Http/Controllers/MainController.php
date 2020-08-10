@@ -10,7 +10,7 @@ class MainController extends Controller
 {
 
     public function index(){
-        $categories=Category::where('id','!=',2)->get();
+        $categories=Category::all();
 
         return view('home.index',compact('categories'));
     }
