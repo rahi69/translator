@@ -653,31 +653,33 @@
                             هزینه پروژه
                         </h5>
                         <!--start form header box-->
-                        <div class="d-flex justify-content-center mt-2 ">
+
+                        <div id="category" class="d-flex justify-content-center mt-2 ">
                             <select class="form-control custom-form">
                                 <option>ترجمه</option>
                                 <option>تولید محتوا</option>
                                 <option>تایپ متن</option>
                             </select>
                         </div>
-                        <div class="d-flex justify-content-around mt-2">
+                        <div id="lang" class="d-flex justify-content-around mt-2">
                             <select class="form-control custom-form2">
                                 <option>انگلیسی به عربی</option>
                                 <option>عربی به انگلیسی </option>
                             </select>
-                            <select class="form-control custom-form2">
+                            <select id="type" class="form-control custom-form2">
                                 <option>متون</option>
                                 <option>تولید محتوا</option>
                                 <option>تایپ متن</option>
                             </select>
                         </div>
                         <div class="d-flex justify-content-around mt-2">
-                            <input class="form-control custom-form2" placeholder="چند کلمه؟">
-                            <button class="d-flex justify-content-between btn custom-form2 btn-custom-form">
+                            <input id="count" class="form-control custom-form2" placeholder="چند کلمه؟">
+                            <button id="reg" class="d-flex justify-content-between btn custom-form2 btn-custom-form">
                                 <label class="custom-checkbox">محاسبه قیمت</label>
                                 <i class="far fa-check-square mt-auto mb-auto"></i>
                             </button>
                         </div>
+
                         <!--end form header box-->
 
                         <!--start footer box-->
@@ -707,9 +709,9 @@
                                 <div class="mt-3 text-2">
                                     <p>
                                         از
-                                        <span class="text-success">14</span>
+                                        <span id="normalmin" class="text-success">14</span>
                                         تومان تا
-                                        <span class="text-success">19</span>
+                                        <span id="normalmax"class="text-success">19</span>
                                         تومان
                                     </p>
                                 </div>
@@ -740,9 +742,9 @@
                                 <div class="mt-3 text-2">
                                     <p>
                                         از
-                                        <span class="text-success">22</span>
+                                        <span id="goodmin" class="text-success">22</span>
                                         تومان تا
-                                        <span class="text-success">32</span>
+                                        <span id="goodmax" class="text-success">32</span>
                                         تومان
                                     </p>
                                 </div>
@@ -773,9 +775,9 @@
                                 <div class="mt-3 text-2">
                                     <p>
                                         از
-                                        <span class="text-success">38</span>
+                                        <span id="excellentmin" class="text-success">38</span>
                                         تومان تا
-                                        <span class="text-success">55</span>
+                                        <span id="excellentmax" class="text-success">55</span>
                                         تومان
                                     </p>
                                 </div>
@@ -1332,6 +1334,30 @@
         $('#menu13').collapse('hide');
         $('#menu12').collapse('hide');
     })
+
+</script>
+<script>
+    $('#reg').click(function(){
+        var category=$("#category").val();
+        var lang=$("#lang").val();
+        var type=$("#type").val();
+
+
+        $.ajax({
+            url:"/home/ChangeNumber",
+            type:"GET",
+            data: {category_id: category, language_id: lang, type_id:type},
+            success:function (result) {
+//if (result['normalmin']!=null){}
+                $(".p-price"+id).html(result['tprice']);
+                $(".numproduct").html(result['numorder']);
+                $(".totalBasket").html(result['TotalBasket']);
+            }
+        });
+
+
+        return false;
+    });
 
 </script>
 
