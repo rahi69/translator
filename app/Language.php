@@ -9,7 +9,11 @@ class Language extends Model
     protected $fillable = [
         'title'
     ];
-    public function price(){
-        return $this->belongsTo(Price::class);
+    public function prices(){
+        return $this->hasMany(Price::class);
+    }
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
     }
 }

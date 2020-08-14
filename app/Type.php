@@ -9,7 +9,7 @@ class Type extends Model
     protected $fillable = [
         'title'
     ];
-    public function price(){
-        return $this->belongsTo(Price::class);
+    public function prices(){
+        return $this->hasMany(Price::class);
     }
 }

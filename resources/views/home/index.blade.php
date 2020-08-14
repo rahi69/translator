@@ -654,27 +654,32 @@
                         </h5>
                         <!--start form header box-->
 
-                        <div id="category" class="d-flex justify-content-center mt-2 ">
-                            <select class="form-control custom-form">
-                                <option>ترجمه</option>
-                                <option>تولید محتوا</option>
-                                <option>تایپ متن</option>
+                        <div  class="d-flex justify-content-center mt-2 ">
+                            <select id="category" class="form-control custom-form">
+                                @foreach($categories as $category)
+                                    @if($category->id!=2)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endif
+                                @endforeach
                             </select>
                         </div>
-                        <div id="lang" class="d-flex justify-content-around mt-2">
-                            <select class="form-control custom-form2">
-                                <option>انگلیسی به عربی</option>
-                                <option>عربی به انگلیسی </option>
+                        <div  class="d-flex justify-content-around mt-2">
+                            <select id="lang" class="form-control custom-form2">
+                                @foreach($languages as $language)
+                                <option value="{{$language->id}}">{{$language->title}}</option>
+                                @endforeach
                             </select>
+
                             <select id="type" class="form-control custom-form2">
-                                <option>متون</option>
-                                <option>تولید محتوا</option>
-                                <option>تایپ متن</option>
+                                @foreach($types as $type)
+                                <option value="{{$type->id}}">{{$type->title}}</option>
+                                @endforeach
                             </select>
+
                         </div>
                         <div class="d-flex justify-content-around mt-2">
-                            <input id="count" class="form-control custom-form2" placeholder="چند کلمه؟">
-                            <button id="reg" class="d-flex justify-content-between btn custom-form2 btn-custom-form">
+                            <input id="count" value="1" class="form-control custom-form2" placeholder=" چند کلمه؟1">
+                            <button  id="reg" class="d-flex justify-content-between btn custom-form2 btn-custom-form">
                                 <label class="custom-checkbox">محاسبه قیمت</label>
                                 <i class="far fa-check-square mt-auto mb-auto"></i>
                             </button>
@@ -690,7 +695,7 @@
                                     </div>
                                     <div>
                                         <ul class="list-unstyled p-0">
-                                            <li class="text-right blue">ترجمه معمولی</li>
+                                            <li id="normal" class="text-right blue">{{$categories[0]->name.' '.'معمولی'}}</li>
                                             <li>
                                                 <div class="rate">
                                                     <i class="fas fa-star str-Gray"></i>
@@ -704,14 +709,14 @@
                                     </div>
                                 </div>
                                 <div class="mt-3 icon-box" >
-                                    <i class="text-success fa fa-long-arrow-left align-items-center"></i>
+                                    <i  class="text-success fa fa-long-arrow-left align-items-center"></i>
                                 </div>
                                 <div class="mt-3 text-2">
                                     <p>
                                         از
-                                        <span id="normalmin" class="text-success">14</span>
+                                        <span id="normalmin" class="text-success">{{$price->normalmin}}</span>
                                         تومان تا
-                                        <span id="normalmax"class="text-success">19</span>
+                                        <span id="normalmax"class="text-success">{{$price->normalmax}}</span>
                                         تومان
                                     </p>
                                 </div>
@@ -723,7 +728,7 @@
                                     </div>
                                     <div>
                                         <ul class="list-unstyled p-0">
-                                            <li class="text-right blue">ترجمه خوب</li>
+                                            <li id="good" class="text-right blue">{{$categories[0]->name.' '.'خوب'}}</li>
                                             <li>
                                                 <div class="rate">
                                                     <i class="fas fa-star str-Gray"></i>
@@ -742,9 +747,9 @@
                                 <div class="mt-3 text-2">
                                     <p>
                                         از
-                                        <span id="goodmin" class="text-success">22</span>
+                                        <span id="goodmin" class="text-success">{{$price->goodmin}}</span>
                                         تومان تا
-                                        <span id="goodmax" class="text-success">32</span>
+                                        <span id="goodmax" class="text-success">{{$price->goodmax}}</span>
                                         تومان
                                     </p>
                                 </div>
@@ -756,7 +761,7 @@
                                     </div>
                                     <div>
                                         <ul class="list-unstyled p-0">
-                                            <li class="text-right blue">ترجمه عالی!</li>
+                                            <li id="excellent" class="text-right blue">{{$categories[0]->name.' '.'عالی!'}} </li>
                                             <li>
                                                 <div class="rate">
                                                     <i class="fas fa-star str-yellow"></i>
@@ -775,9 +780,9 @@
                                 <div class="mt-3 text-2">
                                     <p>
                                         از
-                                        <span id="excellentmin" class="text-success">38</span>
+                                        <span id="excellentmin" class="text-success">{{$price->excellentmin}}</span>
                                         تومان تا
-                                        <span id="excellentmax" class="text-success">55</span>
+                                        <span id="excellentmax" class="text-success">{{$price->excellentmax}}</span>
                                         تومان
                                     </p>
                                 </div>
@@ -1336,29 +1341,77 @@
     })
 
 </script>
+
 <script>
-    $('#reg').click(function(){
+    $("#reg").click(function () {
+
         var category=$("#category").val();
         var lang=$("#lang").val();
         var type=$("#type").val();
-
+        var count=$("#count").val();
+//console.log(type,lang,category);
 
         $.ajax({
-            url:"/home/ChangeNumber",
+            url:"/estimation/price",
             type:"GET",
-            data: {category_id: category, language_id: lang, type_id:type},
+            data:{'category_id':category,'language_id':lang, 'type_id':type ,'count':count},
             success:function (result) {
-//if (result['normalmin']!=null){}
-                $(".p-price"+id).html(result['tprice']);
-                $(".numproduct").html(result['numorder']);
-                $(".totalBasket").html(result['TotalBasket']);
+                console.log(result);
+                $('#normal').html(result['result']);
+                $('#good').html(result[0]);
+                $('#excellent').html(result[1]);
+
+                $('#normalmin').html(result[2]);
+                $('#normalmax').html(result[3]);
+
+                $('#goodmin').html(result[4]);
+                $('#goodmax').html(result[5]);
+
+                $('#excellentmin').html(result[6]);
+                $('#excellentmax').html(result[7]);
+
             }
         });
 
-
-        return false;
     });
 
-</script>
 
+</script>
+<script>
+        $("select#category").change(function () {
+
+            var cat_id = $(this).children("option:selected").val();
+
+
+
+                $.ajax({
+                    url:"/estimation/category",
+                    type:"GET",
+                    data:{'category_id':cat_id },
+                    success:function (result_search) {
+                        // console.log(result_search);
+                        $('#lang').html(result_search['result_search']);
+                    }
+                });
+
+        });
+</script>
+<script>
+    $("select#type").change(function () {
+
+        var type_id = $(this).children("option:selected").val();
+
+        if(type_id==1){
+
+            $('#count').attr('placeholder',"چند کلمه؟1") ;
+
+        }else {
+
+            $('#count').attr('placeholder',"چند دقیقه؟1") ;
+
+
+        }
+
+    });
+</script>
 @stop
