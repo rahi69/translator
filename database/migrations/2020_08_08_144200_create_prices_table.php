@@ -18,12 +18,10 @@ class CreatePricesTable extends Migration
             $table->bigInteger('category_id')->index();
             $table->bigInteger('type_id')->index();
             $table->bigInteger('language_id')->index();
-            $table->bigInteger('normalmin')->nullable();
-            $table->bigInteger('normalmax')->nullable();
-            $table->bigInteger('goodmin')->nullable();
-            $table->bigInteger('goodmax')->nullable();
-            $table->bigInteger('excellentmin')->nullable();
-            $table->bigInteger('excellentmax')->nullable();
+            $table->bigInteger('level_id')->index();
+            $table->integer('value_min');
+            $table->integer('value_max');
+
             $table->timestamps();
         });
     }

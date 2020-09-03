@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Discount;
 use App\Language;
 use App\Price;
 use App\Type;
@@ -15,10 +16,10 @@ class MainController extends Controller
 
          $categories=Category::all();
          $languages=Language::where('id','<',3)->get();
-         $price=Price::find('1');
+         $prices=Price::where('category_id',1)->where('type_id',1)->where('language_id',1)->get();
          $types=Type::all();
 
-        return view('home.index',compact('categories','languages','types','price'));
+        return view('home.index',compact('categories','languages','types','prices'));
     }
 
     public function language_search(Request $request){
@@ -45,46 +46,32 @@ class MainController extends Controller
 
         if ($request->ajax()) {
 
-            $unit = Price::where('category_id',$request->category_id)
+            $units = Price::where('category_id',$request->category_id)
                 ->where('type_id',$request->type_id)
-                ->where('language_id',$request->language_id)->first();
-
-             $price['normal']=$unit->category->name.' '.'معمولی';
-             $price['good']=$unit->category->name.' '.'خوب';
-             $price['excellent']=$unit->category->name.' '.'عالی';
-
-            if ($unit->normalmin != null) {
-
-                $price['normalmin'] = $request->count * $unit->normalmin;
-                $price['normalmax'] = $request->count * $unit->normalmax;
-
+                ->where('language_id',$request->language_id)->get();
+            $discounts=Discount::where('type_id',$request->type_id)->get();
+            $dis=0;
+            foreach ($discounts as $discount){
+              if ($discount->count <= $request->count){
+                  $dis=1- $discount->percent/100;
+              }
             }
-             else{
-                $price['normalmin'] = '--';
-                $price['normalmax'] = '--';
-             }
-            if ($unit->goodmin != null) {
 
-                $price['goodmin'] = $request->count * $unit->goodmin;
-                $price['goodmax'] = $request->count * $unit->goodmax;
+            $price['normal']=null;
+            $price['good']=null;
+            $price['excellent']=null;
+           foreach ($units as $unit){
+              $price[$unit->level->en_name]=$unit->category->name.' '.$unit->level->name;
+              $price[$unit->level->en_name.'min']=$unit->value_min * $request->count ;
+              $price[$unit->level->en_name.'max']=$unit->value_max * $request->count ;
+              $price[$unit->level->en_name.'_dis_min']=round($unit->value_min * $request->count * $dis) ;
+              $price[$unit->level->en_name.'_dis_max']=round($unit->value_max * $request->count * $dis) ;
+           }
 
-            }
-             else{
-                 $price['goodmin'] = '--';
-                 $price['goodmax'] = '--';
-             }
-            if ($unit->excellentmin != null) {
 
-                $price['excellentmin'] = $request->count * $unit->excellentmin;
-                $price['excellentmax'] = $request->count * $unit->excellentmax;
 
-            }
-             else{
-                 $price['excellentmin'] = '--';
-                 $price['excellentmax'] = '--';
-             }
-            return ['result' =>$price['normal'],$price['good'],$price['excellent'],$price['normalmin'],$price['normalmax']
-            ,$price['goodmin'],$price['goodmax'],$price['excellentmin'],$price['excellentmax']];
+
+            return [$price,$dis];
 
         }
 

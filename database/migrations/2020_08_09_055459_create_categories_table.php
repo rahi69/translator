@@ -17,7 +17,9 @@ class CreateCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('parent_id');
             $table->string('name');
+            $table->string('en_name')->nullable();
             $table->text('text')->nullable();
+            $table->text('en_text')->nullable();
             $table->timestamps();
         });
     }

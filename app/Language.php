@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Language extends Model
 {
     protected $fillable = [
-        'title'
+        'title','en_title'
     ];
     public function prices(){
         return $this->hasMany(Price::class);

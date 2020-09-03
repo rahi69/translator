@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Price extends Model
 {
     protected $fillable = [
-        'category_id','type_id','language_id','normalmin',
-        'normalmax','goodmin','goodmax','excellentmin',
-        'excellentmax'
+        'category_id','type_id','language_id','level_id',
+        'value'
+
     ];
     public function category()
     {
@@ -22,5 +22,9 @@ class Price extends Model
     public function language()
     {
         return $this->belongsTo(Language::class);
+    }
+    public function level()
+    {
+        return $this->belongsTo(Level::class);
     }
 }

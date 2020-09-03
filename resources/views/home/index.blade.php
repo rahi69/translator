@@ -689,13 +689,14 @@
 
                         <!--start footer box-->
                         <div class="my-4">
-                            <div class="d-flex justify-content-around footer-box">
+                            @foreach($prices as $price)
+                            <div class=" {{$price->level->en_name}} d-flex justify-content-around footer-box "  >
                                 <div class="mt-3 d-flex justify-content-start" style="margin-right: -13px;">
-                                    <div class="far fa-smile text-right blue pt-2 pl-2 pr-2" style="font-size: 26px;">
+                                    <div class="far {{$price->level->image}} text-right blue pt-2 pl-2 pr-2" style="font-size: 26px; ">
                                     </div>
                                     <div>
-                                        <ul class="list-unstyled p-0">
-                                            <li id="normal" class="text-right blue">{{$categories[0]->name.' '.'معمولی'}}</li>
+                                        <ul class="list-unstyled p-0" >
+                                            <li id="{{$price->level->en_name}}" class="text-right blue">{{$categories[0]->name.' '.$price->level->name}}</li>
                                             <li>
                                                 <div class="rate">
                                                     <i class="fas fa-star str-Gray"></i>
@@ -708,85 +709,34 @@
                                         </ul>
                                     </div>
                                 </div>
+
                                 <div class="mt-3 icon-box" >
                                     <i  class="text-success fa fa-long-arrow-left align-items-center"></i>
                                 </div>
                                 <div class="mt-3 text-2">
                                     <p>
+                                         <span id="{{$price->level->en_name.'_main'}}" >
                                         از
-                                        <span id="normalmin" class="text-success">{{$price->normalmin}}</span>
+                                        <span id="{{$price->level->en_name.'min'}}" class="text-success">{{$price->value_min}}</span>
                                         تومان تا
-                                        <span id="normalmax"class="text-success">{{$price->normalmax}}</span>
+                                        <span id="{{$price->level->en_name.'max'}}"class="text-success">{{$price->value_max}}</span>
                                         تومان
+                                         </span>
+                                        <br>
+                                        <span id="{{$price->level->en_name.'_dis'}}" style="display: none">
+                                        از
+                                        <span id="{{$price->level->en_name.'_dis_min'}}" class="text-success"></span>
+                                        تومان تا
+                                        <span id="{{$price->level->en_name.'_dis_max'}}"class="text-success"></span>
+                                        تومان
+                                        </span>
                                     </p>
+
                                 </div>
                             </div>
-                            <hr class="line-b">
-                            <div class="d-flex justify-content-around footer-box">
-                                <div class="mt-3 d-flex justify-content-start" style="margin-right: -13px;">
-                                    <div class="far fa-smile-beam text-right blue pt-2 pl-2 pr-2" style="font-size: 26px;">
-                                    </div>
-                                    <div>
-                                        <ul class="list-unstyled p-0">
-                                            <li id="good" class="text-right blue">{{$categories[0]->name.' '.'خوب'}}</li>
-                                            <li>
-                                                <div class="rate">
-                                                    <i class="fas fa-star str-Gray"></i>
-                                                    <i class="fas fa-star str-yellow"></i>
-                                                    <i class="fas fa-star str-yellow"></i>
-                                                    <i class="fas fa-star str-yellow"></i>
-                                                    <i class="fas fa-star str-yellow"></i>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="mt-3 icon-box" >
-                                    <i class="text-success fa fa-long-arrow-left align-items-center"></i>
-                                </div>
-                                <div class="mt-3 text-2">
-                                    <p>
-                                        از
-                                        <span id="goodmin" class="text-success">{{$price->goodmin}}</span>
-                                        تومان تا
-                                        <span id="goodmax" class="text-success">{{$price->goodmax}}</span>
-                                        تومان
-                                    </p>
-                                </div>
-                            </div>
-                            <hr class="line-b">
-                            <div class="d-flex justify-content-around footer-box">
-                                <div class="mt-3 d-flex justify-content-start" style="margin-right: -13px;">
-                                    <div class="far fa-grin-squint text-right blue pt-2 pl-2 pr-2" style="font-size: 26px;">
-                                    </div>
-                                    <div>
-                                        <ul class="list-unstyled p-0">
-                                            <li id="excellent" class="text-right blue">{{$categories[0]->name.' '.'عالی!'}} </li>
-                                            <li>
-                                                <div class="rate">
-                                                    <i class="fas fa-star str-yellow"></i>
-                                                    <i class="fas fa-star str-yellow"></i>
-                                                    <i class="fas fa-star str-yellow"></i>
-                                                    <i class="fas fa-star str-yellow"></i>
-                                                    <i class="fas fa-star str-yellow"></i>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="mt-3 icon-box" >
-                                    <i class="text-success fa fa-long-arrow-left align-items-center"></i>
-                                </div>
-                                <div class="mt-3 text-2">
-                                    <p>
-                                        از
-                                        <span id="excellentmin" class="text-success">{{$price->excellentmin}}</span>
-                                        تومان تا
-                                        <span id="excellentmax" class="text-success">{{$price->excellentmax}}</span>
-                                        تومان
-                                    </p>
-                                </div>
-                            </div>
+                                <hr class="line-b">
+                            @endforeach
+
                         </div>
                         <!--end footer box-->
                     </div>
@@ -1357,18 +1307,65 @@
             data:{'category_id':category,'language_id':lang, 'type_id':type ,'count':count},
             success:function (result) {
                 console.log(result);
-                $('#normal').html(result['result']);
-                $('#good').html(result[0]);
-                $('#excellent').html(result[1]);
 
-                $('#normalmin').html(result[2]);
-                $('#normalmax').html(result[3]);
+                if(result[0]['normal']!=null){
+                    $('#normal').html(result[0]['normal']);
+                    $('#normalmin').html(result[0]['normalmin']);
+                    $('#normalmax').html(result[0]['normalmax']);
 
-                $('#goodmin').html(result[4]);
-                $('#goodmax').html(result[5]);
+                    if (result[0]['normal_dis_min']!=0){
+                        $('#normal_dis_min').html(result[0]['normal_dis_min']);
+                        $('#normal_dis_max').html(result[0]['normal_dis_max']);
+                        $('#normal_dis').css('display','block');
+                        $('#normal_main').css('text-decoration','line-through');
 
-                $('#excellentmin').html(result[6]);
-                $('#excellentmax').html(result[7]);
+                    }
+
+
+
+                    $('.normal').each(function () {
+                        this.style.setProperty( 'display', 'block' );
+                    });
+                   // console.log(result[0]['good']);
+                }else {
+                    $('.normal').each(function () {
+                        this.style.setProperty( 'display','none', 'important' );
+                    });
+
+                }
+                if(result[0]['good']!=null){
+                    $('#good').html(result[0]['good']);
+                    $('#goodmin').html(result[0]['goodmin']);
+                    $('#goodmax').html(result[0]['goodmax']);
+                    if (result[0]['good_dis_min']!=0) {
+                        $('#good_dis_min').html(result[0]['good_dis_min']);
+                        $('#good_dis_max').html(result[0]['good_dis_max']);
+                        $('#good_dis').css('display','block');
+                        $('#good_main').css('text-decoration','line-through');
+
+
+                    }
+                    $('.good').each(function () {
+                        this.style.setProperty( 'display', 'block' );
+                    });
+                    // console.log(result[0]['good']);
+                }else {
+                    $('.good').each(function () {
+                        this.style.setProperty( 'display','none', 'important' );
+                    });
+
+                }
+
+
+                $('#excellent').html(result[0]['excellent']);
+                $('#excellentmin').html(result[0]['excellentmin']);
+                $('#excellentmax').html(result[0]['excellentmax']);
+                if (result[0]['excellent_dis_min']!=0) {
+                    $('#excellent_dis_min').html(result[0]['excellent_dis_min']);
+                    $('#excellent_dis_max').html(result[0]['excellent_dis_max']);
+                    $('#excellent_dis').css('display','block');
+                    $('#excellent_main').css('text-decoration','line-through');
+                }
 
             }
         });
