@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c89089d2-c5d1-4747-8a01-5397220a6975" name="Default" comment="edit price">
-      <change afterPath="$PROJECT_DIR$/app/Level.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_26_113548_create_levels_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/translator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/translator.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Language.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Language.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Price.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Price.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Type.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Type.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_08_144200_create_prices_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_08_144200_create_prices_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_08_163148_create_languages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_08_163148_create_languages_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_09_055459_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_09_055459_create_categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_09_063739_create_types_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_09_063739_create_types_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,12 +15,6 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>سایت چگونه</find>
-      <find>دس</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -132,7 +116,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../file" />
+    <property name="last_opened_file_path" value="D:/translator" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
@@ -233,7 +217,15 @@
       <workItem from="1598940774013" duration="7562000" />
       <workItem from="1599027667328" duration="17000" />
       <workItem from="1599027700460" duration="11205000" />
-      <workItem from="1599152229229" duration="13585000" />
+      <workItem from="1599152229229" duration="13897000" />
+      <workItem from="1599285514033" duration="2470000" />
+      <workItem from="1599380879574" duration="2495000" />
+      <workItem from="1601969889557" duration="2202000" />
+      <workItem from="1602488471098" duration="673000" />
+      <workItem from="1603265120920" duration="742000" />
+      <workItem from="1603870137093" duration="284000" />
+      <workItem from="1605944255536" duration="1139000" />
+      <workItem from="1605945536012" duration="5038000" />
     </task>
     <task id="LOCAL-00001" summary="database1">
       <created>1596975492886</created>
@@ -263,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597415265794</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="edit price">
+      <created>1599144800414</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1599144800414</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,17 +277,29 @@
     <option name="LAST_COMMIT_MESSAGE" value="edit price" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1599144656982">
+    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1599144797737">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1599144656982" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1599030228528">
+    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1599144797737" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1605957628904">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1599030228528" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605957628904" />
+    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1599401074820">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1599401074820" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1599144738846">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1599144738846" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1599144808062">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1599144808062" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603265235591">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603265235591" />
   </component>
 </project>
