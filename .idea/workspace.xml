@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c89089d2-c5d1-4747-8a01-5397220a6975" name="Default" comment="edit price">
+    <list default="true" id="c89089d2-c5d1-4747-8a01-5397220a6975" name="Default" comment="new index">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +223,7 @@
       <workItem from="1603265120920" duration="742000" />
       <workItem from="1603870137093" duration="284000" />
       <workItem from="1605944255536" duration="1139000" />
-      <workItem from="1605945536012" duration="5038000" />
+      <workItem from="1605945536012" duration="13741000" />
     </task>
     <task id="LOCAL-00001" summary="database1">
       <created>1596975492886</created>
@@ -262,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599144800414</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="new index">
+      <created>1605959227914</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1605959227914</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,13 +279,14 @@
     <MESSAGE value="index2" />
     <MESSAGE value="price" />
     <MESSAGE value="edit price" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit price" />
+    <MESSAGE value="new index" />
+    <option name="LAST_COMMIT_MESSAGE" value="new index" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1599144797737">
+    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1605959226091">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1599144797737" />
+    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1605959226091" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1605957628904">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -293,10 +299,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1599144738846" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1599144808062">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605959239715">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1599144808062" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605959239715" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603265235591">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
