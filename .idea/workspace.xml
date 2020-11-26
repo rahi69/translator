@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c89089d2-c5d1-4747-8a01-5397220a6975" name="Default" comment="new index2">
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Localization.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/ar/sentence.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/sentence.php" afterDir="false" />
+    <list default="true" id="c89089d2-c5d1-4747-8a01-5397220a6975" name="Default" comment="new index3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +228,7 @@
       <workItem from="1606045379106" duration="6516000" />
       <workItem from="1606115834723" duration="12737000" />
       <workItem from="1606287866377" duration="1193000" />
-      <workItem from="1606377819892" duration="4152000" />
+      <workItem from="1606377819892" duration="7006000" />
     </task>
     <task id="LOCAL-00001" summary="database1">
       <created>1596975492886</created>
@@ -285,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605972516656</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="new index3">
+      <created>1606385011214</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1606385011214</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,17 +300,18 @@
     <MESSAGE value="edit price" />
     <MESSAGE value="new index" />
     <MESSAGE value="new index2" />
-    <option name="LAST_COMMIT_MESSAGE" value="new index2" />
+    <MESSAGE value="new index3" />
+    <option name="LAST_COMMIT_MESSAGE" value="new index3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606049504164">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1606049504164" />
-    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1606046635522">
+    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1606391833712">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1606046635522" />
+    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1606391833712" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1605957628904">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -322,10 +324,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1599144738846" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605972521845">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1606385017529">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605972521845" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1606385017529" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603265235591">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

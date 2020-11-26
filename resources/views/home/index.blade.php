@@ -2109,7 +2109,7 @@
                         </div>
                     </div>
                     <div class="box-comment2 mySlides ">
-                        <img class="ax" src="img/2.svg">
+                        <img class="ax" src="/home/img/2.svg">
                         <div class="emji-comment d-flex flex-wrap justify-content-end  comment">
                             <img class="em-com" src="/home/img/6.svg">
                         </div>
@@ -2432,7 +2432,7 @@
             document.getElementById("mySidenav").style.width = "0";
         });
 
-        EmojiArea.DEFAULTS.assetPath = './assets/images';
+        EmojiArea.DEFAULTS.assetPath = './home/assets/images';
 
         function englishstyle() {
             $('#email2').addClass('emailfooter');
