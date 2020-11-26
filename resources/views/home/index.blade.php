@@ -1530,30 +1530,33 @@
                                 </h5>
                                 <!--start form header box-->
                                 <div class="d-flex justify-content-center mt-2">
-                                    <select class="form-control custom-form px-0 px-sm-2">
-                                        <option>ترجمه</option>
-                                        <option>تولید محتوا</option>
-                                        <option>تایپ متن</option>
+                                    <select id="category" class="form-control custom-form px-0 px-sm-2">
+                                        @foreach($categories as $category)
+                                            @if($category->id!=2 && $category->parent_id == 0 )
+                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                            @endif
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="d-flex justify-content-around mt-2">
-                                    <select class="form-control custom-form2 px-0 px-sm-2">
-                                        <option>انگلیسی به عربی</option>
-                                        <option>عربی به انگلیسی</option>
+                                    <select id="lang" class="form-control custom-form2 px-0 px-sm-2">
+                                        @foreach($languages as $language)
+                                            <option value="{{$language->id}}">{{$language->title}}</option>
+                                        @endforeach
                                     </select>
-                                    <select class="form-control custom-form2 px-0 px-sm-2">
-                                        <option>متون</option>
-                                        <option>تولید محتوا</option>
-                                        <option>تایپ متن</option>
+                                    <select id="type" class="form-control custom-form2 px-0 px-sm-2">
+                                        @foreach($types as $type)
+                                            <option value="{{$type->id}}">{{$type->title}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="d-flex justify-content-around mt-2 ">
                                     <div class=" form-control custom-form2 px-1 px-sm-2 d-flex">
-                                        <span class=" text-muted my-auto text-nowrap span1">چند کلمه؟</span>
-                                        <input class="px-0 a span3" value="1" type="text">
-                                        <span class="text-muted my-auto mx-auto span2" style=""> کلمه</span>
+                                        <span id="count" class=" text-muted my-auto text-nowrap span1">چند کلمه؟</span>
+                                        <input class="count px-0 a span3" value="1" type="text">
+                                        <span id="word" class="text-muted my-auto mx-auto span2" style=""> کلمه</span>
                                     </div>
-                                    <button class=" btn  btn-custom-form custom-form2 px-0">
+                                    <button id="reg" class=" btn  btn-custom-form custom-form2 px-0">
                                         <label class="custom-checkbox my-auto mx-1">محاسبه قیمت</label>
                                         <i class="far fa-check-square my-auto mx-1"></i>
                                     </button>
@@ -1562,13 +1565,14 @@
 
                                 <!--start footer box-->
                                 <div class="my-4">
-                                    <div class="d-flex justify-content-around footer-box">
+                                    @foreach($prices as $price)
+                                    <div class="{{$price->level->en_name}} d-flex justify-content-around footer-box">
                                         <div class="mt-3 d-flex justify-content-start div1">
-                                            <div class="far fa-smile font20 text-right blue pt-2 pl-2 pr-2 div2">
+                                            <div class="far {{$price->level->image}} font20 text-right blue pt-2 pl-2 pr-2 div2">
                                             </div>
                                             <div>
                                                 <ul class="list-unstyled p-0">
-                                                    <li class="blue text-nowrap">ترجمه معمولی</li>
+                                                    <li id="{{$price->level->en_name}}" class="blue text-nowrap">{{$categories[0]->name.' '.$price->level->name}}</li>
                                                     <li>
                                                         <div class="rate">
                                                             <i class="fas fa-star str-Gray"></i>
@@ -1587,84 +1591,27 @@
                                         </div>
                                         <div class="mt-3 text-2 ">
                                             <p>
+                                                <span id="{{$price->level->en_name.'_main'}}" >
                                                 از
-                                                <span class="text-success">14</span>
+                                                <span id="{{$price->level->en_name.'min'}}" class="text-success">{{$price->value_min}}</span>
                                                 تومان تا
-                                                <span class="text-success">19</span>
+                                                <span id="{{$price->level->en_name.'max'}}" class="text-success">{{$price->value_max}}</span>
                                                 تومان
+                                                 </span>
+                                                <br>
+                                                <span id="{{$price->level->en_name.'_dis'}}" style="display: none">
+                                                    از
+                                        <span id="{{$price->level->en_name.'_dis_min'}}" class="text-success"></span>
+                                        تومان تا
+                                        <span id="{{$price->level->en_name.'_dis_max'}}"class="text-success"></span>
+                                        تومان
+                                        </span>
                                             </p>
                                         </div>
                                     </div>
                                     <hr class="line-b">
-                                    <div class="d-flex justify-content-around footer-box">
-                                        <div class="mt-3 d-flex justify-content-start div1">
-                                            <div class="far fa-smile-beam font20 text-right blue pt-2 pl-2 pr-2 div2"
-                                            >
-                                            </div>
-                                            <div>
-                                                <ul class="list-unstyled p-0">
-                                                    <li class="blue">ترجمه خوب</li>
-                                                    <li>
-                                                        <div class="rate">
-                                                            <i class="fas fa-star str-Gray"></i>
-                                                            <i class="fas fa-star str-yellow"></i>
-                                                            <i class="fas fa-star str-yellow"></i>
-                                                            <i class="fas fa-star str-yellow"></i>
-                                                            <i class="fas fa-star str-yellow"></i>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="mt-3 icon-box">
-                                            <i class="text-success fa fa-long-arrow-alt-left mt-3 align-items-center ar"></i>
-                                            <i class="text-success fa fa-long-arrow-alt-right mt-3 align-items-center en"></i>
-                                        </div>
-                                        <div class="mt-3 text-2">
-                                            <p>
-                                                از
-                                                <span class="text-success">22</span>
-                                                تومان تا
-                                                <span class="text-success">32</span>
-                                                تومان
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <hr class="line-b">
-                                    <div class="d-flex justify-content-around footer-box">
-                                        <div class="mt-3 d-flex justify-content-start div1">
-                                            <div class="far fa-grin-squint  font20 text-right blue pt-2 pl-2 pr-2 div2"
-                                            >
-                                            </div>
-                                            <div>
-                                                <ul class="list-unstyled p-0">
-                                                    <li class="blue">ترجمه عالی!</li>
-                                                    <li>
-                                                        <div class="rate">
-                                                            <i class="fas fa-star str-yellow"></i>
-                                                            <i class="fas fa-star str-yellow"></i>
-                                                            <i class="fas fa-star str-yellow"></i>
-                                                            <i class="fas fa-star str-yellow"></i>
-                                                            <i class="fas fa-star str-yellow"></i>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="mt-3 icon-box">
-                                            <i class="text-success fa fa-long-arrow-alt-left mt-3 align-items-center ar"></i>
-                                            <i class="text-success fa fa-long-arrow-alt-right mt-3 align-items-center en"></i>
-                                        </div>
-                                        <div class="mt-3 text-2">
-                                            <p>
-                                                از
-                                                <span class="text-success">38</span>
-                                                تومان تا
-                                                <span class="text-success">55</span>
-                                                تومان
-                                            </p>
-                                        </div>
-                                    </div>
+                                    @endforeach
+
                                 </div>
                                 <!--end footer box-->
                             </div>
@@ -2507,6 +2454,140 @@
         })
 
 
+    </script>
+
+    <script>
+        $("#reg").click(function () {
+
+            var category=$("#category").val();
+            var lang=$("#lang").val();
+            var type=$("#type").val();
+            var count=$(".count").val();
+//console.log(type,lang,category);
+
+            $.ajax({
+                url:"/estimation/price",
+                type:"GET",
+                data:{'category_id':category,'language_id':lang, 'type_id':type ,'count':count},
+                success:function (result) {
+                    console.log(result);
+
+                    if(result[0]['normal']!=null){
+                        $('#normal').html(result[0]['normal']);
+                        $('#normalmin').html(result[0]['normalmin']);
+                        $('#normalmax').html(result[0]['normalmax']);
+
+                        if (result[0]['normal_dis_min']!=0){
+                            $('#normal_dis_min').html(result[0]['normal_dis_min']);
+                            $('#normal_dis_max').html(result[0]['normal_dis_max']);
+                            $('#normal_dis').css('display','block');
+                            $('#normal_main').css('text-decoration','line-through');
+
+                        }
+                        else{
+                            $('#normal_dis').css('display','none');
+                            $('#normal_main').css('text-decoration','none');
+                        }
+
+
+
+                        $('.normal').each(function () {
+                            this.style.setProperty( 'display', 'block' );
+                        });
+                        // console.log(result[0]['good']);
+                    }else {
+                        $('.normal').each(function () {
+                            this.style.setProperty( 'display','none', 'important' );
+                        });
+
+                    }
+                    if(result[0]['good']!=null){
+                        $('#good').html(result[0]['good']);
+                        $('#goodmin').html(result[0]['goodmin']);
+                        $('#goodmax').html(result[0]['goodmax']);
+                        if (result[0]['good_dis_min']!=0) {
+                            $('#good_dis_min').html(result[0]['good_dis_min']);
+                            $('#good_dis_max').html(result[0]['good_dis_max']);
+                            $('#good_dis').css('display','block');
+                            $('#good_main').css('text-decoration','line-through');
+
+
+                        }
+                        else{
+                            $('#good_dis').css('display','none');
+                            $('#good_main').css('text-decoration','none');
+                        }
+                        $('.good').each(function () {
+                            this.style.setProperty( 'display', 'block' );
+                        });
+                        // console.log(result[0]['good']);
+                    }else {
+                        $('.good').each(function () {
+                            this.style.setProperty( 'display','none', 'important' );
+                        });
+
+                    }
+
+
+                    $('#excellent').html(result[0]['excellent']);
+                    $('#excellentmin').html(result[0]['excellentmin']);
+                    $('#excellentmax').html(result[0]['excellentmax']);
+                    if (result[0]['excellent_dis_min']!=0) {
+                        $('#excellent_dis_min').html(result[0]['excellent_dis_min']);
+                        $('#excellent_dis_max').html(result[0]['excellent_dis_max']);
+                        $('#excellent_dis').css('display','block');
+                        $('#excellent_main').css('text-decoration','line-through');
+                    }
+                    else{
+                        $('#excellent_dis').css('display','none');
+                        $('#excellent_main').css('text-decoration','none');
+                    }
+
+                }
+            });
+
+        });
+
+
+    </script>
+    <script>
+        $("select#category").change(function () {
+
+            var cat_id = $(this).children("option:selected").val();
+
+
+
+            $.ajax({
+                url:"/estimation/category",
+                type:"GET",
+                data:{'category_id':cat_id },
+                success:function (result_search) {
+                    // console.log(result_search);
+                    $('#lang').html(result_search['result_search']);
+                }
+            });
+
+        });
+    </script>
+    <script>
+        $("select#type").change(function () {
+
+            var type_id = $(this).children("option:selected").val();
+
+            if(type_id==1){
+
+                $('#count').html("چند کلمه") ;
+                $('#word').html("کلمه") ;
+
+            }else {
+
+                $('#count').html("چند دقیقه؟") ;
+                $('#word').html(" دقیقه") ;
+
+
+            }
+
+        });
     </script>
 
 

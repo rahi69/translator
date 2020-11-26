@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="/home/css/bootstrap-rtl.css">
     <link rel="stylesheet" href="/home/css/fontawesome.min.css">
     <link rel="stylesheet" href="/home/stylesheet.css">
-   <link rel="stylesheet" href="/home/style-en.css">
-{{--      <link rel="stylesheet" href="/home/style-ar.css">--}}
+{{--    <link rel="stylesheet" href="/home/style-en.css">--}}
+      <link rel="stylesheet" href="/home/style-ar.css">
     <script src='./home/assets/fonts/font-awesome-v5.js'></script>
     <script src="/home/js/jquery.min.js"></script>
     <script src="/home/js/bootstrap.min-4.3.1.js"></script>
