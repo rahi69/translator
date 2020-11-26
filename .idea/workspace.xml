@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c89089d2-c5d1-4747-8a01-5397220a6975" name="Default" comment="new index">
+    <list default="true" id="c89089d2-c5d1-4747-8a01-5397220a6975" name="Default" comment="new index2">
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Localization.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ar/sentence.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/en/sentence.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +121,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/translator" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
@@ -223,7 +230,11 @@
       <workItem from="1603265120920" duration="742000" />
       <workItem from="1603870137093" duration="284000" />
       <workItem from="1605944255536" duration="1139000" />
-      <workItem from="1605945536012" duration="13741000" />
+      <workItem from="1605945536012" duration="13806000" />
+      <workItem from="1606045379106" duration="6516000" />
+      <workItem from="1606115834723" duration="12737000" />
+      <workItem from="1606287866377" duration="1193000" />
+      <workItem from="1606377819892" duration="4152000" />
     </task>
     <task id="LOCAL-00001" summary="database1">
       <created>1596975492886</created>
@@ -267,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605959227914</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="new index2">
+      <created>1605972516655</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1605972516656</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,29 +298,34 @@
     <MESSAGE value="price" />
     <MESSAGE value="edit price" />
     <MESSAGE value="new index" />
-    <option name="LAST_COMMIT_MESSAGE" value="new index" />
+    <MESSAGE value="new index2" />
+    <option name="LAST_COMMIT_MESSAGE" value="new index2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1605959226091">
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606049504164">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1605959226091" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1606049504164" />
+    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1606046635522">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1606046635522" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1605957628904">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605957628904" />
-    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1599401074820">
+    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1606378814459">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1599401074820" />
+    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1606378814459" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1599144738846">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1599144738846" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605959239715">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605972521845">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605959239715" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605972521845" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603265235591">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

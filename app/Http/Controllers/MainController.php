@@ -8,6 +8,7 @@ use App\Language;
 use App\Price;
 use App\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class MainController extends Controller
 {
@@ -75,6 +76,14 @@ class MainController extends Controller
 
         }
 
+    }
+
+    public function lang($locale)
+    {
+        App::setLocale($locale);
+        session()->put('locale', $locale);
+       // dd($locale);
+        return redirect()->back();
     }
 
 }

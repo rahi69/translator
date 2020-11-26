@@ -1,56 +1,48 @@
-
 @extends('layouts.home')
 @section('content')
-
-
-    <div id="content" style="height: 100px;background-color: #1b2a56">
-        <i class="fa fa-arrow-alt-circle-up rounded-circle h-auto mx-3 mx-xl-5" style="color: #33cc33"
+    <div id="content-index">
+        <i class="fa fa-arrow-alt-circle-up rounded-circle h-auto mx-3 mx-xl-5"
            id="back-to-top"></i>
     </div>
 
-    <button type="button" class="btn chat px-1 mx-3 mx-xl-5 a" onclick="open_chat()" style=" box-shadow: 0 0 10px 1px #f1c40f;
-    border-radius: 50% 0 50% 50%; background-color: #f1c40f;   width: 50px;height: 50px">
-        <img src="/home/img/headphone.svg" class="mx-auto" style="width: 30px;height: 30px">
+    <button type="button" class=" chat px-1 mx-3 mx-xl-5 a" onclick="open_chat()">
+        <img src="/home/img/headphone.svg" class="mx-auto">
         <!-- <span class="mx-1 font-13 d-none d-md-inline-block">با ما گفت و گو کنید</span>-->
     </button>
 
-    <div class="mx-3" id="modal-chat" style="margin-top: 330px;">
-        <div class="d-flex justify-content-start align-items-center" style="width: 80px;height: 80px">
-            <button class="rounded-circle border-0 bg-secondary a" type="button" style="height: 50px;width: 50px"
+    <div class="mx-3 a" id="modal-chat">
+        <div class="d-flex justify-content-start align-items-center" id="modal-chat-div1">
+            <button class="rounded-circle border-0 bg-secondary a" type="button"
                     onclick="close_chat()">
-                <span class="font-weight-bolder" style="font-size: 40px;color: white!important;">&times;</span>
+                <span class="font-weight-bolder font35 text-white">&times;</span>
             </button>
         </div>
-        <div class="d-flex justify-content-start align-items-center" style="width: 230px;height: 80px">
-            <div class="d-flex justify-content-start">
-                <div class="rounded-circle border-0 c-pointer" style="height: 50px;width: 50px">
+        <div class="d-flex justify-content-start align-items-center modal-chat-div">
+            <div class="d-flex justify-content-start" onclick="open_online_chat()">
+                <div class="rounded-circle border-0 c-pointer modal-chat-img">
                     <div class="d-flex">
-                        <img src="/home/img/dialog.svg" style="height: 50px;width: 50px">
+                        <img src="/home/img/dialog.svg">
                     </div>
                 </div>
-                <div class="border-0 mx-3 c-pointer"
-                     style="height: 30px;width: 120px;margin-top: 10px">
+                <div class="border-0 mx-3 c-pointer modal-chat-text">
                     <div class="m-auto">
-                        <div class="bg-secondary text-white text-nowrap py-1 text-center"
-                             style="border-radius: 5px!important;">
+                        <div class="bg-secondary text-white text-nowrap py-1 text-center">
                             گفت و گوی آنلاین
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-start align-items-center" style="width: 230px;height: 80px">
+        <div class="d-flex justify-content-start align-items-center modal-chat-div">
             <div class="d-flex justify-content-start">
-                <div class="rounded-circle border-0 c-pointer" style="height: 50px;width: 50px">
+                <div class="rounded-circle border-0 c-pointer modal-chat-img">
                     <div class="d-flex">
-                        <img src="/home/img/whatsapp.svg" style="height: 50px;width: 50px">
+                        <img src="/home/img/whatsapp.svg">
                     </div>
                 </div>
-                <div class="border-0 mx-3 c-pointer"
-                     style="height: 30px;width: 120px;margin-top: 10px">
+                <div class="border-0 mx-3 c-pointer modal-chat-text">
                     <div class="m-auto">
-                        <div class="bg-secondary text-white text-nowrap py-1 text-center"
-                             style="border-radius: 5px!important;">
+                        <div class="bg-secondary text-white text-nowrap py-1 text-center">
                             واتس اپ
                         </div>
                     </div>
@@ -59,14 +51,43 @@
         </div>
     </div>
 
+    <div class="h-100 mx-3 " id="online-chat">
+        <div id="big-div-online-chat">
+            <div class="py-3 px-4" id="header-online-chat">
+                <div style="width: 90%">
+                    <p class="text-nowrap font-13">سوالی دارید؟ با ما صحبت کنید!</p>
+                    <p class="font11">پشتیبان آنلاین است.</p>
+                    <div class="d-flex">
+                        <img class="rounded-circle bg-white mx-1" src="/home/img-profile/customer-service.svg">
+                        <img class="rounded-circle bg-white mx-1" src="/home/img-profile/user.svg">
+                    </div>
+                </div>
+                <button class=" border-0 a" type="button"
+                        onclick="close_online_chat()">
+                    <span class="font-weight-bolder font30 text-white">&times;</span>
+                </button>
+            </div>
+            <div class="bg-light px-2 py-3 h-50">
+                <div class="d-flex">
+                    <img class="rounded-circle bg-white mx-1" src="/home/img-profile/customer-service.svg">
+                    <p class="rounded-pill p-2 mx-2 my-auto w-auto">چگونه میتوانیم با ... به شما کمک کنیم؟</p>
+                </div>
+            </div>
+            <div class="bg-white px-4 py-3 d-flex" id="footer-online-chat">
+                <input class="w-75 a" type="text" placeholder="پیام خود را بنویسید...">
+                <i class="fa fa-smile-beam mx-1 font30"></i>
+                <i class="fa fa-plus-circle mx-1 font30"></i>
+            </div>
+        </div>
+    </div>
+
     <div id="big-div" onclick="close_chat()">
 
         <!--Side NavBar Starts-->
         <div id="mySidenav" class="sidenav">
-            <ul class="navbar-nav px-0 bg-Dark-Blue menu-profile mx-auto" style="width: 290px;">
+            <ul class="navbar-nav px-0 bg-Dark-Blue menu-profile mx-auto">
                 <li class="nav-item " id="register_menu">
-                    <div class="col-12 reg-log text-nowrap my-3"
-                         style=" font-size: 15px;display: flex; align-items: center">
+                    <div class="col-12 reg-log text-nowrap my-3 d-flex align-items-center font15">
                         <div class="col-10 px-0 mx-0">
                             <a data-toggle="modal" data-target="#exampleModalCenter" onclick="f1();closeNav()"
                                class="px-3 c-pointer">
@@ -79,48 +100,46 @@
                             </a>
                         </div>
                         <span class=" d-sm-header d-lg-none mx-auto">
-            <div class="dropdown dropdown1 d-flex align-items-center">
-                <div class="lin-en d-flex justify-content-center">
-                    <p class="a-language rounded-circle px-1 text-center" data-toggle="dropdown" id="en-ar">Ar</p>
-                </div>
-                <ul class="dropdown-menu dropdown-menu-nav1 menu-en text-center fa-menu"
-                    style="line-height: 1.6rem; position: absolute; " id="menu-en-fa1">
-                    <div class="dropdown-item  dropdown-item-menu def cursor-pointer"
-                         onclick="englishstyle()" id=".en1">
-                                <span>
-                                English
-                            </span>
-                        <span style="font-size: 50px ;display: none" id="en">.</span>
-                    </div>
-                    <div class="dropdown-item dropdown-item-menu n-def cursor-pointer mb-2"
-                         onclick="persianstyle()" id=".fa1">
-                        <span style="font-size: 50px" id="fa">.</span>
-                        <span>العربیه</span>
-                    </div>
-                </ul>
-            </div>
-        </span>
-                        <i class="fa fa-arrow-alt-circle-right col-2 close-icon mx-auto sign-out d-none d-lg-inline-block"
-                           style="font-size: 35px;"
-                           onclick="closeNav()" id="sign-out"></i>
+                         <div class="dropdown dropdown1 d-flex align-items-center">
+                               <div class="lin-en d-flex justify-content-center">
+                                   <p class="a-language rounded-circle px-1 text-center" data-toggle="dropdown"
+                                      id="en-ar">Ar</p>
+                               </div>
+                               <ul class="dropdown-menu dropdown-menu-nav1 menu-en text-center fa-menu">
+                                   <div class="dropdown-item  dropdown-item-menu n-def cursor-pointer en-color"
+                                        onclick="englishstyle()">
+                                       <span>
+                                           English
+                                       </span>
+                                       <span class="en font50">.</span>
+                                   </div>
+                                   <div class="dropdown-item dropdown-item-menu def cursor-pointer ar-color"
+                                        onclick="persianstyle()">
+                                       <span class="ar font50">.</span>
+                                       <span>العربیه</span>
+                                   </div>
+                               </ul>
+                         </div>
+                    </span>
+                        <i class="fa fa-arrow-alt-circle-right col-2 close-icon mx-auto sign-out font35 ar-sign-out"
+                           onclick="closeNav()"></i>
+                        <i class="fa fa-arrow-alt-circle-left col-2 close-icon mx-auto sign-out font35 en-sign-out"
+                           onclick="closeNav()"></i>
                         <!-- <i class="fa fa-sign-in-alt close-icon ml-auto sign-in flex" style="font-size: 35px; display: none"
                             onclick="closeNav()"></i>-->
                     </div>
                 </li>
-                <li class="nav-item col-12"
-                    style="display: none; padding-bottom: 25px!important;padding-top: 25px!important;"
-                    id="profile_menu">
+                <li class="nav-item col-12" id="profile_menu">
                     <div class="col-10">
                         <div class=" d-flex justify-content-between align-items-center">
                             <div class="d-flex justify-content-between" id="profile-icon-index3" data-toggle="collapse"
-                                 data-target="#menu15" style="cursor: pointer; line-height: 1;">
+                                 data-target="#menu15">
                                 <a class="text-decoration-none text-white p-2 pl-2 d-block font-weight-bold ">
-                                    <span class="fa fa-user-circle" style="color: #00a8ff; font-size: 45px"></span>
+                                    <span class="fa fa-user-circle"></span>
                                 </a>
                                 <a class="text-decoration-none text-white d-block font-weight-bold "
                                    style="margin-top: 8px;">رضادلیری
-                                    <i class="fa fa-angle-down text-white icon-down"
-                                       style=" font-size: 15px;margin-right: 6px; "></i>
+                                    <i class="fa fa-angle-down text-white icon-down"></i>
                                 </a>
                             </div>
                         </div>
@@ -142,38 +161,39 @@
                 <div class="lin-en d-flex justify-content-center">
                     <p class="a-language rounded-circle px-1 text-center" data-toggle="dropdown" id="en-ar1">Ar</p>
                 </div>
-                <ul class="dropdown-menu dropdown-menu-nav1 menu-en text-center fa-menu" id="menu-en-fa2"
-                    style="line-height: 1.6rem; position: absolute">
-                    <div class="dropdown-item  dropdown-item-menu def cursor-pointer"
-                         onclick="englishstyle()" id="en..1">
+                <ul class="dropdown-menu dropdown-menu-nav1 menu-en text-center fa-menu">
+                    <div class="dropdown-item  dropdown-item-menu n-def cursor-pointer en-color"
+                         onclick="englishstyle()">
                                 <span>
                                 English
                             </span>
-                        <span style="font-size: 50px ;display: none" id="en..">.</span>
+                        <span class="en font50">.</span>
                     </div>
-                    <div class="dropdown-item dropdown-item-menu n-def cursor-pointer mb-2"
-                         onclick="persianstyle()" id="fa..1">
-                        <span style="font-size: 50px" id="fa..">.</span>
+                    <div class="dropdown-item dropdown-item-menu def cursor-pointer ar-color"
+                         onclick="persianstyle()">
+                        <span class="ar font50">.</span>
                         <span>العربیه</span>
                     </div>
                 </ul>
             </div>
            </span>
 
-                    <i class="col-2 fa fa-arrow-alt-circle-right close-icon sign-out mx-auto d-none d-lg-flex "
-                       style="font-size: 35px;"
-                       onclick="closeNav()" id="sign-out1"></i>
+                    <i class="col-2 fa fa-arrow-alt-circle-right close-icon sign-out mx-aut font35 ar-sign-out"
+                       onclick="closeNav()"></i>
+                    <i class="col-2 fa fa-arrow-alt-circle-left close-icon sign-out mx-aut font35 en-sign-out"
+                       onclick="closeNav()"></i>
+
 
                 </li>
-                <li class="li-nav nav-item " onclick="f()" style="cursor: pointer">
-                    <div class="d-flex align-items-center" style="height: 30px">
+                <li class="li-nav nav-item c-pointer" onclick="f()">
+                    <div class="d-flex align-items-center h-30">
                         <img src="/home/img-profile/dash.svg">
                         <a class="text-decoration-none font d-inline text-white">داشبورد</a>
                     </div>
                 </li>
-                <li class=" li-nav nav-item " onclick="f()" style="cursor: pointer">
-                    <div class="d-flex justify-content-between align-items-center  text-menu11" data-toggle="collapse"
-                         data-target="#menu11" style="height: 30px">
+                <li class=" li-nav nav-item c-pointer" onclick="f()">
+                    <div class="d-flex justify-content-between align-items-center h-30 text-menu11" data-toggle="collapse"
+                         data-target="#menu11">
                         <div>
                             <img src="/home/img-profile/prg.svg">
                             <a class="text-decoration-none down1 font d-inline text-white">پروژه ها</a>
@@ -197,9 +217,9 @@
                         </li>
                     </ul>
                 </li>
-                <li class="li-nav nav-item " onclick="f()" style="cursor: pointer">
-                    <div class="d-flex justify-content-between align-items-center text-menu12" data-toggle="collapse"
-                         data-target="#menu13" style="height: 30px">
+                <li class="li-nav nav-item c-pointer" onclick="f()">
+                    <div class="d-flex justify-content-between align-items-center text-menu12 h-30" data-toggle="collapse"
+                         data-target="#menu13">
                         <div>
                             <img src="/home/img-profile/mony.svg">
                             <a class="text-decoration-none font d-inline text-white">مالی</a>
@@ -221,9 +241,9 @@
                         </li>
                     </ul>
                 </li>
-                <li class="li-nav nav-item " onclick="f()" style="cursor: pointer">
-                    <div class="d-flex justify-content-between align-items-center text-menu13" data-toggle="collapse"
-                         data-target="#menu12" style="height: 30px">
+                <li class="li-nav nav-item c-pointer" onclick="f()">
+                    <div class="d-flex justify-content-between align-items-center text-menu13 h-30" data-toggle="collapse"
+                         data-target="#menu12">
                         <div>
                             <img src="/home/img-profile/massege.svg">
                             <a class="text-decoration-none font d-inline text-white">پیام</a>
@@ -242,8 +262,8 @@
                         </li>
                     </ul>
                 </li>
-                <li class="li-nav nav-item d-inline-block d-lg-none" style="cursor: pointer">
-                    <div class="d-flex justify-content-between align-items-center text-menu14" style="height: 30px"
+                <li class="li-nav nav-item d-inline-block d-lg-none c-pointer">
+                    <div class="d-flex justify-content-between align-items-center text-menu14 h-30"
                          data-toggle="collapse"
                          data-target="#menu3">
                         <div>
@@ -258,29 +278,29 @@
                     <ul id="menu3"
                         class=" under-menu navbar-nav bg-Dark-Blue menu-profile collapse navbar-collapse  w-100">
                         <li class="nav-item mt-2">
-                            <a class="text-decoration-none pr-4" href="#">
+                            <a class="text-decoration-none px-4" href="#">
                                 ترجمه
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="text-decoration-none pr-4" href="#">
+                            <a class="text-decoration-none px-4" href="#">
                                 تولید محتوا
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="text-decoration-none pr-4" href="#">
+                            <a class="text-decoration-none px-4" href="#">
                                 تایپ
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="text-decoration-none pr-4" href="#">
+                            <a class="text-decoration-none px-4" href="#">
                                 ویرایش و بازخوانی
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class=" li-nav nav-item d-inline-block d-lg-none" style="cursor: pointer">
-                    <div class="d-flex justify-content-between align-items-center text-menu15" style="height: 30px"
+                <li class=" li-nav nav-item d-inline-block d-lg-none c-pointer">
+                    <div class="d-flex justify-content-between align-items-center text-menu15 h-30"
                          data-toggle="collapse"
                          data-target="#menu2">
                         <div>
@@ -295,10 +315,10 @@
                     <ul id="menu2"
                         class="under-menu navbar-nav bg-Dark-Blue menu-profile collapse navbar-collapse  w-100">
                         <li class="nav-item">
-                            <div class="d-flex justify-content-between">
+                            <div class="d-flex justify-content-between" data-toggle="collapse"
+                                 data-target="#menu5">
                                 <div>
-                                    <a class="text-decoration-none font d-inline pr-4" data-toggle="collapse"
-                                       data-target="#menu5" href="#">ترجمه</a>
+                                    <a class="text-decoration-none d-inline px-4" href="#">ترجمه</a>
                                 </div>
                                 <div>
                                     <i class="toggleCategori  fa fa-angle-down text-white text-2 m-0 p-0"></i>
@@ -308,32 +328,32 @@
                         <ul id="menu5"
                             class="under-menu navbar-nav bg-Dark-Blue menu-profile collapse navbar-collapse  w-100">
                             <li class="nav-item">
-                                <a class="text-decoration-none pr-5" data-toggle="collapse" data-target="#menu5"
+                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
                                    href="#">زیرمنو</a>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="text-decoration-none pr-5" data-toggle="collapse" data-target="#menu5"
+                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
                                    href="#">زیرمنو</a>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="text-decoration-none pr-5" data-toggle="collapse" data-target="#menu5"
+                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
                                    href="#">زیرمنو</a>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="text-decoration-none pr-5" data-toggle="collapse" data-target="#menu5"
+                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
                                    href="#">زیرمنو</a>
                                 </a>
                             </li>
                         </ul>
 
                         <li class="nav-item">
-                            <div class="d-flex justify-content-between">
+                            <div class="d-flex justify-content-between" data-toggle="collapse"
+                                 data-target="#menu6">
                                 <div>
-                                    <a class="text-decoration-none font d-inline  pr-4" data-toggle="collapse"
-                                       data-target="#menu6" href="#">تولید محتوا</a>
+                                    <a class="text-decoration-none d-inline  px-4" href="#">تولید محتوا</a>
                                 </div>
                                 <div>
                                     <i class="toggleCategori  fa fa-angle-down text-white text-2 m-0 p-0"></i>
@@ -343,32 +363,32 @@
                         <ul id="menu6"
                             class="under-menu navbar-nav bg-Dark-Blue menu-profile collapse navbar-collapse  w-100">
                             <li class="nav-item">
-                                <a class="text-decoration-none pr-5" data-toggle="collapse" data-target="#menu5"
+                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
                                    href="#">زیرمنو</a>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="text-decoration-none pr-5" data-toggle="collapse" data-target="#menu5"
+                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
                                    href="#">زیرمنو</a>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="text-decoration-none pr-5" data-toggle="collapse" data-target="#menu5"
+                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
                                    href="#">زیرمنو</a>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="text-decoration-none pr-5" data-toggle="collapse" data-target="#menu5"
+                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
                                    href="#">زیرمنو</a>
                                 </a>
                             </li>
                         </ul>
 
                         <li class="nav-item">
-                            <div class="d-flex justify-content-between">
+                            <div class="d-flex justify-content-between" data-toggle="collapse"
+                                 data-target="#menu7">
                                 <div>
-                                    <a class="text-decoration-none font d-inline  pr-4" data-toggle="collapse"
-                                       data-target="#menu7" href="#">تایپ</a>
+                                    <a class="text-decoration-none d-inline  px-4" href="#">تایپ</a>
                                 </div>
                                 <div>
                                     <i class="toggleCategori  fa fa-angle-down text-white text-2 m-0 p-0"></i>
@@ -378,36 +398,36 @@
                         <ul id="menu7"
                             class="under-menu navbar-nav bg-Dark-Blue menu-profile collapse navbar-collapse  w-100">
                             <li class="nav-item">
-                                <a class="text-decoration-none pr-5" data-toggle="collapse" data-target="#menu5"
+                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
                                    href="#">زیرمنو</a>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="text-decoration-none pr-5" data-toggle="collapse" data-target="#menu5"
+                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
                                    href="#">زیرمنو</a>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="text-decoration-none pr-5" data-toggle="collapse" data-target="#menu5"
+                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
                                    href="#">زیرمنو</a>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="text-decoration-none pr-5" data-toggle="collapse" data-target="#menu5"
+                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
                                    href="#">زیرمنو</a>
                                 </a>
                             </li>
                         </ul>
 
                         <li class="nav-item">
-                            <a class="text-decoration-none  pr-4" href="#">
+                            <a class="text-decoration-none  px-4" href="#">
                                 ویرایش و بازخوانی
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class=" li-nav nav-item d-inline-block d-lg-none" style="cursor: pointer">
-                    <div class="d-flex justify-content-between align-items-center text-menu16" style="height: 30px"
+                <li class=" li-nav nav-item d-inline-block d-lg-none c-pointer">
+                    <div class="d-flex justify-content-between align-items-center text-menu16 h-30"
                          data-toggle="collapse"
                          data-target="#menu4">
                         <div>
@@ -422,22 +442,22 @@
                     <ul id="menu4"
                         class="under-menu navbar-nav bg-Dark-Blue menu-profile collapse navbar-collapse  w-100">
                         <li class="nav-item mt-2">
-                            <a class="text-decoration-none pr-4" href="#">
+                            <a class="text-decoration-none px-4" href="#">
                                 ترجمه
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="text-decoration-none pr-4" href="#">
+                            <a class="text-decoration-none px-4" href="#">
                                 تولید محتوا
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="text-decoration-none pr-4" href="#">
+                            <a class="text-decoration-none px-4" href="#">
                                 تایپ
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="text-decoration-none pr-4" href="#">
+                            <a class="text-decoration-none px-4" href="#">
                                 ویرایش و بازخوانی
                             </a>
                         </li>
@@ -450,43 +470,42 @@
         <!--start menu-->
         <div class="bg-color nav_bar" id="nav-bar">
             <div class="container">
-                <nav class="navbar navbar-expand navbar-dark d-flex justify-content-between px-0 " id="nav-menu"
-                     style="background-color: #1b2a56;">
+                <nav class="navbar navbar-expand navbar-dark d-flex justify-content-between px-0 nav-bar-index"
+                     id="nav-menu">
                     <ul class="navbar-nav col-11 col-xl-9 mx-auto  px-0 d-flex align-items-center">
                         <!--start menu in lg-->
-                        <li class="nav-item col-sm-5 col-4 px-0 mx-0 d-flex " style="height: 100px">
-                            <ul class="collapse navbar-collapse navbar-nav px-0 mx-0 d-flex pt-0" id="menu"
-                                style="height: 100px">
+                        <li class="nav-item col-sm-5 col-4 px-0 mx-0 d-flex h_100">
+                            <ul class="collapse navbar-collapse navbar-nav px-0 mx-0 d-flex pt-0 h_100" id="menu">
 
                                 <li class=" nav-item open-icon-home mx-0">
                                     <i class="fa fa-reorder font30 cursor-pointer " onclick="openNav()">&#9776; </i>
                                 </li>
 
-                                <li class="col-10 nav-item d-sm-header d-lg-none px-0 d-flex align-items-center text-center justify-content-center"
-                                    onclick="closeNav()" style="height: 100px;">
+                                <li class="col-10 nav-item d-sm-header d-lg-none px-0 d-flex align-items-center text-center justify-content-center h_100"
+                                    onclick="closeNav()">
                                     <button class="btn btn-logo px-1 py-1">
                                         <i class="fa fa fa-pen"></i>
-                                        <span style="font-size: 15px!important;">ثبت سفارش</span>
+                                        <span class="font15">ثبت سفارش</span>
                                     </button>
                                 </li>
 
                                 <li class="nav-item mx-2 p-2 font-size d-lg-inline-block d-none" onclick="closeNav()">
                                     <a href="#" class="nav-link text-white">
-                                        <i class="fa fa-home d-block font20" style="color: #0099ff;"></i>
+                                        <i class="fa fa-home d-block font20" id="home"></i>
                                     </a>
                                 </li>
 
-                                <li class="nav-item dropdown d-lg-flex align-items-center d-none" onclick="closeNav()"
-                                    style="height: 100px">
-                                    <a href="#" class="custom-menu-item my-0  d-block text-decoration-none text-nowrap px-0"
+                                <li class="nav-item dropdown d-lg-flex align-items-center d-none h_100 "
+                                    onclick="closeNav()">
+                                    <a href="#"
+                                       class="custom-menu-item my-0  d-block text-decoration-none text-nowrap px-0 li-1-a"
                                        onclick="closeNav()"
-                                       style="width: 80px"
                                        id="services"
                                        data-toggle="dropdown">
                                         خدمات
                                         <i class="fa fas fa-angle-down "></i>
                                     </a>
-                                    <ul class="dropdown-menu dropdown-menu-nav1" style="top: 67.5px!important;">
+                                    <ul class="dropdown-menu dropdown-menu-nav1">
                                         <li class="dropdown dropdown2">
                                             <a class="p-2  dropdown-item dropdown-item-menu text-lg-right d-flex">
                                                 <i class="fa fa-sort-alpha-down-alt px-1 d-sm-header "></i>
@@ -515,39 +534,39 @@
                                     </ul>
                                 </li>
 
-                                <li class="nav-item dropdown d-lg-flex align-items-center d-none" onclick="closeNav()"
-                                    style="height: 100px">
-                                    <a href="#" class="custom-menu-item my-0 d-block text-decoration-none text-nowrap px-0"
+                                <li class="nav-item dropdown d-lg-flex align-items-center d-none h_100 "
+                                    onclick="closeNav()">
+                                    <a href="#"
+                                       class="custom-menu-item my-0 d-block text-decoration-none text-nowrap px-0 li-1-a"
                                        onclick="closeNav()"
-                                       style="width: 80px"
                                        data-toggle="dropdown">
                                         راهنما
                                         <i class="fa fas fa-angle-down "></i>
                                     </a>
-                                    <ul class="dropdown-menu dropdown-menu-nav1" style="top: 67.5px!important;">
+                                    <ul class="dropdown-menu dropdown-menu-nav1">
                                         <li class="dropdown dropdown2" href="#">
                                             <a class="p-2  dropdown-item dropdown-item-menu text-right d-flex" href="#">
                                                 <i class="fa fa-sort-alpha-down-alt px-1 d-sm-header"></i>
                                                 ترجمه
-                                                <i class="fa fa fa-angle-left mr-auto" id="fa1"></i>
-                                                <i class="fa fa fa-angle-right ml-auto" id="en1" style="display: none"></i>
+                                                <i class="fa fa-angle-left mr-auto ar"></i>
+                                                <i class="fa fa-angle-right ml-auto en"></i>
                                             </a>
-                                            <ul class="dropdown-menu dropdown-menu-nav2 position-absolute" id="menu-en1"
+                                            <ul class="dropdown-menu dropdown-menu-nav2 position-absolute menu-left"
                                                 style="top: 0px!important;">
                                                 <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header fa fa-check-circle icon-menu11"></i>
+                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
                                                     زیر منو
                                                 </a>
                                                 <a class=" dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header fa fa-check-circle icon-menu11"></i>
+                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
                                                     زیر منو
                                                 </a>
                                                 <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header fa fa-check-circle icon-menu11"></i>
+                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
                                                     زیر منو
                                                 </a>
                                                 <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header fa fa-check-circle icon-menu11"></i>
+                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
                                                     زیر منو
                                                 </a>
                                             </ul>
@@ -556,25 +575,25 @@
                                             <a class="p-2 dropdown-item dropdown-item-menu text-right d-flex " href="#">
                                                 <i class="fa fa-book px-1 d-sm-header"></i>
                                                 تولید محتوا
-                                                <i class="fa fa fa-angle-left mr-auto" id="fa2"></i>
-                                                <i class="fa fa fa-angle-right ml-auto" id="en2" style="display: none"></i>
+                                                <i class="fa fa fa-angle-left mr-auto ar"></i>
+                                                <i class="fa fa fa-angle-right ml-auto en"></i>
                                             </a>
-                                            <ul class="dropdown-menu dropdown-menu-nav2 position-absolute" id="menu-en2"
+                                            <ul class="dropdown-menu dropdown-menu-nav2 position-absolute menu-left"
                                                 style="top: 0px!important;">
                                                 <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header fa fa-check-circle icon-menu11"></i>
+                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
                                                     زیر منو
                                                 </a>
                                                 <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header fa fa-check-circle icon-menu11"></i>
+                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
                                                     زیر منو
                                                 </a>
                                                 <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header fa fa-check-circle icon-menu11"></i>
+                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
                                                     زیر منو
                                                 </a>
                                                 <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header fa fa-check-circle icon-menu11"></i>
+                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
                                                     زیر منو
                                                 </a>
                                             </ul>
@@ -583,25 +602,25 @@
                                             <a class="p-2 dropdown-item dropdown-item-menu text-right d-flex" href="#">
                                                 <i class="d-sm-header fa fa-inbox px-1"></i>
                                                 تایپ
-                                                <i class="fa fa fa-angle-left mr-auto" id="fa3"></i>
-                                                <i class="fa fa fa-angle-right ml-auto" id="en3" style="display: none"></i>
+                                                <i class="fa fa fa-angle-left mr-auto ar"></i>
+                                                <i class="fa fa fa-angle-right ml-auto en"></i>
                                             </a>
-                                            <ul class="dropdown-menu dropdown-menu-nav2 position-absolute" id="menu-en3"
+                                            <ul class="dropdown-menu dropdown-menu-nav2 position-absolute menu-left"
                                                 style="top: 0px!important;">
                                                 <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header fa fa-check-circle icon-menu11"></i>
+                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
                                                     زیر منو
                                                 </a>
                                                 <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header fa fa-check-circle icon-menu11"></i>
+                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
                                                     زیر منو
                                                 </a>
                                                 <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header fa fa-check-circle icon-menu11"></i>
+                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
                                                     زیر منو
                                                 </a>
                                                 <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header fa fa-check-circle icon-menu11"></i>
+                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
                                                     زیر منو
                                                 </a>
                                             </ul>
@@ -613,19 +632,18 @@
                                             </a>
                                         </li>
                                     </ul>
-                                    </a>
                                 </li>
 
-                                <li class="nav-item dropdown d-lg-flex align-items-center d-none" onclick="closeNav()"
-                                    style="height: 100px">
-                                    <a href="#" class="custom-menu-item my-0  d-block text-decoration-none text-nowrap px-0"
+                                <li class="nav-item dropdown d-lg-flex align-items-center d-none  h_100 "
+                                    onclick="closeNav()">
+                                    <a href="#"
+                                       class="custom-menu-item my-0  d-block text-decoration-none text-nowrap px-0 li-1-a"
                                        onclick="closeNav()"
-                                       style="width: 80px"
                                        data-toggle="dropdown">
                                         درباره ما
                                         <i class="fa fas fa-angle-down"></i>
                                     </a>
-                                    <ul class="dropdown-menu dropdown-menu-nav1" style="top: 67.5px!important;">
+                                    <ul class="dropdown-menu dropdown-menu-nav1">
                                         <li class="dropdown dropdown2" href="#">
                                             <a class="p-2 text-lg-right  dropdown-item dropdown-item-menu  d-flex"
                                                data-toggle="collapse" data-target="#demo" href="#">
@@ -655,16 +673,16 @@
                                     </a>
                                 </li>
 
-                                <li class="col-5" onclick="closeNav()" style="height: 100px;"></li>
+                                <li class="col-5 h_100" onclick="closeNav()"></li>
                             </ul>
 
                         </li>
                         <!--end menu in lg-->
 
                         <!--start logo-->
-                        <li class="nav-item col-sm-2 col-4 d-sm-header d-flex justify-content-center align-items-center mx-0 px-sm-4"
-                            onclick="closeNav()" style="height: 100px">
-                            <a class="navbar-brand logo mx-0" id="logo">
+                        <li class="nav-item col-sm-2 col-4 d-sm-header d-flex justify-content-center align-items-center px-sm-4 h_100"
+                            onclick="closeNav()">
+                            <a class="navbar-brand logo" id="logo">
                                 <img src="/home/img/Asset%202.svg" href="index.html">
                                 <span>لوگو</span>
                                 <span class="logo-you">شما</span>
@@ -673,12 +691,12 @@
                         <!--end logo-->
 
                         <!--start profile-->
-                        <li class="nav-item col-sm-5 col-4 d-sm-header d-flex align-items-center justify-content-end box-logo-lan"
-                            onclick="closeNav()" style="height: 100px;">
+                        <li class="nav-item col-sm-5 col-4 d-sm-header d-flex align-items-center justify-content-end box-logo-lan h_100"
+                            onclick="closeNav()">
                             <ul class="navbar-nav px-0 d-flex align-items-center pt-0">
                                 <li class="nav-item col-6 px-0 d-sm-header  d-lg-flex align-items-center justify-content-start d-none">
                                     <button class="btn btn-logo">
-                                        <i class="fa fa fa-pen" style="font-size: 15px!important;"></i>
+                                        <i class="fa fa fa-pen font15"></i>
                                         <span class="pr-1 pl-2 pb-2 pt-2">ثبت سفارش</span>
                                     </button>
                                 </li>
@@ -691,19 +709,15 @@
                                                id="en-ar2">
                                                 Ar</p>
                                         </div>
-                                        <ul class="dropdown-menu dropdown-menu-nav1 menu-en text-center fa-menu"
-                                            style="line-height: 1.6rem" id="menu-en-fa">
-                                            <div class="dropdown-item  dropdown-item-menu def cursor-pointer" id="en.1"
+                                        <ul class="dropdown-menu dropdown-menu-nav1 menu-en text-center fa-menu">
+                                            <div class="dropdown-item  dropdown-item-menu n-def cursor-pointer en-color "
                                                  onclick="englishstyle()">
-                                <span>
-                                English
-                            </span>
-                                                <span style="font-size: 50px ;display: none" id="en.">.</span>
+                                                <span>English</span>
+                                                <span class="en font50">.</span>
                                             </div>
-                                            <div class="dropdown-item dropdown-item-menu n-def cursor-pointer mb-2"
-                                                 id="fa.1"
+                                            <div class="dropdown-item dropdown-item-menu def cursor-pointer ar-color "
                                                  onclick="persianstyle()">
-                                                <span style="font-size: 50px" id="fa.">.</span>
+                                                <span class="ar font50">.</span>
                                                 <span>العربیه</span>
                                             </div>
                                         </ul>
@@ -712,14 +726,13 @@
                                 <!--end language-->
 
                                 <!--start bel-menu-->
-                                <li class="nav-item col-4 col-lg-2 col-5 bel-menu ">
+                                <li class="nav-item col-lg-2 col-5 bel-menu " id="bel-menu">
                                     <div class="dropdown dropdown1 mx-3 mx-md-0">
                                         <div class="">
                                             <span class="badge ">9</span>
                                             <i class="fa fa-bell "></i>
                                         </div>
-                                        <ul class="dropdown-menu dropdown-menu-nav1 notifiction " id="not"
-                                            style="line-height: 2rem;">
+                                        <ul class="dropdown-menu dropdown-menu-nav1 notifiction ">
                                     <span class="m-4 px-2"
                                           style="box-shadow: 2px 12px 9px -1px rgba(241, 196, 15, 0.3)">اعلانات</span>
 
@@ -736,9 +749,8 @@
                                                 <i class="fa fa-ticket-alt not"></i>
                                             </a>
                                             <hr>
-                                            <a class="text-center text-decoration-none "
-                                               style="color: #00a8ff!important;line-height: 0.5rem">
-                                                <p style="cursor: pointer">مشاهده همه ی اعلانات</p>
+                                            <a class="text-center text-decoration-none " id="more-notif">
+                                                <p class="mb-1 py-0">مشاهده همه ی اعلانات</p>
                                                 <!-- <i class="fa fa-angle-left mb-3 mr-2" style="color: #0099ff!important;"></i>
                                                      <i class="fa fa-angle-right mb-3 mr-2" style="color: #0099ff!important;display: none"></i>-->
                                             </a>
@@ -749,13 +761,13 @@
 
 
                                 <!--Start Register And Login-->
-                                <li class="nav-item col-8  col-lg-2 col-7 reg-log text-nowrap "
+                                <li class="nav-item col-12  col-lg-7  reg-log text-nowrap px-0 px-lg-3"
                                     id="register" onclick="closeNav()">
                                     <a class="c-pointer" data-toggle="modal" data-target="#exampleModalCenter"
                                        onclick="f1()">
                                         ورود
                                     </a>
-                                    <span>/</span>
+                                    <span class="mx-2">/</span>
                                     <a class="c-pointer" data-toggle="modal" data-target="#exampleModalCenter"
                                        onclick="f2()">
                                         ثبت نام
@@ -765,19 +777,18 @@
 
 
                                 <!-- start profile IF USER WAS LOGGED IN-->
-                                <li class="nav-item col-8  col-lg-2 col-7 dropdown dropdown-profile dropdown1 text-center"
-                                    id="profile"
-                                    style="display: none;">
-                                    <div data-toggle="dropdown" style="cursor: pointer;">
+                                <li class="nav-item col-7  col-lg-2 dropdown dropdown-profile dropdown1 text-center"
+                                    id="profile">
+                                    <div data-toggle="dropdown" class="c-pointer">
                                         <i class="material-icons profile-icon">person_pin</i>
                                         <span class="profile-text">رضادلیری</span>
                                     </div>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu prof">
                                         <a class=" dropdown-item dropdown-item-menu d-flex" href="#">
-                                            <i class=" fas fa-user-circle px-2 mt-2" style="color: #00a8ff;"></i>
+                                            <i class=" fas fa-user-circle px-2 mt-2"></i>
                                             داشبورد</a>
                                         <a class=" dropdown-item dropdown-item-menu d-flex" href="#">
-                                            <i class=" fas fa-user-edit px-2 mt-2" style="color: #00a8ff;"></i>
+                                            <i class=" fas fa-user-edit px-2 mt-2"></i>
                                             ویرایش پروفایل</a>
                                         <hr>
                                         <a class=" dropdown-item dropdown-item-menu d-flex" href="#">
@@ -796,26 +807,21 @@
         <!--end menu-->
 
         <!--Modal Start-->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        <div class="modal fade h-auto" id="exampleModalCenter" tabindex="-1" role="dialog"
              aria-labelledby="exampleModalCenterTitle"
              aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="col-12">
                     <div class="modal-content">
                         <div class="modal-header  d-block border-bottom-0">
-                            <div class="d-flex justify-content-between" style="height: 50px;">
+                            <div class="d-flex justify-content-between">
                                 <a>
-                                    <button type="button" class="close d-md-inline-block d-none a" data-dismiss="modal"
+                                    <button type="button" class="close a pb-0" data-dismiss="modal"
                                             aria-label="Close">
                                     <span aria-hidden="true" class="text-muted font-weight-normal"
                                           style="font-size: 70px;">&times;</span>
                                     </button>
                                 </a>
-                                <!-- <a class="navbar-brand logo">
-                                     <img src="/home/img/Asset%202.svg">
-                                     <span>لوگو</span>
-                                     <span class="logo-you text-dark">شما</span>
-                                 </a>-->
                             </div>
                             <div class="col-12 d-flex px-0">
                                 <div class="col-6 conf text-muted c-pointer" id="login-border" onclick="f1()"><p id="login">
@@ -843,7 +849,7 @@
                                         <input type="password" class="form-control mb-2 font-weight-lighter font-13 a"
                                                placeholder="رمز عبور">
                                         <p class="text-danger">... را درست وارد کنید</p>
-                                        <a class="text-decoration-none text-muted font" href="#" style="font-size: 10px;">
+                                        <a class="text-decoration-none text-muted font font10" href="#">
                                             رمز عبور خود را فراموش کرده اید؟
                                         </a>
                                     </div>
@@ -882,9 +888,521 @@
                                 <input type="text" class="form-control my-2 font-weight-lighter font-13 a"
                                        placeholder="نام کاربری">
                                 <p class="text-danger">... را درست وارد کنید</p>
-                                <input type="email" class="form-control my-2 font-weight-lighter font-13 a"
-                                       placeholder="ایمیل">
-                                <p class="text-danger">... را درست وارد کنید</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="email" class="form-control my-2 font-weight-lighter font-13 a"
+                                               placeholder="ایمیل">
+                                        <p class="text-danger">... را درست وارد کنید</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="d-flex w-100 phone-number" style="direction: rtl">
+                                            <input type="email" class="form-control my-2 font-weight-lighter text-center font-13 a w-75"
+                                                   placeholder="شماره تلفن همراه ">
+                                            <select name="cname" class="form-control text-center mt-2 w-25 font11 px-0">
+                                                <optgroup label="آذربایجان">
+                                                    <option>۰۰۹۹۴</option>
+                                                </optgroup>
+                                                <optgroup label="آرژانتین">
+                                                    <option>۰۰۵۴</option>
+                                                </optgroup>
+                                                <optgroup label="آفریقای جنوبی">
+                                                    <option>۰۰۲۷</option>
+                                                </optgroup>
+                                                <optgroup label="آفریقای مرکزی">
+                                                    <option>۰۰۲۳۶</option>
+                                                </optgroup>
+                                                <optgroup label=" آلبانی">
+                                                    <option>۰۰۳۵۵</option>
+                                                </optgroup>
+                                                <optgroup label=" آلمان">
+                                                    <option>۰۰۴۹</option>
+                                                </optgroup>
+                                                <optgroup label=" آمریکا">
+                                                    <option>۰۰۱</option>
+                                                </optgroup>
+                                                <optgroup label=" آنگولا">
+                                                    <option>۰۰۲۴۴</option>
+                                                </optgroup>
+                                                <optgroup label="اتریش">
+                                                    <option>۰۰۴۳</option>
+                                                </optgroup>
+                                                <optgroup label=" اتیوپی ">
+                                                    <option>۰۰۳۵۱</option>
+                                                </optgroup>
+                                                <optgroup label=" اردن">
+                                                    <option>۰۰۹۶۲</option>
+                                                </optgroup>
+                                                <optgroup label=" ارمنستان">
+                                                    <option>۰۰۳۷۴</option>
+                                                </optgroup>
+                                                <optgroup label=" اروگوئه">
+                                                    <option>۰۰۵۹۸</option>
+                                                </optgroup>
+                                                <optgroup label=" اریتره">
+                                                    <option>۰۰۲۹۱</option>
+                                                </optgroup>
+                                                <optgroup label=" ازبکستان">
+                                                    <option>۰۰۷۳۷۱</option>
+                                                </optgroup>
+                                                <optgroup label=" اسپانیا">
+                                                    <option>۰۰۳۴</option>
+                                                </optgroup>
+                                                <optgroup label=" استرالیا">
+                                                    <option>۰۰۶۱</option>
+                                                </optgroup>
+                                                <optgroup label=" استونی">
+                                                    <option>۰۰۳۷۲</option>
+                                                </optgroup>
+                                                <optgroup label=" افغانستان">
+                                                    <option>۰۰۹۳</option>
+                                                </optgroup>
+                                                <optgroup label=" الجزایر">
+                                                    <option>۰۰۲۱۳</option>
+                                                </optgroup>
+                                                <optgroup label=" السالوادور">
+                                                    <option>۰۰۵۰۳</option>
+                                                </optgroup>
+                                                <optgroup label=" امارات">
+                                                    <option>۰۰۹۷۱</option>
+                                                </optgroup>
+                                                <optgroup label=" اندونزی">
+                                                    <option>۰۰۶۲</option>
+                                                </optgroup>
+                                                <optgroup label=" انگلستان">
+                                                    <option>۰۰۴۴</option>
+                                                </optgroup>
+                                                <optgroup label=" اوگاندا">
+                                                    <option>۰۰۲۵</option>
+                                                </optgroup>
+                                                <optgroup label=" اوکراین">
+                                                    <option>۰۰۳۸۰</option>
+                                                </optgroup>
+                                                <optgroup label=" ایران">
+                                                    <option>۰۰۹۸</option>
+                                                </optgroup>
+                                                <optgroup label=" ایرلند">
+                                                    <option>۰۰۳۵۳</option>
+                                                </optgroup>
+                                                <optgroup label=" اکوادور">
+                                                    <option>۰۰۵۹۳</option>
+                                                </optgroup>
+                                                <optgroup label=" ایسلند">
+                                                    <option>۰۰۳۵۴</option>
+                                                </optgroup>
+                                                <optgroup label=" باربادوس ">
+                                                    <option>۰۰۱۸۰۹۴</option>
+                                                </optgroup>
+                                                <optgroup label=" باهاما">
+                                                    <option>۰۰۱۸۰۹۳</option>
+                                                </optgroup>
+                                                <optgroup label=" بحرین ">
+                                                    <option>۰۰۹۷۳</option>
+                                                </optgroup>
+                                                <optgroup label=" برزیل">
+                                                    <option>۰۰۵۵</option>
+                                                </optgroup>
+                                                <optgroup label=" برونئی">
+                                                    <option>۰۰۵۵</option>
+                                                </optgroup>
+                                                <optgroup label=" بلژیک ">
+                                                    <option>۰۰۳۲</option>
+                                                </optgroup>
+                                                <optgroup label=" بلاروس ">
+                                                    <option>۰۰۳۷۵</option>
+                                                </optgroup>
+                                                <optgroup label=" بلغارستان">
+                                                    <option>۰۰۳۵۹</option>
+                                                </optgroup>
+                                                <optgroup label=" بنگلادش ">
+                                                    <option>۰۰۸۸۰</option>
+                                                </optgroup>
+                                                <optgroup label=" بنین ">
+                                                    <option>۰۰۲۲۹</option>
+                                                </optgroup>
+                                                <optgroup label=" بوتان">
+                                                    <option>۰۰۲۶۷</option>
+                                                </optgroup>
+                                                <optgroup label=" بوسنی و هرزگوین">
+                                                    <option>۰۰۳۸۷</option>
+                                                </optgroup>
+                                                <optgroup label=" بولیوی ">
+                                                    <option>۰۰۵۹۱</option>
+                                                </optgroup>
+                                                <optgroup label=" پاراگوئه">
+                                                    <option>۰۰۵۹۵</option>
+                                                </optgroup>
+                                                <optgroup label=" پاناما">
+                                                    <option>۰۰۵۰۷</option>
+                                                </optgroup>
+                                                <optgroup label=" پاکستان">
+                                                    <option>۰۰۹۲</option>
+                                                </optgroup>
+                                                <optgroup label=" پرتغال">
+                                                    <option>۰۰۳۵۱</option>
+                                                </optgroup>
+                                                <optgroup label=" پرو">
+                                                    <option>۰۰۵۱</option>
+                                                </optgroup>
+                                                <optgroup label=" پنال ">
+                                                    <option>۰۰۹۵</option>
+                                                </optgroup>
+                                                <optgroup label=" تاجیکستان">
+                                                    <option>۰۰۹۹۲</option>
+                                                </optgroup>
+                                                <optgroup label=" تانزانیا">
+                                                    <option>۰۰۲۵۵</option>
+                                                </optgroup>
+                                                <optgroup label=" تایلند ">
+                                                    <option>۰۰۶۶</option>
+                                                </optgroup>
+                                                <optgroup label=" تایوان ">
+                                                    <option>۰۰۸۸۶</option>
+                                                </optgroup>
+                                                <optgroup label=" ترینیداد">
+                                                    <option>۰۰۱۸۶۸</option>
+                                                </optgroup>
+                                                <optgroup label=" ترکمنستان">
+                                                    <option>۰۰۷۳۶۳</option>
+                                                </optgroup>
+                                                <optgroup label=" ترکیه">
+                                                    <option>۰۰۹۰</option>
+                                                </optgroup>
+                                                <optgroup label=" تونس ">
+                                                    <option>۰۰۲۱۶</option>
+                                                </optgroup>
+                                                <optgroup label=" تونگا">
+                                                    <option>۰۰۶۷۶</option>
+                                                </optgroup>
+                                                <optgroup label=" جامائیکا">
+                                                    <option>۰۰۱۸۰۹۹</option>
+                                                </optgroup>
+                                                <optgroup label=" جزایر قناری">
+                                                    <option>۰۰۳۵۹</option>
+                                                </optgroup>
+                                                <optgroup label=" جزایر مارشال">
+                                                    <option>۰۰۶۹۲</option>
+                                                </optgroup>
+                                                <optgroup label=" چاد">
+                                                    <option>۰۰۲۳۷</option>
+                                                </optgroup>
+                                                <optgroup label=" چین">
+                                                    <option>۰۰۸۶</option>
+                                                </optgroup>
+                                                <optgroup label=" چک ">
+                                                    <option>۰۰۴۲</option>
+                                                </optgroup>
+                                                <optgroup label=" دانمارک ">
+                                                    <option>۰۰۴۵</option>
+                                                </optgroup>
+                                                <optgroup label=" دومینیکا">
+                                                    <option>۰۰۵۰۸</option>
+                                                </optgroup>
+                                                <optgroup label=" دومینیکن">
+                                                    <option>۰۰۱۸۰۹</option>
+                                                </optgroup>
+                                                <optgroup label=" رواندا">
+                                                    <option>۰۰۲۵۰</option>
+                                                </optgroup>
+                                                <optgroup label=" روسیه">
+                                                    <option>۰۰۷۰۹۵</option>
+                                                </optgroup>
+                                                <optgroup label=" رومانی ">
+                                                    <option>۰۰۴۰</option>
+                                                </optgroup>
+                                                <optgroup label=" زئیر ">
+                                                    <option>۰۰۲۴۳</option>
+                                                </optgroup>
+                                                <optgroup label=" زامبیا">
+                                                    <option>۰۰۲۶۰</option>
+                                                </optgroup>
+                                                <optgroup label=" زلاندنو">
+                                                    <option>۰۰۶۴</option>
+                                                </optgroup>
+                                                <optgroup label=" زیمبابوه">
+                                                    <option>۰۰۲۶۳</option>
+                                                </optgroup>
+                                                <optgroup label=" ژاپن ">
+                                                    <option>۰۰۸۱</option>
+                                                </optgroup>
+                                                <optgroup label="ساحل عاج">
+                                                    <option>۰۰۲۲۵</option>
+                                                </optgroup>
+                                                <optgroup label="سنگال">
+                                                    <option>۰۰۲۲۱</option>
+                                                </optgroup>
+                                                <optgroup label="سوئد">
+                                                    <option>۰۰۴۶</option>
+                                                </optgroup>
+                                                <optgroup label="سوئیس ">
+                                                    <option>۰۰۴۱</option>
+                                                </optgroup>
+                                                <optgroup label="سودان">
+                                                    <option>۰۰۲۴</option>
+                                                </optgroup>
+                                                <optgroup label=" سورینام">
+                                                    <option>۰۰۵۹۷</option>
+                                                </optgroup>
+                                                <optgroup label=" سوریه">
+                                                    <option>۰۰۹۶۳</option>
+                                                </optgroup>
+                                                <optgroup label=" سومالی">
+                                                    <option>۰۰۲۵۲</option>
+                                                </optgroup>
+                                                <optgroup label=" سیشل">
+                                                    <option>۰۰۱۴۸</option>
+                                                </optgroup>
+                                                <optgroup label=" ساموای امریکایی">
+                                                    <option>۰۰۶۸۴</option>
+                                                </optgroup>
+                                                <optgroup label=" ساموای غربی">
+                                                    <option>۰۰۶۸۵</option>
+                                                </optgroup>
+                                                <optgroup label=" سریلانکا">
+                                                    <option>۰۰۹۴</option>
+                                                </optgroup>
+                                                <optgroup label=" سنت لوسیا">
+                                                    <option>۰۰۱۷۵۸</option>
+                                                </optgroup>
+                                                <optgroup label=" سنت وینسنت">
+                                                    <option>۰۰۱۷۸۴</option>
+                                                </optgroup>
+                                                <optgroup label=" سنت کیتس">
+                                                    <option>۰۰۱۸۶۹</option>
+                                                </optgroup>
+                                                <optgroup label=" سنگاپور">
+                                                    <option>۰۰۶۵</option>
+                                                </optgroup>
+                                                <optgroup label="شیلی ">
+                                                    <option>۰۰۵۶</option>
+                                                </optgroup>
+                                                <optgroup label="صربستان ومونته نگرو">
+                                                    <option>۰۰۳۸۱</option>
+                                                </optgroup>
+                                                <optgroup label="عربستان">
+                                                    <option>۰۰۹۹۶</option>
+                                                </optgroup>
+                                                <optgroup label="عمان">
+                                                    <option>۰۰۹۶۸</option>
+                                                </optgroup>
+                                                <optgroup label=" غنا ">
+                                                    <option>۰۰۲۳۳</option>
+                                                </optgroup>
+                                                <optgroup label=" فرانسه">
+                                                    <option>۰۰۳۳</option>
+                                                </optgroup>
+                                                <optgroup label=" فنلاد">
+                                                    <option>۰۰۳۵۸</option>
+                                                </optgroup>
+                                                <optgroup label=" فیجی ">
+                                                    <option>۰۰۶۷۹</option>
+                                                </optgroup>
+                                                <optgroup label="فیلیپین">
+                                                    <option>۰۰۶۳</option>
+                                                </optgroup>
+                                                <optgroup label=" قبرس">
+                                                    <option>۰۰۳۵۷</option>
+                                                </optgroup>
+                                                <optgroup label=" قرقیزستان">
+                                                    <option>۰۰۷۳۳۱</option>
+                                                </optgroup>
+                                                <optgroup label=" قطر">
+                                                    <option>۰۰۹۷۴</option>
+                                                </optgroup>
+                                                <optgroup label=" کامبوج">
+                                                    <option>۰۰۸۵۵</option>
+                                                </optgroup>
+                                                <optgroup label=" کامرون">
+                                                    <option>۰۰۲۳۷</option>
+                                                </optgroup>
+                                                <optgroup label=" کانادا">
+                                                    <option>۰۰۱</option>
+                                                </optgroup>
+                                                <optgroup label=" کره جنوبی">
+                                                    <option>۰۰۸۲</option>
+                                                </optgroup>
+                                                <optgroup label=" کره شمالی">
+                                                    <option>۰۰۸۵۰</option>
+                                                </optgroup>
+                                                <optgroup label=" کرواسی">
+                                                    <option>۰۰۳۸۵</option>
+                                                </optgroup>
+                                                <optgroup label=" کاستاریکا">
+                                                    <option>۰۰۵۰۶</option>
+                                                </optgroup>
+                                                <optgroup label=" کلمبیا">
+                                                    <option>۰۰۵۷</option>
+                                                </optgroup>
+                                                <optgroup label=" کنگو ">
+                                                    <option>۰۰۲۴۲</option>
+                                                </optgroup>
+                                                <optgroup label=" کنیا">
+                                                    <option>۰۰۲۵۴</option>
+                                                </optgroup>
+                                                <optgroup label=" کوبا">
+                                                    <option>۰۰۵۳</option>
+                                                </optgroup>
+                                                <optgroup label=" کومور">
+                                                    <option>۰۰۲۶۹</option>
+                                                </optgroup>
+                                                <optgroup label=" کویت">
+                                                    <option>۰۰۹۶۵</option>
+                                                </optgroup>
+                                                <optgroup label=" گابن">
+                                                    <option>۰۰۲۴۱</option>
+                                                </optgroup>
+                                                <optgroup label=" گامبیا">
+                                                    <option>۰۰۲۲۰</option>
+                                                </optgroup>
+                                                <optgroup label=" گرجستان ">
+                                                    <option>۰۰۹۵۵</option>
+                                                </optgroup>
+                                                <optgroup label=" گرنادا">
+                                                    <option>۰۰۱۴۷۳</option>
+                                                </optgroup>
+                                                <optgroup label=" گواتمالا ">
+                                                    <option>۰۰۵۰۲</option>
+                                                </optgroup>
+                                                <optgroup label=" گوام ">
+                                                    <option>۰۰۶۷۱</option>
+                                                </optgroup>
+                                                <optgroup label=" گینه">
+                                                    <option>۰۰۲۲۴</option>
+                                                </optgroup>
+                                                <optgroup label=" گینه استوایی">
+                                                    <option>۰۰۲۴۰</option>
+                                                </optgroup>
+                                                <optgroup label=" گینه بیسائو">
+                                                    <option>۰۰۲۴۵</option>
+                                                </optgroup>
+                                                <optgroup label=" لائوس">
+                                                    <option>۰۰۸۵۶</option>
+                                                </optgroup>
+                                                <optgroup label=" لبنان">
+                                                    <option>۰۰۹۶۱</option>
+                                                </optgroup>
+                                                <optgroup label=" لسوتو">
+                                                    <option>۰۰۲۶۶</option>
+                                                </optgroup>
+                                                <optgroup label=" لهستان">
+                                                    <option>۰۰۴۸</option>
+                                                </optgroup>
+                                                <optgroup label=" لوکزامبورگ">
+                                                    <option>۰۰۳۵۲</option>
+                                                </optgroup>
+                                                <optgroup label=" لیبری">
+                                                    <option>۰۰۲۳۱</option>
+                                                </optgroup>
+                                                <optgroup label=" لیبی ">
+                                                    <option>۰۰۲۱۸</option>
+                                                </optgroup>
+                                                <optgroup label=" مالاوی">
+                                                    <option>۰۰۲۶۵</option>
+                                                </optgroup>
+                                                <optgroup label=" مالت ">
+                                                    <option>۰۰۳۵۶</option>
+                                                </optgroup>
+                                                <optgroup label=" مالدیو">
+                                                    <option>۰۰۹۶۰</option>
+                                                </optgroup>
+                                                <optgroup label=" مالزی">
+                                                    <option>۰۰۶۰</option>
+                                                </optgroup>
+                                                <optgroup label=" مالی">
+                                                    <option>۰۰۲۳۳</option>
+                                                </optgroup>
+                                                <optgroup label=" مجارستان">
+                                                    <option>۰۰۳۶</option>
+                                                </optgroup>
+                                                <optgroup label=" مراکش ">
+                                                    <option>۰۰۲۱۲</option>
+                                                </optgroup>
+                                                <optgroup label=" مصر">
+                                                    <option>۰۰۲۰</option>
+                                                </optgroup>
+                                                <optgroup label=" مغولستان">
+                                                    <option>۰۰۹۷۶</option>
+                                                </optgroup>
+                                                <optgroup label=" مقدونیه">
+                                                    <option>۰۰۳۸۹</option>
+                                                </optgroup>
+                                                <optgroup label=" موریتانی">
+                                                    <option>۰۰۲۲۲</option>
+                                                </optgroup>
+                                                <optgroup label=" موریس ">
+                                                    <option>۰۰۲۳۰</option>
+                                                </optgroup>
+                                                <optgroup label=" موزامبیک">
+                                                    <option>۰۰۲۵۸</option>
+                                                </optgroup>
+                                                <optgroup label=" میانمار">
+                                                    <option>۰۰۹۵</option>
+                                                </optgroup>
+                                                <optgroup label=" مکزیک ">
+                                                    <option>۰۰۵۲</option>
+                                                </optgroup>
+                                                <optgroup label=" نائورا">
+                                                    <option>۰۰۶۷۴</option>
+                                                </optgroup>
+                                                <optgroup label=" نامیبیا">
+                                                    <option>۰۰۲۶۴</option>
+                                                </optgroup>
+                                                <optgroup label=" نپال">
+                                                    <option>۰۰۹۷۷</option>
+                                                </optgroup>
+                                                <optgroup label=" نروژ">
+                                                    <option>۰۰۴۷</option>
+                                                </optgroup>
+                                                <optgroup label=" نگاراپرونئی دارالسلام">
+                                                    <option>۰۰۲۶۷</option>
+                                                </optgroup>
+                                                <optgroup label=" نیجر">
+                                                    <option>۰۰۲۲۷</option>
+                                                </optgroup>
+                                                <optgroup label=" نیکاراگوئه ">
+                                                    <option>۰۰۵۰۵</option>
+                                                </optgroup>
+                                                <optgroup label=" هائیتی ">
+                                                    <option>۰۰۵۰۹</option>
+                                                </optgroup>
+                                                <optgroup label=" هلند ">
+                                                    <option>۰۰۳۱</option>
+                                                </optgroup>
+                                                <optgroup label=" هند ">
+                                                    <option>۰۰۹۱</option>
+                                                </optgroup>
+                                                <optgroup label=" هندوراس ">
+                                                    <option>۰۰۵۰۴</option>
+                                                </optgroup>
+                                                <optgroup label=" هنگ کنگ">
+                                                    <option>۰۰۷۵۲</option>
+                                                </optgroup>
+                                                <optgroup label=" واتیکان">
+                                                    <option>۰۰۳۹</option>
+                                                </optgroup>
+                                                <optgroup label=" ونزوئلا ">
+                                                    <option>۰۰۵۸</option>
+                                                </optgroup>
+                                                <optgroup label=" ویتنام">
+                                                    <option>۰۰۸۴</option>
+                                                </optgroup>
+                                                <optgroup label=" یمن جنوبی">
+                                                    <option>۰۰۹۶۹</option>
+                                                </optgroup>
+                                                <optgroup label=" یمن شمالی">
+                                                    <option>۰۰۹۶۷</option>
+                                                </optgroup>
+                                                <optgroup label=" یوگوسلاوی ">
+                                                    <option>۰۰۳۸۱</option>
+                                                </optgroup>
+                                                <optgroup label=" یونان">
+                                                    <option>۰۰۳۰</option>
+                                                </optgroup>
+
+                                            </select>
+                                        </div>
+                                        <p class="text-danger">... را درست وارد کنید</p>
+                                    </div>
+                                </div>
                                 <div class="row my-2">
                                     <div class="col-6">
                                         <input type="password" class="form-control font-weight-lighter font-13 a mb-2"
@@ -932,7 +1450,7 @@
                         </div>
                         <form id="confrim">
                             <div class="modal-body pb-0">
-                                <p class="text-muted pt-2" style="font-size: 14px">حساب کاربری شما ساخته شد. لطفا کدی که
+                                <p class="text-muted pt-2 font14">حساب کاربری شما ساخته شد. لطفا کدی که
                                     برای
                                     شما پیامک شده است را وارد کنید و وارد
                                     حساب
@@ -943,18 +1461,17 @@
                                 <div class="d-flex justify-content-between ">
                                     <button type="submit"
                                             class="form-control btn my-2 text-white rounded-0 text-center font border-0  a"
-                                            style="background-color: #0099ff;width: 49%;height: 45px!important;border-radius: 5px!important;">
+                                            id="send-conf">
                                         ارسال مجدد
                                     </button>
                                     <button type="submit"
                                             class="form-control btn my-2 text-white rounded-0 text-center font border-0  a"
-                                            style="background-color: #2f3640;width: 49%;height: 45px!important;border-radius: 5px!important;">
+                                            id="change-num">
                                         تغییر شماره
                                     </button>
                                 </div>
-                                <button type="submit"
-                                        class="form-control btn my-2 col-12 text-white rounded-0 text-center font border-0 a mb-3"
-                                        style="background-color: #33cc33;height: 50px;border-radius: 5px!important;">
+                                <button type="submit" id="acount-conf"
+                                        class="form-control btn my-2 col-12 text-white rounded-0 text-center font border-0 a mb-3">
                                     تایید حساب کاربری
                                 </button>
                             </div>
@@ -989,12 +1506,12 @@
                             نیز
                             کیفیت ترجمه ها را تضمین خواهد کرد</p>
                         <div class="d-flex justify-content-center">
-                            <button type="btn" class="btn btn-header-right btn-en ml-1 rounded">
-                                <i class="fa fa-sort-alpha-down-alt ml-2"></i>
+                            <button type="btn" class="btn btn-header-right btn-en mx-1 rounded text-nowrap">
+                                <i class="fa fa-sort-alpha-down-alt mx-2"></i>
                                 ثبت سفارش
                             </button>
-                            <button type="btn" class="btn btn-header-left btn-en rounded">
-                                <i class="fa fa-exchange-alt ml-2"></i>
+                            <button type="btn" class="btn btn-header-left btn-en mx-1 rounded text-nowrap">
+                                <i class="fa fa-exchange-alt mx-2"></i>
                                 اطلاعات بیشتر
                             </button>
                         </div>
@@ -1013,33 +1530,30 @@
                                 </h5>
                                 <!--start form header box-->
                                 <div class="d-flex justify-content-center mt-2">
-                                    <select id="category" class="form-control custom-form px-0 px-sm-2">
-                                        @foreach($categories as $category)
-                                            @if($category->id!=2)
-                                                <option value="{{$category->id}}">{{$category->name}}</option>
-                                            @endif
-                                        @endforeach
+                                    <select class="form-control custom-form px-0 px-sm-2">
+                                        <option>ترجمه</option>
+                                        <option>تولید محتوا</option>
+                                        <option>تایپ متن</option>
                                     </select>
                                 </div>
                                 <div class="d-flex justify-content-around mt-2">
-                                    <select id="lang" class="form-control custom-form2 px-0 px-sm-2">
-                                        @foreach($languages as $language)
-                                            <option value="{{$language->id}}">{{$language->title}}</option>
-                                        @endforeach
+                                    <select class="form-control custom-form2 px-0 px-sm-2">
+                                        <option>انگلیسی به عربی</option>
+                                        <option>عربی به انگلیسی</option>
                                     </select>
-                                    <select id="type" class="form-control custom-form2 px-0 px-sm-2">
-                                        @foreach($types as $type)
-                                            <option value="{{$type->id}}">{{$type->title}}</option>
-                                        @endforeach
+                                    <select class="form-control custom-form2 px-0 px-sm-2">
+                                        <option>متون</option>
+                                        <option>تولید محتوا</option>
+                                        <option>تایپ متن</option>
                                     </select>
                                 </div>
                                 <div class="d-flex justify-content-around mt-2 ">
                                     <div class=" form-control custom-form2 px-1 px-sm-2 d-flex">
-                                        <span id="count" class=" text-muted my-auto text-nowrap span1">چند کلمه؟</span>
-                                        <input class="count px-0 a span3" value="1" type="text">
-                                        <span id="word" class="text-muted my-auto mx-auto span2" style=""> کلمه</span>
+                                        <span class=" text-muted my-auto text-nowrap span1">چند کلمه؟</span>
+                                        <input class="px-0 a span3" value="1" type="text">
+                                        <span class="text-muted my-auto mx-auto span2" style=""> کلمه</span>
                                     </div>
-                                    <button id="reg" class=" btn  btn-custom-form custom-form2 px-0">
+                                    <button class=" btn  btn-custom-form custom-form2 px-0">
                                         <label class="custom-checkbox my-auto mx-1">محاسبه قیمت</label>
                                         <i class="far fa-check-square my-auto mx-1"></i>
                                     </button>
@@ -1048,14 +1562,13 @@
 
                                 <!--start footer box-->
                                 <div class="my-4">
-                                    @foreach($prices as $price)
-                                    <div class="{{$price->level->en_name}} d-flex justify-content-around footer-box">
+                                    <div class="d-flex justify-content-around footer-box">
                                         <div class="mt-3 d-flex justify-content-start div1">
-                                            <div class="far {{$price->level->image}} font20 text-right blue pt-2 pl-2 pr-2 div2">
+                                            <div class="far fa-smile font20 text-right blue pt-2 pl-2 pr-2 div2">
                                             </div>
                                             <div>
                                                 <ul class="list-unstyled p-0">
-                                                    <li  id="{{$price->level->en_name}}" class="blue text-nowrap">{{$categories[0]->name.' '.$price->level->name}}</li>
+                                                    <li class="blue text-nowrap">ترجمه معمولی</li>
                                                     <li>
                                                         <div class="rate">
                                                             <i class="fas fa-star str-Gray"></i>
@@ -1069,34 +1582,89 @@
                                             </div>
                                         </div>
                                         <div class="mt-3 icon-box">
-                                            <i class="text-success fa fa-long-arrow-alt-left mt-3 align-items-center"
-                                               id="flesh-fa1"></i>
-                                            <i class="text-success fa fa-long-arrow-alt-right mt-3 align-items-center"
-                                               id="flesh-en1" style="display: none; "></i>
+                                            <i class="text-success fa fa-long-arrow-alt-left mt-3 align-items-center ar"></i>
+                                            <i class="text-success fa fa-long-arrow-alt-right mt-3 align-items-center en"></i>
                                         </div>
                                         <div class="mt-3 text-2 ">
                                             <p>
-                                         <span id="{{$price->level->en_name.'_main'}}" >
-                                        از
-                                        <span id="{{$price->level->en_name.'min'}}" class="text-success">{{$price->value_min}}</span>
-                                        تومان تا
-                                        <span id="{{$price->level->en_name.'max'}}"class="text-success">{{$price->value_max}}</span>
-                                        تومان
-                                         </span>
-                                                <br>
-                                                <span id="{{$price->level->en_name.'_dis'}}" style="display: none">
-                                        از
-                                        <span id="{{$price->level->en_name.'_dis_min'}}" class="text-success"></span>
-                                        تومان تا
-                                        <span id="{{$price->level->en_name.'_dis_max'}}"class="text-success"></span>
-                                        تومان
-                                        </span>
+                                                از
+                                                <span class="text-success">14</span>
+                                                تومان تا
+                                                <span class="text-success">19</span>
+                                                تومان
                                             </p>
                                         </div>
                                     </div>
                                     <hr class="line-b">
-                                    @endforeach
-
+                                    <div class="d-flex justify-content-around footer-box">
+                                        <div class="mt-3 d-flex justify-content-start div1">
+                                            <div class="far fa-smile-beam font20 text-right blue pt-2 pl-2 pr-2 div2"
+                                            >
+                                            </div>
+                                            <div>
+                                                <ul class="list-unstyled p-0">
+                                                    <li class="blue">ترجمه خوب</li>
+                                                    <li>
+                                                        <div class="rate">
+                                                            <i class="fas fa-star str-Gray"></i>
+                                                            <i class="fas fa-star str-yellow"></i>
+                                                            <i class="fas fa-star str-yellow"></i>
+                                                            <i class="fas fa-star str-yellow"></i>
+                                                            <i class="fas fa-star str-yellow"></i>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3 icon-box">
+                                            <i class="text-success fa fa-long-arrow-alt-left mt-3 align-items-center ar"></i>
+                                            <i class="text-success fa fa-long-arrow-alt-right mt-3 align-items-center en"></i>
+                                        </div>
+                                        <div class="mt-3 text-2">
+                                            <p>
+                                                از
+                                                <span class="text-success">22</span>
+                                                تومان تا
+                                                <span class="text-success">32</span>
+                                                تومان
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <hr class="line-b">
+                                    <div class="d-flex justify-content-around footer-box">
+                                        <div class="mt-3 d-flex justify-content-start div1">
+                                            <div class="far fa-grin-squint  font20 text-right blue pt-2 pl-2 pr-2 div2"
+                                            >
+                                            </div>
+                                            <div>
+                                                <ul class="list-unstyled p-0">
+                                                    <li class="blue">ترجمه عالی!</li>
+                                                    <li>
+                                                        <div class="rate">
+                                                            <i class="fas fa-star str-yellow"></i>
+                                                            <i class="fas fa-star str-yellow"></i>
+                                                            <i class="fas fa-star str-yellow"></i>
+                                                            <i class="fas fa-star str-yellow"></i>
+                                                            <i class="fas fa-star str-yellow"></i>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3 icon-box">
+                                            <i class="text-success fa fa-long-arrow-alt-left mt-3 align-items-center ar"></i>
+                                            <i class="text-success fa fa-long-arrow-alt-right mt-3 align-items-center en"></i>
+                                        </div>
+                                        <div class="mt-3 text-2">
+                                            <p>
+                                                از
+                                                <span class="text-success">38</span>
+                                                تومان تا
+                                                <span class="text-success">55</span>
+                                                تومان
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!--end footer box-->
                             </div>
@@ -1121,7 +1689,7 @@
                 <div class="col-lg-4 col-xl-4 col-12   text-right w-100 d-flex justify-content-center">
                     <div>
                         <div class="w-100 img-How-box2">
-                            <img class="border-0 img-How-box" src="/home/img/order_submit.svg" style="height: 250px">
+                            <img class="border-0 img-How-box" src="/home/img/order_submit.svg">
                         </div>
                         <div class="w-100 px-2">
                             <h5 class="font text-center ">
@@ -1138,7 +1706,7 @@
                 </div>
                 <div class="col-lg-4 col-xl-4 col-12 text-right w-100 d-flex justify-content-center">
                     <div>
-                        <img class="img-thumbnail border-0 img-How-box" src="/home/img/follow.svg" style="height: 250px">
+                        <img class="img-thumbnail border-0 img-How-box" src="/home/img/follow.svg">
                         <h5 class="font text-center">
                     <span style="border-bottom: 2px solid #ccc;">
                     <span class="blue">2.</span>پیگیری مراحل انجام پروژه
@@ -1152,7 +1720,7 @@
                 </div>
                 <div class="col-lg-4 col-xl-4 col-12   text-right w-100 d-flex justify-content-center">
                     <div>
-                        <img class="img-thumbnail border-0 img-How-box" src="/home/img/fileـdelivery.svg" style="height: 250px">
+                        <img class="img-thumbnail border-0 img-How-box" src="/home/img/fileـdelivery.svg">
                         <h5 class="font text-center">
                     <span style="border-bottom: 2px solid #ccc;">
                     <span class="blue">3.</span>تحویل فایل
@@ -1255,7 +1823,7 @@
                 <div class="col-xl-3 col-12 ">
                     <div class="my-3 text-muted Advertising-text justify-content-center tabligh">
                         <button class="btn d-flex justify-content-center btn-primary text-white px-4 my-4">تبلیغات</button>
-                        <p class="px-4" style="font-size: 13.6px">اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را بشناسند؟
+                        <p class="px-4 font14">اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را بشناسند؟
                             تبلیغات یک راهکار زودبازده و
                             خوب برای افزایش فروش در این لحظه است. به علاوه، تبلیغات درست باعث شناخته شدن برند شما می‌شود و
                             در
@@ -1357,49 +1925,15 @@
 
             <!--start Services-box -->
             <div class="row px-3 px-md-0  Services">
-                <div class="col-12 col-xl-6 col-md-6 Services-box d-lg-flex d-none "
-                     style="margin-top: 100px;margin-bottom: 60px">
-                    <div class="moretxt-tpl-nyn05 context-nyn05 set-nyn05 ">
-                        <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services"
-                                style="width: 150px; height: 50px">
-                            ترجمه
-                        </button>
-                        <p id="collapse_paragraph3" class="collapse my-3 " style="height: 0px;text-align: start">
-                            اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را بشناسند؟ تبلیغات یک راهکار زودبازده و خوب برای
-                            افزایش فروش در این لحظه است. به علاوه، تبلیغات درست باعث شناخته شدن برند شما می‌شود و در آینده
-                            می‌توانید تاثیر مستقیم آن را در فروش احساس کنید.
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                            چاپگرها
-                            و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
-                            و
-                            کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال
-                            و
-                            آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان
-                            رایانه
-                            ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت
-                            که
-                            تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل
-                            حروفچینی
-                            دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                        </p>
-                        <a class="btn-nyn05 moretxt-btn-nyn05 collapsed w-100 text-decoration-none" role="button"
-                           data-toggle="collapse" href="#collapse_paragraph3" aria-expanded="false"
-                           aria-controls="collapse_paragraph3">
-                            <span class="text-muted">متن کامل</span>
-                            <span class="morebtn-nyn05 text-muted">بستن</span>
-                        </a>
-                    </div>
-                </div>
                 <div class="col-12 col-xl-6 mb-auto col-md-6">
-                    <img class=" px-3" src="/home/img/services.svg" style="height: 400px; margin-top: 10px">
+                    <img class=" px-3" src="/home/img/services.svg">
                 </div>
-                <div class="col-12 col-xl-6 col-md-6 Services-box d-lg-none" style="margin-top: 20px; margin-bottom: 40px">
-                    <div class="moretxt-tpl-nyn05 context-nyn05 set-nyn05">
-                        <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services"
-                                style="width: 150px; height: 50px">
+                <div class="col-12 col-xl-6 col-md-6 Services-box d-flex" style="margin-bottom: 60px">
+                    <div class="moretxt-tpl-nyn05 context-nyn05 set-nyn05 ">
+                        <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services">
                             ترجمه
                         </button>
-                        <p id="collapse_paragraph3" class="collapse my-3 " style="height: 0px;text-align: start">
+                        <p id="collapse_paragraph3" class="collapse my-3 ">
                             اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را بشناسند؟ تبلیغات یک راهکار زودبازده و خوب برای
                             افزایش فروش در این لحظه است. به علاوه، تبلیغات درست باعث شناخته شدن برند شما می‌شود و در آینده
                             می‌توانید تاثیر مستقیم آن را در فروش احساس کنید.
@@ -1427,17 +1961,13 @@
                 </div>
             </div>
 
-            <div class="row   Services d-lg-flex d-none">
-                <div class="col-12 col-xl-6 mb-auto col-md-6">
-                    <img class="" src="/home/img/type.svg" style="height: 400px; margin-top: 10px">
-                </div>
-                <div class="col-12 col-xl-6 col-md-6 Services-box " style="margin-top: 100px;margin-bottom: 60px">
+            <div class="row Services d-lg-flex d-none">
+                <div class="col-12 col-xl-6 col-md-6 Services-box d-flex" style="margin-bottom: 60px ">
                     <div class="moretxt-tpl-nyn05 context-nyn05 set-nyn05">
-                        <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services"
-                                style="width: 150px; height: 50px">
+                        <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services">
                             تایپ
                         </button>
-                        <p id="collapse_paragraph1" class="collapse my-3" style="height: 0px;text-align: start">
+                        <p id="collapse_paragraph1" class="collapse my-3">
                             اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را بشناسند؟ تبلیغات یک راهکار زودبازده و خوب برای
                             افزایش فروش در این لحظه است. به علاوه، تبلیغات درست باعث شناخته شدن برند شما می‌شود و در آینده
                             می‌توانید تاثیر مستقیم آن را در فروش احساس کنید.
@@ -1463,19 +1993,21 @@
                         </a>
                     </div>
                 </div>
+                <div class="col-12 col-xl-6 mb-auto col-md-6">
+                    <img class="" src="/home/img/type.svg">
+                </div>
             </div>
 
             <div class="row px-3 px-md-0 Services d-lg-none">
                 <div class="col-12 col-xl-6 mb-auto col-md-6">
-                    <img class="" src="/home/img/type.svg" style="height: 400px; margin-top: 10px">
+                    <img class="" src="/home/img/type.svg">
                 </div>
-                <div class="col-12 col-xl-6 col-md-6 Services-box" style="margin-top: 20px; margin-bottom: 40px">
+                <div class="col-12 col-xl-6 col-md-6 Services-box d-flex mt-5 mt-md-0" style=" margin-bottom: 40px">
                     <div class="moretxt-tpl-nyn05 context-nyn05 set-nyn05">
-                        <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services"
-                                style="width: 150px; height: 50px">
+                        <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services">
                             تایپ
                         </button>
-                        <p id="collapse_paragraph1" class="collapse my-3" style="height: 0px;text-align: start">
+                        <p id="collapse_paragraph1" class="collapse my-3">
                             اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را بشناسند؟ تبلیغات یک راهکار زودبازده و خوب برای
                             افزایش فروش در این لحظه است. به علاوه، تبلیغات درست باعث شناخته شدن برند شما می‌شود و در آینده
                             می‌توانید تاثیر مستقیم آن را در فروش احساس کنید.
@@ -1504,48 +2036,15 @@
             </div>
 
             <div class="row px-3 px-md-0 Services">
-                <div class="col-12 col-xl-6 col-md-6 Services-box d-lg-flex d-none"
-                     style="margin-top: 100px;margin-bottom: 100px">
-                    <div class="moretxt-tpl-nyn05 context-nyn05 set-nyn05">
-                        <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services text-nowrap"
-                                style="width: 150px; height: 50px">
-                            ویرایش و بازخوانی
-                        </button>
-                        <p id="collapse_paragraph2" class="collapse my-3 " style="height: 0px;text-align: start">
-                            اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را بشناسند؟ تبلیغات یک راهکار زودبازده و خوب برای
-                            افزایش فروش در این لحظه است. به علاوه، تبلیغات درست باعث شناخته شدن برند شما می‌شود و در آینده
-                            می‌توانید تاثیر مستقیم آن را در فروش احساس کنید.
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                            چاپگرها
-                            و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
-                            و
-                            کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال
-                            و
-                            آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان
-                            رایانه
-                            ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت
-                            که
-                            تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل
-                            حروفچینی
-                            دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                        </p>
-                        <a class="btn-nyn05 moretxt-btn-nyn05 collapsed w-100 text-decoration-none" role="button"
-                           data-toggle="collapse" href="#collapse_paragraph2">
-                            <span class="text-muted">متن کامل</span>
-                            <span class="morebtn-nyn05 text-muted">بستن</span>
-                        </a>
-                    </div>
-                </div>
                 <div class="col-12 col-xl-6 mb-auto col-md-6">
-                    <img class="" src="/home/img/edit.svg" style="height: 400px; margin-top: 10px">
+                    <img class="" src="/home/img/edit.svg">
                 </div>
-                <div class="col-12 col-xl-6 col-md-6 Services-box d-lg-none" style="margin-top: 20px; margin-bottom: 100px">
+                <div class="col-12 col-xl-6 col-md-6 Services-box d-flex " style="margin-bottom: 100px">
                     <div class="moretxt-tpl-nyn05 context-nyn05 set-nyn05">
-                        <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services text-nowrap"
-                                style="width: 150px; height: 50px">
+                        <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services text-nowrap">
                             ویرایش و بازخوانی
                         </button>
-                        <p id="collapse_paragraph2" class="collapse my-3 " style="height: 0px;text-align: start">
+                        <p id="collapse_paragraph2" class="collapse my-3 ">
                             اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را بشناسند؟ تبلیغات یک راهکار زودبازده و خوب برای
                             افزایش فروش در این لحظه است. به علاوه، تبلیغات درست باعث شناخته شدن برند شما می‌شود و در آینده
                             می‌توانید تاثیر مستقیم آن را در فروش احساس کنید.
@@ -1576,44 +2075,33 @@
 
             <!--start comment-header-->
 
-            <div class="px-3 ">
+            <div class="px-3">
                 <h5 class=" Title-Services d-flex">
                     نظرات، پیشنهادات و انتقادات خود را برای ما ارسال کنید
                 </h5>
-                <div class="emji-comment mt-5 mb-4 d-none d-md-flex justify-content-start">
-                    <i class="fa fa-laugh-beam font35"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <i class="fa fa-laugh font35"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <i class="fa fa-smile-wink font35"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <i class="fa fa-smile-beam font35"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <i class="fa fa-smile font35" style="color: #33cc33"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </div>
             </div>
             <!--end comment-header-->
 
-
             <!--start comment-->
-            <div class="d-flex flex-wrap px-md-4 px-lg-0">
-                <form class="col-xl-6 col-md-6 col-12 col-lg-6 d-none d-md-inline-block mt-1">
-                    <div class="form-group mt-4 mb-5 comment-box">
-                        <div data-emojiarea data-type="unicode" data-global-picker="false">
-                    <textarea class="form-control border-0 text-dark" id="input1" rows="8"
-                              placeholder="متنی با بیش از 50 کاراکتر وارد کنید"> </textarea>
-                        </div>
-                    </div>
-                    <button class="btn border-0 btn-success sub d-flex  text-white text-right" type="submit"
-                            style="height: 40px">
-                        <i class="fa fa-check-square m-auto"></i>
-                        <span class="px-4">ثبت</span>
-                    </button>
-                </form>
-                <div class="col-xl-6 col-md-6 col-12 col-lg-6 my-3 d-block h-100 px-5 px-md-1 ">
-                    <div class="box-comment2 mySlides ">
-                        <img class="ax " src="/home/img/ax.svg" id="ax1">
+            <div class="d-flex flex-wrap ">
+
+                <div class="col-xl-4 col-md-6 col-12 col-lg-5 d-block h-100 mt-4 mt-md-5 pt-3">
+                    <div class="box-comment2 mySlides">
+                        <img class="ax " src="/home/img/ax.svg">
                         <div class="emji-comment d-flex flex-wrap justify-content-end comment">
-                            <img class="em-com" src="/home/img/6.svg" id="em-com1">
+                            <img class="em-com" src="/home/img/6.svg">
                         </div>
-                        <div class="d-flex justify-content-center">
+                        <div class="d-flex justify-content-center ">
                             <p class="box-comment2-text ">
+                                اگر ترجمه دقیق میخواید این سایت
+                                رو پیشنهاد میدم کار رو به موقع و
+                                دقیق تحویل دادن
+                                اگر ترجمه دقیق میخواید این سایت
+                                رو پیشنهاد میدم کار رو به موقع و
+                                دقیق تحویل دادن
+                                اگر ترجمه دقیق میخواید این سایت
+                                رو پیشنهاد میدم کار رو به موقع و
+                                دقیق تحویل دادن
                                 اگر ترجمه دقیق میخواید این سایت
                                 رو پیشنهاد میدم کار رو به موقع و
                                 دقیق تحویل دادن
@@ -1621,9 +2109,9 @@
                         </div>
                     </div>
                     <div class="box-comment2 mySlides ">
-                        <img class="ax" src="/home/img/2.svg" id="ax2">
+                        <img class="ax" src="img/2.svg">
                         <div class="emji-comment d-flex flex-wrap justify-content-end  comment">
-                            <img class="em-com" src="/home/img/6.svg" id="em-com2">
+                            <img class="em-com" src="/home/img/6.svg">
                         </div>
                         <div class="d-flex justify-content-center">
                             <p class="box-comment2-text ">
@@ -1631,10 +2119,10 @@
                             </p>
                         </div>
                     </div>
-                    <div class="box-comment2 mySlides">
-                        <img class="ax" src="/home/img/1.svg" id="ax3">
+                    <div class="box-comment2 mySlides ">
+                        <img class="ax" src="/home/img/1.svg">
                         <div class="emji-comment d-flex flex-wrap justify-content-end comment">
-                            <img class="em-com" src="/home/img/6.svg" id="em-com3">
+                            <img class="em-com" src="/home/img/6.svg">
                         </div>
                         <div class="d-flex justify-content-center">
                             <p class="box-comment2-text ">
@@ -1649,22 +2137,23 @@
                         <img class="nt-1 dot third-dot" src="/home/img/nt.svg" onclick="currentSlide(3)">
                     </div>
                 </div>
-                <div class="emji-comment my-4 d-flex justify-content-sm-start mx-auto d-md-none">
-                    <i class="fa fa-laugh-beam font35 mx-2"></i>
-                    <i class="fa fa-laugh font35 mx-2"></i>
-                    <i class="fa fa-smile-wink font35 mx-2"></i>
-                    <i class="fa fa-smile-beam font35 mx-2"></i>
-                    <i class="fa fa-smile font35 mx-2" style="color: #33cc33"></i>
-                </div>
-                <form class="col-xl-6 col-md-6 col-12 col-lg-6 d-md-none  px-5 px-md-1">
+                <div class="col-xl-2 col-lg-1 d-none d-lg-flex"></div>
+
+                <form class="col-xl-6 col-md-6 col-12 col-lg-6 ">
+                    <div class="emji-comment my-4 d-flex justify-content-sm-start">
+                        <i class="fa fa-laugh-beam font35 mx-2"></i>
+                        <i class="fa fa-laugh font35 mx-2"></i>
+                        <i class="fa fa-smile-wink font35 mx-2"></i>
+                        <i class="fa fa-smile-beam font35 mx-2"></i>
+                        <i class="fa fa-smile font35 mx-2" style="color: #33cc33"></i>
+                    </div>
                     <div class="form-group my-4 comment-box mx-0">
                         <div data-emojiarea data-type="unicode" data-global-picker="false">
                     <textarea class="form-control border-0 text-dark" id="input1" rows="8"
                               placeholder="متنی با بیش از 50 کاراکتر وارد کنید"> </textarea>
                         </div>
                     </div>
-                    <button class="btn border-0 btn-success sub d-flex mx-0 text-white" type="submit"
-                            style="height: 40px">
+                    <button class="btn border-0 btn-success sub d-flex mx-0 text-white">
                         <i class="fa fa-check-square m-auto"></i>
                         <span class="px-4">ثبت</span>
                     </button>
@@ -1755,11 +2244,9 @@
                 <form class="col-lg-6 col-sm-8 col-10">
                     <div class="input-group custom-input-group py-3" id="email">
                         <input id="email2" type="email" class="p-3 text-muted form-control footer-input "
-                               style="border-radius: 0px!important;"
                                placeholder="ایمیل خود را وارد کنید...">
-                        <div class="input-group-append " id="submit">
-                            <button type="submit" class="btn  bg-green px-lg-5 p-lg-3 text-white"
-                                    style="border-radius: 0px!important;height: 59px">عضوم کن!
+                        <div class="input-group-append " id="submit-em">
+                            <button type="submit" class="btn  bg-green px-lg-5 p-lg-3 text-white">عضوم کن!
                             </button>
                         </div>
                     </div>
@@ -1845,16 +2332,14 @@
         var register = document.getElementById("register");
         var prof_menu = document.getElementById("profile_menu");
         var register_menu = document.getElementById("register_menu");
+        var bel_menu = document.getElementById("bel-menu");
 
         function show_profile() {
             register.style.display = "none";
             prof.style.display = "flex";
             register_menu.style.display = "none";
             prof_menu.style.display = "flex";
-        }
-
-        function show_que_num() {
-            document.getElementById("span-word").style.borderColor = "lightblue";
+            bel_menu.style.display = "inline-block";
         }
 
         $(function () {
@@ -1884,10 +2369,19 @@
             /*  document.getElementById("big-div").style.backgroundColor = "rgba(256, 256, 256,1)";*/
         }
 
-        document.getElementById(".fa1").style.color = "#33cc33";
-        document.getElementById("fa.1").style.color = "#33cc33";
-        document.getElementById("fa..1").style.color = "#33cc33";
+        $('#online-chat').hide();
 
+        function open_online_chat() {
+            /*$('#back-to-top').fadeOut();*/
+            $('#online-chat').show("slow");
+            /* document.getElementById("big-div").style.backgroundColor = "rgba(0, 0, 0,0.3)";*/
+        }
+
+        function close_online_chat() {
+            $('#online-chat').hide("slow");
+            /*  $('#back-to-top').fadeIn();*/
+            /*  document.getElementById("big-div").style.backgroundColor = "rgba(256, 256, 256,1)";*/
+        }
 
         /*  start slider comment  */
         var slideIndex = 1;
@@ -1938,127 +2432,12 @@
             document.getElementById("mySidenav").style.width = "0";
         });
 
-
-        /*let text11 = document.querySelector('.text-menu11');
-        let text12 = document.querySelector('.text-menu12');
-        let text13 = document.querySelector('.text-menu13');
-        let text14 = document.querySelector('.text-menu14');
-        let text15 = document.querySelector('.text-menu15');
-        let text16 = document.querySelector('.text-menu16');
-        text16.addEventListener('click', function () {
-            $('#menu11').collapse('hide');
-            $('#menu12').collapse('hide');
-            $('#menu13').collapse('hide');
-            $('#menu14').collapse('hide');
-            $('#menu15').collapse('hide');
-        })
-        text15.addEventListener('click', function () {
-            $('#menu11').collapse('hide');
-            $('#menu12').collapse('hide');
-            $('#menu13').collapse('hide');
-            $('#menu14').collapse('hide');
-            $('#menu16').collapse('hide');
-        })
-        text12.addEventListener('click', function () {
-            $('#menu11').collapse('hide');
-            $('#menu16').collapse('hide');
-            $('#menu13').collapse('hide');
-            $('#menu14').collapse('hide');
-            $('#menu15').collapse('hide');
-        })
-        text14.addEventListener('click', function () {
-            $('#menu11').collapse('hide');
-            $('#menu12').collapse('hide');
-            $('#menu13').collapse('hide');
-            $('#menu16').collapse('hide');
-            $('#menu15').collapse('hide');
-        })
-        text11.addEventListener('click', function () {
-            $('#menu16').collapse('hide');
-            $('#menu12').collapse('hide');
-            $('#menu13').collapse('hide');
-            $('#menu14').collapse('hide');
-            $('#menu15').collapse('hide');
-        })
-        text13.addEventListener('click', function () {
-            $('#menu11').collapse('hide');
-            $('#menu12').collapse('hide');
-            $('#menu16').collapse('hide');
-            $('#menu14').collapse('hide');
-            $('#menu15').collapse('hide');
-        })*/
         EmojiArea.DEFAULTS.assetPath = './assets/images';
 
         function englishstyle() {
-            $('#enlink').attr('href', 'css/styleen.css');
-            $('body').addClass('dir-ltr');
             $('#email2').addClass('emailfooter');
             $('#submit').addClass('input-email-append');
             $('#submit').removeClass('input-group-append');
-            $('.comment').addClass('justify-content-start');
-            $('.comment').removeClass('justify-content-end');
-            $('#not').addClass('notifiction_en');
-            $('#not').removeClass('notifiction');
-            $('#menu-en1').addClass('menu-left');
-            $('#menu-en2').addClass('menu-left');
-            $('#menu-en3').addClass('menu-left');
-            $('#logo').removeClass('mx-0');
-            $('#logo').addClass('mr-5');
-            document.getElementById("en").style.display = "inline-block";
-            document.getElementById("fa").style.display = "none";
-            document.getElementById("en.").style.display = "inline-block";
-            document.getElementById("fa.").style.display = "none";
-            document.getElementById("en..").style.display = "inline-block";
-            document.getElementById("fa..").style.display = "none";
-
-            document.getElementById(".en1").style.color = "#33cc33";
-            document.getElementById(".fa1").style.color = "#000000";
-            document.getElementById("en.1").style.color = "#33cc33";
-            document.getElementById("fa.1").style.color = "#000000";
-            document.getElementById("en..1").style.color = "#33cc33";
-            document.getElementById("fa..1").style.color = "#000000";
-
-            document.getElementById("en1").style.display = "inline-block";
-            document.getElementById("fa1").style.display = "none";
-            document.getElementById("en2").style.display = "inline-block";
-            document.getElementById("fa2").style.display = "none";
-            document.getElementById("en3").style.display = "inline-block";
-            document.getElementById("fa3").style.display = "none";
-
-            $('#menu-en-fa').addClass('en-menu');
-            $('#menu-en-fa').removeClass('fa-menu');
-            $('#menu-en-fa1').addClass('en-menu');
-            $('#menu-en-fa1').removeClass('fa-menu');
-            $('#menu-en-fa2').addClass('en-menu');
-            $('#menu-en-fa2').removeClass('fa-menu');
-            $('#profile').removeClass('dropdown-profile');
-            $('#profile').addClass('dropdown-profile-en');
-            $('#dot-en').addClass('dot-wrapper-en');
-            $('#dot-en').removeClass('dot-wrapper');
-            $('#ax1').addClass('ax-en');
-            $('#ax2').addClass('ax-en');
-            $('#ax3').addClass('ax-en');
-            $('#ax1').removeClass('ax');
-            $('#ax2').removeClass('ax');
-            $('#ax3').removeClass('ax');
-            $('#em-com1').addClass('em-com-en');
-            $('#em-com2').addClass('em-com-en');
-            $('#em-com3').addClass('em-com-en');
-            $('#em-com1').removeClass('em-com');
-            $('#em-com2').removeClass('em-com');
-            $('#em-com3').removeClass('em-com');
-            document.getElementById('flesh-fa1').style.display = "none";
-            document.getElementById('flesh-en1').style.display = "inline-block";
-            document.getElementById('flesh-fa2').style.display = "none";
-            document.getElementById('flesh-en2').style.display = "inline-block";
-            document.getElementById('flesh-fa3').style.display = "none";
-            document.getElementById('flesh-en3').style.display = "inline-block";
-            $('#sign-out').removeClass('fa fa-arrow-alt-circle-right');
-            $('#sign-out').addClass('fa fa-arrow-alt-circle-left');
-            $('#sign-out1').removeClass('fa fa-arrow-alt-circle-right');
-            $('#sign-out1').addClass('fa fa-arrow-alt-circle-left');
-            $('#modal-chat').removeClass('modal-chat');
-            $('#modal-chat').addClass('modal-chat-en');
             document.getElementById("en-ar").innerHTML = "En";
             document.getElementById("en-ar1").innerHTML = "En";
             document.getElementById("en-ar2").innerHTML = "En";
@@ -2066,74 +2445,9 @@
 
 
         function persianstyle() {
-            $('#enlink').attr('href', '');
-            $('body').removeClass('dir-ltr');
             $('#email2').removeClass('emailfooter');
             $('#submit').removeClass('input-email-append');
             $('#submit').addClass('input-group-append');
-            $('.comment').addClass('justify-content-end');
-            $('.comment').removeClass('justify-content-start');
-            $('#not').addClass('notifiction');
-            $('#not').removeClass('notifiction_en');
-            $('#menu-en1').removeClass('menu-left');
-            $('#menu-en2').removeClass('menu-left');
-            $('#menu-en3').removeClass('menu-left');
-            $('#logo').removeClass('mr-5');
-            $('#logo').addClass('mx-0');
-            document.getElementById("en").style.display = "none";
-            document.getElementById("fa").style.display = "inline-block";
-            document.getElementById("en.").style.display = "none";
-            document.getElementById("fa.").style.display = "inline-block";
-            document.getElementById("en..").style.display = "none";
-            document.getElementById("fa..").style.display = "inline-block";
-
-            document.getElementById(".en1").style.color = "#000000";
-            document.getElementById(".fa1").style.color = "#33cc33";
-            document.getElementById("en.1").style.color = "#000000";
-            document.getElementById("fa.1").style.color = "#33cc33";
-            document.getElementById("en..1").style.color = "#000000";
-            document.getElementById("fa..1").style.color = "#33cc33";
-
-            document.getElementById("en1").style.display = "none";
-            document.getElementById("fa1").style.display = "inline-block";
-            document.getElementById("en2").style.display = "none";
-            document.getElementById("fa2").style.display = "inline-block";
-            document.getElementById("en3").style.display = "none";
-            document.getElementById("fa3").style.display = "inline-block";
-            $('#menu-en-fa').addClass('fa-menu');
-            $('#menu-en-fa').removeClass('en-menu');
-            $('#menu-en-fa1').addClass('fa-menu');
-            $('#menu-en-fa1').removeClass('en-menu');
-            $('#menu-en-fa2').addClass('fa-menu');
-            $('#menu-en-fa2').removeClass('en-menu');
-            $('#profile').removeClass('dropdown-profile-en');
-            $('#profile').addClass('dropdown-profile');
-            $('#dot-en').addClass('dot-wrapper');
-            $('#dot-en').removeClass('dot-wrapper-en');
-            $('#ax1').addClass('ax');
-            $('#ax2').addClass('ax');
-            $('#ax3').addClass('ax');
-            $('#ax1').removeClass('ax-en');
-            $('#ax2').removeClass('ax-en');
-            $('#ax3').removeClass('ax-en');
-            $('#em-com1').addClass('em-com');
-            $('#em-com2').addClass('em-com');
-            $('#em-com3').addClass('em-com');
-            $('#em-com1').removeClass('em-com-en');
-            $('#em-com2').removeClass('em-com-en');
-            $('#em-com3').removeClass('em-com-en');
-            document.getElementById('flesh-en1').style.display = "none";
-            document.getElementById('flesh-fa1').style.display = "inline-block";
-            document.getElementById('flesh-en2').style.display = "none";
-            document.getElementById('flesh-fa2').style.display = "inline-block";
-            document.getElementById('flesh-en3').style.display = "none";
-            document.getElementById('flesh-fa3').style.display = "inline-block";
-            $('#sign-out').removeClass('fa fa-arrow-alt-circle-left');
-            $('#sign-out').addClass('fa fa-arrow-alt-circle-right');
-            $('#sign-out1').removeClass('fa fa-arrow-alt-circle-left');
-            $('#sign-out1').addClass('fa fa-arrow-alt-circle-right');
-            $('#modal-chat').removeClass('modal-chat-en');
-            $('#modal-chat').addClass('modal-chat');
             document.getElementById("en-ar2").innerHTML = "Ar";
             document.getElementById("en-ar").innerHTML = "Ar";
             document.getElementById("en-ar1").innerHTML = "Ar";
@@ -2195,138 +2509,5 @@
 
     </script>
 
-    <script>
-        $("#reg").click(function () {
-
-            var category=$("#category").val();
-            var lang=$("#lang").val();
-            var type=$("#type").val();
-            var count=$(".count").val();
-//console.log(type,lang,category);
-
-            $.ajax({
-                url:"/estimation/price",
-                type:"GET",
-                data:{'category_id':category,'language_id':lang, 'type_id':type ,'count':count},
-                success:function (result) {
-                    console.log(result);
-
-                    if(result[0]['normal']!=null){
-                        $('#normal').html(result[0]['normal']);
-                        $('#normalmin').html(result[0]['normalmin']);
-                        $('#normalmax').html(result[0]['normalmax']);
-
-                        if (result[0]['normal_dis_min']!=0){
-                            $('#normal_dis_min').html(result[0]['normal_dis_min']);
-                            $('#normal_dis_max').html(result[0]['normal_dis_max']);
-                            $('#normal_dis').css('display','block');
-                            $('#normal_main').css('text-decoration','line-through');
-
-                        }
-                        else{
-                            $('#normal_dis').css('display','none');
-                            $('#normal_main').css('text-decoration','none');
-                        }
-
-
-
-                        $('.normal').each(function () {
-                            this.style.setProperty( 'display', 'block' );
-                        });
-                        // console.log(result[0]['good']);
-                    }else {
-                        $('.normal').each(function () {
-                            this.style.setProperty( 'display','none', 'important' );
-                        });
-
-                    }
-                    if(result[0]['good']!=null){
-                        $('#good').html(result[0]['good']);
-                        $('#goodmin').html(result[0]['goodmin']);
-                        $('#goodmax').html(result[0]['goodmax']);
-                        if (result[0]['good_dis_min']!=0) {
-                            $('#good_dis_min').html(result[0]['good_dis_min']);
-                            $('#good_dis_max').html(result[0]['good_dis_max']);
-                            $('#good_dis').css('display','block');
-                            $('#good_main').css('text-decoration','line-through');
-
-
-                        }
-                        else{
-                            $('#good_dis').css('display','none');
-                            $('#good_main').css('text-decoration','none');
-                        }
-                        $('.good').each(function () {
-                            this.style.setProperty( 'display', 'block' );
-                        });
-                        // console.log(result[0]['good']);
-                    }else {
-                        $('.good').each(function () {
-                            this.style.setProperty( 'display','none', 'important' );
-                        });
-
-                    }
-
-
-                    $('#excellent').html(result[0]['excellent']);
-                    $('#excellentmin').html(result[0]['excellentmin']);
-                    $('#excellentmax').html(result[0]['excellentmax']);
-                    if (result[0]['excellent_dis_min']!=0) {
-                        $('#excellent_dis_min').html(result[0]['excellent_dis_min']);
-                        $('#excellent_dis_max').html(result[0]['excellent_dis_max']);
-                        $('#excellent_dis').css('display','block');
-                        $('#excellent_main').css('text-decoration','line-through');
-                    }
-                    else{
-                        $('#excellent_dis').css('display','none');
-                        $('#excellent_main').css('text-decoration','none');
-                    }
-
-                }
-            });
-
-        });
-
-
-    </script>
-    <script>
-        $("select#category").change(function () {
-
-            var cat_id = $(this).children("option:selected").val();
-
-
-
-            $.ajax({
-                url:"/estimation/category",
-                type:"GET",
-                data:{'category_id':cat_id },
-                success:function (result_search) {
-                    // console.log(result_search);
-                    $('#lang').html(result_search['result_search']);
-                }
-            });
-
-        });
-    </script>
-    <script>
-        $("select#type").change(function () {
-
-            var type_id = $(this).children("option:selected").val();
-
-            if(type_id==1){
-
-                $('#count').html("چند کلمه") ;
-                $('#word').html("کلمه") ;
-
-            }else {
-
-                $('#count').html("چند دقیقه؟") ;
-                $('#word').html(" دقیقه") ;
-
-
-            }
-
-        });
-    </script>
 
 @stop
