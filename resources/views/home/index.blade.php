@@ -102,21 +102,22 @@
                         <span class=" d-sm-header d-lg-none mx-auto">
                          <div class="dropdown dropdown1 d-flex align-items-center">
                                <div class="lin-en d-flex justify-content-center">
+                                   @php $locale = session()->get('locale'); @endphp
                                    <p class="a-language rounded-circle px-1 text-center" data-toggle="dropdown"
-                                      id="en-ar">Ar</p>
+                                      id="en-ar">{{$locale==='ar'? 'Ar':'En'}}</p>
                                </div>
                                <ul class="dropdown-menu dropdown-menu-nav1 menu-en text-center fa-menu">
                                    <div class="dropdown-item  dropdown-item-menu n-def cursor-pointer en-color"
                                         onclick="englishstyle()">
-                                       <span>
+                                       <a href="lang/en">
                                            English
-                                       </span>
+                                       </a>
                                        <span class="en font50">.</span>
                                    </div>
                                    <div class="dropdown-item dropdown-item-menu def cursor-pointer ar-color"
                                         onclick="persianstyle()">
                                        <span class="ar font50">.</span>
-                                       <span>العربیه</span>
+                                       <a href="lang/ar">العربیه</a>
                                    </div>
                                </ul>
                          </div>
@@ -159,20 +160,20 @@
                     <span class="col-2 d-lg-none mx-auto">
             <div class="dropdown dropdown1 d-flex pt-4">
                 <div class="lin-en d-flex justify-content-center">
-                    <p class="a-language rounded-circle px-1 text-center" data-toggle="dropdown" id="en-ar1">Ar</p>
+                    <p class="a-language rounded-circle px-1 text-center" data-toggle="dropdown" id="en-ar1">{{$locale==='ar'? 'Ar':'En'}}</p>
                 </div>
                 <ul class="dropdown-menu dropdown-menu-nav1 menu-en text-center fa-menu">
                     <div class="dropdown-item  dropdown-item-menu n-def cursor-pointer en-color"
                          onclick="englishstyle()">
-                                <span>
+                                <a href="lang/en">
                                 English
-                            </span>
+                            </a>
                         <span class="en font50">.</span>
                     </div>
                     <div class="dropdown-item dropdown-item-menu def cursor-pointer ar-color"
                          onclick="persianstyle()">
                         <span class="ar font50">.</span>
-                        <span>العربیه</span>
+                        <a href="lang/ar">العربیه</a>
                     </div>
                 </ul>
             </div>
@@ -707,18 +708,18 @@
                                         <div class="lin-en d-flex justify-content-center">
                                             <p class="a-language rounded-circle px-1 text-center" data-toggle="dropdown"
                                                id="en-ar2">
-                                                Ar</p>
+                                                {{$locale=='ar'? 'Ar':'En'}}</p>
                                         </div>
                                         <ul class="dropdown-menu dropdown-menu-nav1 menu-en text-center fa-menu">
                                             <div class="dropdown-item  dropdown-item-menu n-def cursor-pointer en-color "
                                                  onclick="englishstyle()">
-                                                <span>English</span>
+                                                <a href="lang/en">English</a>
                                                 <span class="en font50">.</span>
                                             </div>
                                             <div class="dropdown-item dropdown-item-menu def cursor-pointer ar-color "
                                                  onclick="persianstyle()">
                                                 <span class="ar font50">.</span>
-                                                <span>العربیه</span>
+                                                <a href="lang/ar">العربیه</a>
                                             </div>
                                         </ul>
                                     </div>
@@ -1525,15 +1526,22 @@
                             <div class="col-12 box-Estimation">
 
                                 <h5 class="text-center my-4 font">
-                                    <span>تخمین</span>
-                                    هزینه پروژه
+                                    @switch($locale)
+                                        @case('ar')
+                                    <span> {{trans('sentence.estimate') }}</span>
+                                    {{trans('sentence.cost')}}
+                                        @break
+                                        @default
+                                         {{trans('sentence.cost') }}
+                                        <span>{{trans('sentence.estimate')}}</span>
+                                    @endswitch
                                 </h5>
                                 <!--start form header box-->
                                 <div class="d-flex justify-content-center mt-2">
                                     <select id="category" class="form-control custom-form px-0 px-sm-2">
                                         @foreach($categories as $category)
                                             @if($category->id!=2 && $category->parent_id == 0 )
-                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                                <option value="{{$category->id}}">{{$locale=='ar'? $category->name:$category->en_name }}</option>
                                             @endif
                                         @endforeach
                                     </select>
@@ -1541,23 +1549,23 @@
                                 <div class="d-flex justify-content-around mt-2">
                                     <select id="lang" class="form-control custom-form2 px-0 px-sm-2">
                                         @foreach($languages as $language)
-                                            <option value="{{$language->id}}">{{$language->title}}</option>
+                                            <option value="{{$language->id}}">{{$locale=='ar'? $language->title:$language->en_title }}</option>
                                         @endforeach
                                     </select>
                                     <select id="type" class="form-control custom-form2 px-0 px-sm-2">
                                         @foreach($types as $type)
-                                            <option value="{{$type->id}}">{{$type->title}}</option>
+                                            <option value="{{$type->id}}">{{$locale=='ar'? $type->title:$type->en_title }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="d-flex justify-content-around mt-2 ">
                                     <div class=" form-control custom-form2 px-1 px-sm-2 d-flex">
-                                        <span id="count" class=" text-muted my-auto text-nowrap span1">چند کلمه؟</span>
+                                        <span id="count" class=" text-muted my-auto text-nowrap span1">{{trans('sentence.count word')}}</span>
                                         <input class="count px-0 a span3" value="1" type="text">
-                                        <span id="word" class="text-muted my-auto mx-auto span2" style=""> کلمه</span>
+                                        <span id="word" class="text-muted my-auto mx-auto span2" style="">{{trans('sentence.word')}}</span>
                                     </div>
                                     <button id="reg" class=" btn  btn-custom-form custom-form2 px-0">
-                                        <label class="custom-checkbox my-auto mx-1">محاسبه قیمت</label>
+                                        <label class="custom-checkbox my-auto mx-1">{{trans('sentence.submit_estimate')}}</label>
                                         <i class="far fa-check-square my-auto mx-1"></i>
                                     </button>
                                 </div>
@@ -1572,14 +1580,12 @@
                                             </div>
                                             <div>
                                                 <ul class="list-unstyled p-0">
-                                                    <li id="{{$price->level->en_name}}" class="blue text-nowrap">{{$categories[0]->name.' '.$price->level->name}}</li>
+                                                    <li id="{{$price->level->en_name}}" class="blue text-nowrap">{{$locale=='ar'? $categories[0]->name.' '.$price->level->name:ucfirst($price->level->en_name .' '. $categories[0]->en_name)}}</li>
                                                     <li>
                                                         <div class="rate">
-                                                            <i class="fas fa-star str-Gray"></i>
-                                                            <i class="fas fa-star str-Gray"></i>
-                                                            <i class="fas fa-star str-yellow"></i>
-                                                            <i class="fas fa-star str-yellow"></i>
-                                                            <i class="fas fa-star str-yellow"></i>
+                                                            @for($i=1; $i<6;$i++)
+                                                            <i class="fas fa-star {{$price->level->star<$i? 'str-Gray':'str-yellow'}}"></i>
+                                                            @endfor
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -1592,19 +1598,19 @@
                                         <div class="mt-3 text-2 ">
                                             <p>
                                                 <span id="{{$price->level->en_name.'_main'}}" >
-                                                از
-                                                <span id="{{$price->level->en_name.'min'}}" class="text-success">{{$price->value_min}}</span>
-                                                تومان تا
-                                                <span id="{{$price->level->en_name.'max'}}" class="text-success">{{$price->value_max}}</span>
-                                                تومان
+                                               {{trans('sentence.From')}}
+                                                <span id="{{$price->level->en_name.'min'}}" class="text-success">{{'$'.$price->value_min}}</span>
+                                                 {{trans('sentence.to')}}
+                                                <span id="{{$price->level->en_name.'max'}}" class="text-success">{{'$'.$price->value_max}}</span>
+
                                                  </span>
                                                 <br>
                                                 <span id="{{$price->level->en_name.'_dis'}}" style="display: none">
-                                                    از
+                                                    {{trans('sentence.From')}}
                                         <span id="{{$price->level->en_name.'_dis_min'}}" class="text-success"></span>
-                                        تومان تا
+                                        $ {{trans('sentence.to')}}
                                         <span id="{{$price->level->en_name.'_dis_max'}}"class="text-success"></span>
-                                        تومان
+                                        $
                                         </span>
                                             </p>
                                         </div>
@@ -2385,19 +2391,14 @@
             $('#email2').addClass('emailfooter');
             $('#submit').addClass('input-email-append');
             $('#submit').removeClass('input-group-append');
-            document.getElementById("en-ar").innerHTML = "En";
-            document.getElementById("en-ar1").innerHTML = "En";
-            document.getElementById("en-ar2").innerHTML = "En";
-        }
 
+        }
 
         function persianstyle() {
             $('#email2').removeClass('emailfooter');
             $('#submit').removeClass('input-email-append');
             $('#submit').addClass('input-group-append');
-            document.getElementById("en-ar2").innerHTML = "Ar";
-            document.getElementById("en-ar").innerHTML = "Ar";
-            document.getElementById("en-ar1").innerHTML = "Ar";
+
         }
 
 
@@ -2463,7 +2464,7 @@
             var lang=$("#lang").val();
             var type=$("#type").val();
             var count=$(".count").val();
-//console.log(type,lang,category);
+console.log(type);
 
             $.ajax({
                 url:"/estimation/price",
@@ -2574,18 +2575,18 @@
 
             var type_id = $(this).children("option:selected").val();
 
-            if(type_id==1){
+            $.ajax({
+                url:"/determine/word/minute",
+                type:"GET",
+                data:{'type_id':type_id },
+                success:function (result) {
+                   console.log(result[0]['count']);
+                    $('#count').html(result[0]['count']) ;
+                    $('#word').html(result[0]['word']) ;
 
-                $('#count').html("چند کلمه") ;
-                $('#word').html("کلمه") ;
+                }
+            });
 
-            }else {
-
-                $('#count').html("چند دقیقه؟") ;
-                $('#word').html(" دقیقه") ;
-
-
-            }
 
         });
     </script>

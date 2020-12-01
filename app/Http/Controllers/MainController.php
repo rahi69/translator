@@ -30,12 +30,13 @@ class MainController extends Controller
             $category=Category::where('id',$request->category_id)->first();
             $languages =$category->languages()->get();
 
-                $output=null;
+            $output=null;
+            $locale=session()->get('locale');
                 foreach ($languages as $row) {
 
 
                     // concatenate output to the array
-                    $output .= '<option value="' . $row->id . '"  class="" style="text-align: right" id="' . $row->id . ' ">' . $row->title . '</option>';
+                    $output .= '<option value="' . $row->id . '"  class="" style="text-align: right" id="' . $row->id . ' ">' . ($locale=='ar'? $row->title:$row->en_title ). '</option>';
                 }
 
             return ['result_search' => $output];
@@ -61,8 +62,11 @@ class MainController extends Controller
             $price['normal']=null;
             $price['good']=null;
             $price['excellent']=null;
+
+            $locale=session()->get('locale');
+
            foreach ($units as $unit){
-              $price[$unit->level->en_name]=$unit->category->name.' '.$unit->level->name;
+              $price[$unit->level->en_name]=($locale=='ar'? $unit->category->name.' '.$unit->level->name :ucfirst($unit->category->en_name.' '.$unit->level->en_name));
               $price[$unit->level->en_name.'min']=$unit->value_min * $request->count ;
               $price[$unit->level->en_name.'max']=$unit->value_max * $request->count ;
               $price[$unit->level->en_name.'_dis_min']=round($unit->value_min * $request->count * $dis) ;
@@ -84,6 +88,25 @@ class MainController extends Controller
         session()->put('locale', $locale);
        // dd($locale);
         return redirect()->back();
+    }
+
+    public function determine(Request $request){
+
+        if ($request->ajax()) {
+            $locale=session()->get('locale');
+            $res=null;
+
+            if($request->type_id==1){
+                ($locale=='ar'? $res['count']='چند کلمه؟':$res['count']='a few words?' );
+                ($locale=='ar'? $res['word']='کلمه':$res['word']='word' );
+            }
+            else{
+                ($locale=='ar'? $res['count']='چند دقیقه؟':$res['count']='a few minutes?' );
+                ($locale=='ar'? $res['word']='دقیقه':$res['word']='minute' );
+            }
+            return [$res];
+
+        }
     }
 
 }

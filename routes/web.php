@@ -18,3 +18,4 @@ Route::get('/', 'MainController@index');
 Route::get('/estimation/price','MainController@estimation');
 Route::get('/estimation/category','MainController@language_search');
 Route::get('/lang/{locale}', 'MainController@lang');
+Route::get('/determine/word/minute','MainController@determine');
