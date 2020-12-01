@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Comment;
 use App\Discount;
 use App\Language;
+use App\Prefix;
 use App\Price;
 use App\Type;
 use Illuminate\Http\Request;
@@ -15,12 +17,19 @@ class MainController extends Controller
 
     public function index(){
 
-         $categories=Category::all();
-         $languages=Language::where('id','<',3)->get();
-         $prices=Price::where('category_id',1)->where('type_id',1)->where('language_id',1)->get();
-         $types=Type::all();
+        $categories=Category::all();
+        $languages=Language::where('id','<',3)->get();
+        $prices=Price::where('category_id',1)->where('type_id',1)->where('language_id',1)->get();
+        $types=Type::all();
+        $menuItems= Category::orderBy('id','asc')->get();
+        $textTrans = Category::where('id',1)->value('text');
+        $textType = Category::where('id',3)->value('text');
+        $textEdit = Category::where('id',4)->value('text');
+//      $comments = Comment::where('active',1)->orderBy('id')->get();
 
-        return view('home.index',compact('categories','languages','types','prices'));
+        $prefixes = Prefix::all();
+
+        return view('home.index',compact('categories','languages','types','prices','menuItems','textTrans','textEdit','textType','prefixes','comments'));
     }
 
     public function language_search(Request $request){
@@ -107,6 +116,21 @@ class MainController extends Controller
             return [$res];
 
         }
+    }
+
+    public function postSubscribeAjax(Request $request) {
+
+        if ($request->ajax()) {
+            $input = $request->all();
+            $input['user_id'] = 3;
+
+            Comment::create($input);
+        }
+
+        return ['result_search' => $input];
+
+
+//        dd($data);
     }
 
 }

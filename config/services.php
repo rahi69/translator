@@ -34,4 +34,16 @@ return [
         'secret' => env('SPARKPOST_SECRET'),
     ],
 
+    'google' => [
+        'client_id' => '690178491665-67l8j0darpi5ce5105tipqnfi6kpduks.apps.googleusercontent.com',
+        'client_secret' => 'qN9EmWrqFTsgmD2n0TquKKKA',
+        'redirect' => 'http://localhost:8000/auth/google/callback'
+    ],
+
+    'microsoft' => [
+        'client_id' => '3ab0802c-dd09-4522-89d4-c63cfb50c892',
+        'client_secret' => 'gF5.DGe_o~f-64xG7.n6qNAiRTv3xAFb_i',
+        'redirect' => 'http://localhost:8000/auth/azure/callback'
+    ],
+
 ];

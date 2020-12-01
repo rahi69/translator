@@ -263,10 +263,10 @@
                         </li>
                     </ul>
                 </li>
-                <li class="li-nav nav-item d-inline-block d-lg-none c-pointer">
-                    <div class="d-flex justify-content-between align-items-center text-menu14 h-30"
+                <li class=" li-nav nav-item d-inline-block d-lg-none c-pointer">
+                    <div class="d-flex justify-content-between align-items-center text-menu15 h-30"
                          data-toggle="collapse"
-                         data-target="#menu3">
+                         data-target="#menu2">
                         <div>
                             <a class="text-decoration-none font d-inline text-white">
                                 خدمات
@@ -276,8 +276,49 @@
                             <i class="toggleCategori  fa fa-angle-down text-white text-2 m-0 p-0"></i>
                         </div>
                     </div>
-                    <ul id="menu3"
-                        class=" under-menu navbar-nav bg-Dark-Blue menu-profile collapse navbar-collapse  w-100">
+                    <ul id="menu2" class="under-menu navbar-nav bg-Dark-Blue menu-profile collapse navbar-collapse  w-100">
+                        @foreach($menuItems as $menuItem)
+                            @if( $menuItem->parent_id == 0 )
+                                <li class="nav-item">
+                                    <div class="d-flex justify-content-between" data-toggle="collapse"
+                                         data-target="#menu5">
+                                        <div>
+                                            <a class="text-decoration-none d-inline px-4" href="#">{{$menuItem->name}}</a>
+                                        </div>
+                                        <div>
+                                            <i class="toggleCategori  fa fa-angle-down text-white text-2 m-0 p-0"></i>
+                                        </div>
+                                    </div>
+                                </li>
+                            @endif
+                            @if(! $menuItem->children->isEmpty())
+                                <ul id="menu5" class="under-menu navbar-nav bg-Dark-Blue menu-profile collapse navbar-collapse  w-100">
+                                    @foreach($menuItem->children as $subMenuItem)
+                                        <li class="nav-item">
+                                            <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
+                                               href="#"> {{$subMenuItem->name}}</a>
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        @endforeach
+                    </ul>
+                </li>
+                <li class="li-nav nav-item d-inline-block d-lg-none c-pointer">
+                    <div class="d-flex justify-content-between align-items-center text-menu14 h-30"
+                         data-toggle="collapse"
+                         data-target="#menu3">
+                        <div>
+                            <a class="text-decoration-none font d-inline text-white">
+                                راهنما
+                            </a>
+                        </div>
+                        <div>
+                            <i class="toggleCategori  fa fa-angle-down text-white text-2 m-0 p-0"></i>
+                        </div>
+                    </div>
+                    <ul id="menu3" class=" under-menu navbar-nav bg-Dark-Blue menu-profile collapse navbar-collapse  w-100">
                         <li class="nav-item mt-2">
                             <a class="text-decoration-none px-4" href="#">
                                 ترجمه
@@ -295,133 +336,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="text-decoration-none px-4" href="#">
-                                ویرایش و بازخوانی
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class=" li-nav nav-item d-inline-block d-lg-none c-pointer">
-                    <div class="d-flex justify-content-between align-items-center text-menu15 h-30"
-                         data-toggle="collapse"
-                         data-target="#menu2">
-                        <div>
-                            <a class="text-decoration-none font d-inline text-white">
-                                راهنما
-                            </a>
-                        </div>
-                        <div>
-                            <i class="toggleCategori  fa fa-angle-down text-white text-2 m-0 p-0"></i>
-                        </div>
-                    </div>
-                    <ul id="menu2"
-                        class="under-menu navbar-nav bg-Dark-Blue menu-profile collapse navbar-collapse  w-100">
-                        <li class="nav-item">
-                            <div class="d-flex justify-content-between" data-toggle="collapse"
-                                 data-target="#menu5">
-                                <div>
-                                    <a class="text-decoration-none d-inline px-4" href="#">ترجمه</a>
-                                </div>
-                                <div>
-                                    <i class="toggleCategori  fa fa-angle-down text-white text-2 m-0 p-0"></i>
-                                </div>
-                            </div>
-                        </li>
-                        <ul id="menu5"
-                            class="under-menu navbar-nav bg-Dark-Blue menu-profile collapse navbar-collapse  w-100">
-                            <li class="nav-item">
-                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
-                                   href="#">زیرمنو</a>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
-                                   href="#">زیرمنو</a>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
-                                   href="#">زیرمنو</a>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
-                                   href="#">زیرمنو</a>
-                                </a>
-                            </li>
-                        </ul>
-
-                        <li class="nav-item">
-                            <div class="d-flex justify-content-between" data-toggle="collapse"
-                                 data-target="#menu6">
-                                <div>
-                                    <a class="text-decoration-none d-inline  px-4" href="#">تولید محتوا</a>
-                                </div>
-                                <div>
-                                    <i class="toggleCategori  fa fa-angle-down text-white text-2 m-0 p-0"></i>
-                                </div>
-                            </div>
-                        </li>
-                        <ul id="menu6"
-                            class="under-menu navbar-nav bg-Dark-Blue menu-profile collapse navbar-collapse  w-100">
-                            <li class="nav-item">
-                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
-                                   href="#">زیرمنو</a>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
-                                   href="#">زیرمنو</a>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
-                                   href="#">زیرمنو</a>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
-                                   href="#">زیرمنو</a>
-                                </a>
-                            </li>
-                        </ul>
-
-                        <li class="nav-item">
-                            <div class="d-flex justify-content-between" data-toggle="collapse"
-                                 data-target="#menu7">
-                                <div>
-                                    <a class="text-decoration-none d-inline  px-4" href="#">تایپ</a>
-                                </div>
-                                <div>
-                                    <i class="toggleCategori  fa fa-angle-down text-white text-2 m-0 p-0"></i>
-                                </div>
-                            </div>
-                        </li>
-                        <ul id="menu7"
-                            class="under-menu navbar-nav bg-Dark-Blue menu-profile collapse navbar-collapse  w-100">
-                            <li class="nav-item">
-                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
-                                   href="#">زیرمنو</a>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
-                                   href="#">زیرمنو</a>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
-                                   href="#">زیرمنو</a>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="text-decoration-none px-5" data-toggle="collapse" data-target="#menu5"
-                                   href="#">زیرمنو</a>
-                                </a>
-                            </li>
-                        </ul>
-
-                        <li class="nav-item">
-                            <a class="text-decoration-none  px-4" href="#">
                                 ویرایش و بازخوانی
                             </a>
                         </li>
@@ -464,6 +378,7 @@
                         </li>
                     </ul>
                 </li>
+
             </ul>
         </div>
         <!--Side NavBar Ends-->
@@ -499,11 +414,47 @@
                                 <li class="nav-item dropdown d-lg-flex align-items-center d-none h_100 "
                                     onclick="closeNav()">
                                     <a href="#"
+                                       class="custom-menu-item my-0 d-block text-decoration-none text-nowrap px-0 li-1-a"
+                                       onclick="closeNav()"
+                                       data-toggle="dropdown">
+                                        خدمات
+                                        <i class="fa fas fa-angle-down "></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-nav1">
+                                        @foreach($menuItems as $menuItem)
+                                            @if( $menuItem->parent_id == 0 )
+                                                <li class="dropdown dropdown2" href="#">
+                                                    <a class="p-2  dropdown-item dropdown-item-menu text-right d-flex" href="#">
+                                                        <i class="fa {{$menuItem->icon}} px-1 d-sm-header"></i>
+                                                        {{$menuItem->name}}
+                                                        <i class="fa fa-angle-left mr-auto ar"></i>
+                                                        <i class="fa fa-angle-right ml-auto en"></i>
+                                                    </a>
+                                                    @endif
+                                                    @if(! $menuItem->children->isEmpty())
+                                                        <ul class="dropdown-menu dropdown-menu-nav2 position-absolute menu-left" style="top: 0px!important;">
+                                                            @foreach($menuItem->children as $subMenuItem)
+                                                                <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
+                                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
+                                                                    {{$subMenuItem->name}}
+                                                                </a>
+                                                            @endforeach
+                                                        </ul>
+                                                    @endif
+                                                </li>
+                                                @endforeach
+                                    </ul>
+                                    </a>
+                                </li>>
+
+                                <li class="nav-item dropdown d-lg-flex align-items-center d-none h_100 "
+                                    onclick="closeNav()">
+                                    <a href="#"
                                        class="custom-menu-item my-0  d-block text-decoration-none text-nowrap px-0 li-1-a"
                                        onclick="closeNav()"
                                        id="services"
                                        data-toggle="dropdown">
-                                        خدمات
+                                        راهنما
                                         <i class="fa fas fa-angle-down "></i>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-nav1">
@@ -511,7 +462,6 @@
                                             <a class="p-2  dropdown-item dropdown-item-menu text-lg-right d-flex">
                                                 <i class="fa fa-sort-alpha-down-alt px-1 d-sm-header "></i>
                                                 ترجمه
-
                                             </a>
                                         </li>
                                         <li class="dropdown dropdown2">
@@ -528,106 +478,6 @@
                                         </li>
                                         <li class="dropdown dropdown2">
                                             <a class="p-2 dropdown-item dropdown-item-menu text-lg-right  d-flex">
-                                                <i class="d-sm-header fas fa-book-reader px-1"></i>
-                                                ویرایش و بازخوانی
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li class="nav-item dropdown d-lg-flex align-items-center d-none h_100 "
-                                    onclick="closeNav()">
-                                    <a href="#"
-                                       class="custom-menu-item my-0 d-block text-decoration-none text-nowrap px-0 li-1-a"
-                                       onclick="closeNav()"
-                                       data-toggle="dropdown">
-                                        راهنما
-                                        <i class="fa fas fa-angle-down "></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-nav1">
-                                        <li class="dropdown dropdown2" href="#">
-                                            <a class="p-2  dropdown-item dropdown-item-menu text-right d-flex" href="#">
-                                                <i class="fa fa-sort-alpha-down-alt px-1 d-sm-header"></i>
-                                                ترجمه
-                                                <i class="fa fa-angle-left mr-auto ar"></i>
-                                                <i class="fa fa-angle-right ml-auto en"></i>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-nav2 position-absolute menu-left"
-                                                style="top: 0px!important;">
-                                                <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
-                                                    زیر منو
-                                                </a>
-                                                <a class=" dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
-                                                    زیر منو
-                                                </a>
-                                                <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
-                                                    زیر منو
-                                                </a>
-                                                <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
-                                                    زیر منو
-                                                </a>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown dropdown2" href="#">
-                                            <a class="p-2 dropdown-item dropdown-item-menu text-right d-flex " href="#">
-                                                <i class="fa fa-book px-1 d-sm-header"></i>
-                                                تولید محتوا
-                                                <i class="fa fa fa-angle-left mr-auto ar"></i>
-                                                <i class="fa fa fa-angle-right ml-auto en"></i>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-nav2 position-absolute menu-left"
-                                                style="top: 0px!important;">
-                                                <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
-                                                    زیر منو
-                                                </a>
-                                                <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
-                                                    زیر منو
-                                                </a>
-                                                <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
-                                                    زیر منو
-                                                </a>
-                                                <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
-                                                    زیر منو
-                                                </a>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown dropdown2" href="#">
-                                            <a class="p-2 dropdown-item dropdown-item-menu text-right d-flex" href="#">
-                                                <i class="d-sm-header fa fa-inbox px-1"></i>
-                                                تایپ
-                                                <i class="fa fa fa-angle-left mr-auto ar"></i>
-                                                <i class="fa fa fa-angle-right ml-auto en"></i>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-nav2 position-absolute menu-left"
-                                                style="top: 0px!important;">
-                                                <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
-                                                    زیر منو
-                                                </a>
-                                                <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
-                                                    زیر منو
-                                                </a>
-                                                <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
-                                                    زیر منو
-                                                </a>
-                                                <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
-                                                    <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
-                                                    زیر منو
-                                                </a>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown dropdown2" href="#">
-                                            <a class="p-2 dropdown-item dropdown-item-menu text-right d-flex" href="#">
                                                 <i class="d-sm-header fas fa-book-reader px-1"></i>
                                                 ویرایش و بازخوانی
                                             </a>
@@ -868,14 +718,12 @@
                                 <h6 class="font font-weight-bold text-center mb-2">یا</h6>
                                 <div class="row">
                                     <div class="col-12">
-                                        <button class="w-100 btn  mb-2 font btn1-footer-modal font-13 a">ورود با حساب کاربری
-                                            گوگل
-                                        </button>
+                                        <a href="{{ url('auth/google') }}" class="btn w-100 btn  mb-2 font btn1-footer-modal font-13 a">ورود با حساب کاربری گوگل</a>
+
                                     </div>
                                     <div class="col-12">
-                                        <button class="w-100 btn  font btn2-footer-modal font-13 a">ورود با حساب کاربری
-                                            مایکروسافت
-                                        </button>
+                                        <a href="{{ route('azure.login') }}" class="btn w-100 btn  font btn2-footer-modal font-13 a">ورود با حساب کاربری مایکروسافت</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -884,599 +732,112 @@
                                 <a href="#" class="text-decoration-none font-10 font text-muted-red">ثبت نام کنید</a>
                             </div>
                         </div>
-                        <div id="log-out">
-                            <div class="modal-body pb-0">
-                                <input type="text" class="form-control my-2 font-weight-lighter font-13 a"
-                                       placeholder="نام کاربری">
-                                <p class="text-danger">... را درست وارد کنید</p>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <input type="email" class="form-control my-2 font-weight-lighter font-13 a"
-                                               placeholder="ایمیل">
-                                        <p class="text-danger">... را درست وارد کنید</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="d-flex w-100 phone-number" style="direction: rtl">
-                                            <input type="email" class="form-control my-2 font-weight-lighter text-center font-13 a w-75"
-                                                   placeholder="شماره تلفن همراه ">
-                                            <select name="cname" class="form-control text-center mt-2 w-25 font11 px-0">
-                                                <optgroup label="آذربایجان">
-                                                    <option>۰۰۹۹۴</option>
-                                                </optgroup>
-                                                <optgroup label="آرژانتین">
-                                                    <option>۰۰۵۴</option>
-                                                </optgroup>
-                                                <optgroup label="آفریقای جنوبی">
-                                                    <option>۰۰۲۷</option>
-                                                </optgroup>
-                                                <optgroup label="آفریقای مرکزی">
-                                                    <option>۰۰۲۳۶</option>
-                                                </optgroup>
-                                                <optgroup label=" آلبانی">
-                                                    <option>۰۰۳۵۵</option>
-                                                </optgroup>
-                                                <optgroup label=" آلمان">
-                                                    <option>۰۰۴۹</option>
-                                                </optgroup>
-                                                <optgroup label=" آمریکا">
-                                                    <option>۰۰۱</option>
-                                                </optgroup>
-                                                <optgroup label=" آنگولا">
-                                                    <option>۰۰۲۴۴</option>
-                                                </optgroup>
-                                                <optgroup label="اتریش">
-                                                    <option>۰۰۴۳</option>
-                                                </optgroup>
-                                                <optgroup label=" اتیوپی ">
-                                                    <option>۰۰۳۵۱</option>
-                                                </optgroup>
-                                                <optgroup label=" اردن">
-                                                    <option>۰۰۹۶۲</option>
-                                                </optgroup>
-                                                <optgroup label=" ارمنستان">
-                                                    <option>۰۰۳۷۴</option>
-                                                </optgroup>
-                                                <optgroup label=" اروگوئه">
-                                                    <option>۰۰۵۹۸</option>
-                                                </optgroup>
-                                                <optgroup label=" اریتره">
-                                                    <option>۰۰۲۹۱</option>
-                                                </optgroup>
-                                                <optgroup label=" ازبکستان">
-                                                    <option>۰۰۷۳۷۱</option>
-                                                </optgroup>
-                                                <optgroup label=" اسپانیا">
-                                                    <option>۰۰۳۴</option>
-                                                </optgroup>
-                                                <optgroup label=" استرالیا">
-                                                    <option>۰۰۶۱</option>
-                                                </optgroup>
-                                                <optgroup label=" استونی">
-                                                    <option>۰۰۳۷۲</option>
-                                                </optgroup>
-                                                <optgroup label=" افغانستان">
-                                                    <option>۰۰۹۳</option>
-                                                </optgroup>
-                                                <optgroup label=" الجزایر">
-                                                    <option>۰۰۲۱۳</option>
-                                                </optgroup>
-                                                <optgroup label=" السالوادور">
-                                                    <option>۰۰۵۰۳</option>
-                                                </optgroup>
-                                                <optgroup label=" امارات">
-                                                    <option>۰۰۹۷۱</option>
-                                                </optgroup>
-                                                <optgroup label=" اندونزی">
-                                                    <option>۰۰۶۲</option>
-                                                </optgroup>
-                                                <optgroup label=" انگلستان">
-                                                    <option>۰۰۴۴</option>
-                                                </optgroup>
-                                                <optgroup label=" اوگاندا">
-                                                    <option>۰۰۲۵</option>
-                                                </optgroup>
-                                                <optgroup label=" اوکراین">
-                                                    <option>۰۰۳۸۰</option>
-                                                </optgroup>
-                                                <optgroup label=" ایران">
-                                                    <option>۰۰۹۸</option>
-                                                </optgroup>
-                                                <optgroup label=" ایرلند">
-                                                    <option>۰۰۳۵۳</option>
-                                                </optgroup>
-                                                <optgroup label=" اکوادور">
-                                                    <option>۰۰۵۹۳</option>
-                                                </optgroup>
-                                                <optgroup label=" ایسلند">
-                                                    <option>۰۰۳۵۴</option>
-                                                </optgroup>
-                                                <optgroup label=" باربادوس ">
-                                                    <option>۰۰۱۸۰۹۴</option>
-                                                </optgroup>
-                                                <optgroup label=" باهاما">
-                                                    <option>۰۰۱۸۰۹۳</option>
-                                                </optgroup>
-                                                <optgroup label=" بحرین ">
-                                                    <option>۰۰۹۷۳</option>
-                                                </optgroup>
-                                                <optgroup label=" برزیل">
-                                                    <option>۰۰۵۵</option>
-                                                </optgroup>
-                                                <optgroup label=" برونئی">
-                                                    <option>۰۰۵۵</option>
-                                                </optgroup>
-                                                <optgroup label=" بلژیک ">
-                                                    <option>۰۰۳۲</option>
-                                                </optgroup>
-                                                <optgroup label=" بلاروس ">
-                                                    <option>۰۰۳۷۵</option>
-                                                </optgroup>
-                                                <optgroup label=" بلغارستان">
-                                                    <option>۰۰۳۵۹</option>
-                                                </optgroup>
-                                                <optgroup label=" بنگلادش ">
-                                                    <option>۰۰۸۸۰</option>
-                                                </optgroup>
-                                                <optgroup label=" بنین ">
-                                                    <option>۰۰۲۲۹</option>
-                                                </optgroup>
-                                                <optgroup label=" بوتان">
-                                                    <option>۰۰۲۶۷</option>
-                                                </optgroup>
-                                                <optgroup label=" بوسنی و هرزگوین">
-                                                    <option>۰۰۳۸۷</option>
-                                                </optgroup>
-                                                <optgroup label=" بولیوی ">
-                                                    <option>۰۰۵۹۱</option>
-                                                </optgroup>
-                                                <optgroup label=" پاراگوئه">
-                                                    <option>۰۰۵۹۵</option>
-                                                </optgroup>
-                                                <optgroup label=" پاناما">
-                                                    <option>۰۰۵۰۷</option>
-                                                </optgroup>
-                                                <optgroup label=" پاکستان">
-                                                    <option>۰۰۹۲</option>
-                                                </optgroup>
-                                                <optgroup label=" پرتغال">
-                                                    <option>۰۰۳۵۱</option>
-                                                </optgroup>
-                                                <optgroup label=" پرو">
-                                                    <option>۰۰۵۱</option>
-                                                </optgroup>
-                                                <optgroup label=" پنال ">
-                                                    <option>۰۰۹۵</option>
-                                                </optgroup>
-                                                <optgroup label=" تاجیکستان">
-                                                    <option>۰۰۹۹۲</option>
-                                                </optgroup>
-                                                <optgroup label=" تانزانیا">
-                                                    <option>۰۰۲۵۵</option>
-                                                </optgroup>
-                                                <optgroup label=" تایلند ">
-                                                    <option>۰۰۶۶</option>
-                                                </optgroup>
-                                                <optgroup label=" تایوان ">
-                                                    <option>۰۰۸۸۶</option>
-                                                </optgroup>
-                                                <optgroup label=" ترینیداد">
-                                                    <option>۰۰۱۸۶۸</option>
-                                                </optgroup>
-                                                <optgroup label=" ترکمنستان">
-                                                    <option>۰۰۷۳۶۳</option>
-                                                </optgroup>
-                                                <optgroup label=" ترکیه">
-                                                    <option>۰۰۹۰</option>
-                                                </optgroup>
-                                                <optgroup label=" تونس ">
-                                                    <option>۰۰۲۱۶</option>
-                                                </optgroup>
-                                                <optgroup label=" تونگا">
-                                                    <option>۰۰۶۷۶</option>
-                                                </optgroup>
-                                                <optgroup label=" جامائیکا">
-                                                    <option>۰۰۱۸۰۹۹</option>
-                                                </optgroup>
-                                                <optgroup label=" جزایر قناری">
-                                                    <option>۰۰۳۵۹</option>
-                                                </optgroup>
-                                                <optgroup label=" جزایر مارشال">
-                                                    <option>۰۰۶۹۲</option>
-                                                </optgroup>
-                                                <optgroup label=" چاد">
-                                                    <option>۰۰۲۳۷</option>
-                                                </optgroup>
-                                                <optgroup label=" چین">
-                                                    <option>۰۰۸۶</option>
-                                                </optgroup>
-                                                <optgroup label=" چک ">
-                                                    <option>۰۰۴۲</option>
-                                                </optgroup>
-                                                <optgroup label=" دانمارک ">
-                                                    <option>۰۰۴۵</option>
-                                                </optgroup>
-                                                <optgroup label=" دومینیکا">
-                                                    <option>۰۰۵۰۸</option>
-                                                </optgroup>
-                                                <optgroup label=" دومینیکن">
-                                                    <option>۰۰۱۸۰۹</option>
-                                                </optgroup>
-                                                <optgroup label=" رواندا">
-                                                    <option>۰۰۲۵۰</option>
-                                                </optgroup>
-                                                <optgroup label=" روسیه">
-                                                    <option>۰۰۷۰۹۵</option>
-                                                </optgroup>
-                                                <optgroup label=" رومانی ">
-                                                    <option>۰۰۴۰</option>
-                                                </optgroup>
-                                                <optgroup label=" زئیر ">
-                                                    <option>۰۰۲۴۳</option>
-                                                </optgroup>
-                                                <optgroup label=" زامبیا">
-                                                    <option>۰۰۲۶۰</option>
-                                                </optgroup>
-                                                <optgroup label=" زلاندنو">
-                                                    <option>۰۰۶۴</option>
-                                                </optgroup>
-                                                <optgroup label=" زیمبابوه">
-                                                    <option>۰۰۲۶۳</option>
-                                                </optgroup>
-                                                <optgroup label=" ژاپن ">
-                                                    <option>۰۰۸۱</option>
-                                                </optgroup>
-                                                <optgroup label="ساحل عاج">
-                                                    <option>۰۰۲۲۵</option>
-                                                </optgroup>
-                                                <optgroup label="سنگال">
-                                                    <option>۰۰۲۲۱</option>
-                                                </optgroup>
-                                                <optgroup label="سوئد">
-                                                    <option>۰۰۴۶</option>
-                                                </optgroup>
-                                                <optgroup label="سوئیس ">
-                                                    <option>۰۰۴۱</option>
-                                                </optgroup>
-                                                <optgroup label="سودان">
-                                                    <option>۰۰۲۴</option>
-                                                </optgroup>
-                                                <optgroup label=" سورینام">
-                                                    <option>۰۰۵۹۷</option>
-                                                </optgroup>
-                                                <optgroup label=" سوریه">
-                                                    <option>۰۰۹۶۳</option>
-                                                </optgroup>
-                                                <optgroup label=" سومالی">
-                                                    <option>۰۰۲۵۲</option>
-                                                </optgroup>
-                                                <optgroup label=" سیشل">
-                                                    <option>۰۰۱۴۸</option>
-                                                </optgroup>
-                                                <optgroup label=" ساموای امریکایی">
-                                                    <option>۰۰۶۸۴</option>
-                                                </optgroup>
-                                                <optgroup label=" ساموای غربی">
-                                                    <option>۰۰۶۸۵</option>
-                                                </optgroup>
-                                                <optgroup label=" سریلانکا">
-                                                    <option>۰۰۹۴</option>
-                                                </optgroup>
-                                                <optgroup label=" سنت لوسیا">
-                                                    <option>۰۰۱۷۵۸</option>
-                                                </optgroup>
-                                                <optgroup label=" سنت وینسنت">
-                                                    <option>۰۰۱۷۸۴</option>
-                                                </optgroup>
-                                                <optgroup label=" سنت کیتس">
-                                                    <option>۰۰۱۸۶۹</option>
-                                                </optgroup>
-                                                <optgroup label=" سنگاپور">
-                                                    <option>۰۰۶۵</option>
-                                                </optgroup>
-                                                <optgroup label="شیلی ">
-                                                    <option>۰۰۵۶</option>
-                                                </optgroup>
-                                                <optgroup label="صربستان ومونته نگرو">
-                                                    <option>۰۰۳۸۱</option>
-                                                </optgroup>
-                                                <optgroup label="عربستان">
-                                                    <option>۰۰۹۹۶</option>
-                                                </optgroup>
-                                                <optgroup label="عمان">
-                                                    <option>۰۰۹۶۸</option>
-                                                </optgroup>
-                                                <optgroup label=" غنا ">
-                                                    <option>۰۰۲۳۳</option>
-                                                </optgroup>
-                                                <optgroup label=" فرانسه">
-                                                    <option>۰۰۳۳</option>
-                                                </optgroup>
-                                                <optgroup label=" فنلاد">
-                                                    <option>۰۰۳۵۸</option>
-                                                </optgroup>
-                                                <optgroup label=" فیجی ">
-                                                    <option>۰۰۶۷۹</option>
-                                                </optgroup>
-                                                <optgroup label="فیلیپین">
-                                                    <option>۰۰۶۳</option>
-                                                </optgroup>
-                                                <optgroup label=" قبرس">
-                                                    <option>۰۰۳۵۷</option>
-                                                </optgroup>
-                                                <optgroup label=" قرقیزستان">
-                                                    <option>۰۰۷۳۳۱</option>
-                                                </optgroup>
-                                                <optgroup label=" قطر">
-                                                    <option>۰۰۹۷۴</option>
-                                                </optgroup>
-                                                <optgroup label=" کامبوج">
-                                                    <option>۰۰۸۵۵</option>
-                                                </optgroup>
-                                                <optgroup label=" کامرون">
-                                                    <option>۰۰۲۳۷</option>
-                                                </optgroup>
-                                                <optgroup label=" کانادا">
-                                                    <option>۰۰۱</option>
-                                                </optgroup>
-                                                <optgroup label=" کره جنوبی">
-                                                    <option>۰۰۸۲</option>
-                                                </optgroup>
-                                                <optgroup label=" کره شمالی">
-                                                    <option>۰۰۸۵۰</option>
-                                                </optgroup>
-                                                <optgroup label=" کرواسی">
-                                                    <option>۰۰۳۸۵</option>
-                                                </optgroup>
-                                                <optgroup label=" کاستاریکا">
-                                                    <option>۰۰۵۰۶</option>
-                                                </optgroup>
-                                                <optgroup label=" کلمبیا">
-                                                    <option>۰۰۵۷</option>
-                                                </optgroup>
-                                                <optgroup label=" کنگو ">
-                                                    <option>۰۰۲۴۲</option>
-                                                </optgroup>
-                                                <optgroup label=" کنیا">
-                                                    <option>۰۰۲۵۴</option>
-                                                </optgroup>
-                                                <optgroup label=" کوبا">
-                                                    <option>۰۰۵۳</option>
-                                                </optgroup>
-                                                <optgroup label=" کومور">
-                                                    <option>۰۰۲۶۹</option>
-                                                </optgroup>
-                                                <optgroup label=" کویت">
-                                                    <option>۰۰۹۶۵</option>
-                                                </optgroup>
-                                                <optgroup label=" گابن">
-                                                    <option>۰۰۲۴۱</option>
-                                                </optgroup>
-                                                <optgroup label=" گامبیا">
-                                                    <option>۰۰۲۲۰</option>
-                                                </optgroup>
-                                                <optgroup label=" گرجستان ">
-                                                    <option>۰۰۹۵۵</option>
-                                                </optgroup>
-                                                <optgroup label=" گرنادا">
-                                                    <option>۰۰۱۴۷۳</option>
-                                                </optgroup>
-                                                <optgroup label=" گواتمالا ">
-                                                    <option>۰۰۵۰۲</option>
-                                                </optgroup>
-                                                <optgroup label=" گوام ">
-                                                    <option>۰۰۶۷۱</option>
-                                                </optgroup>
-                                                <optgroup label=" گینه">
-                                                    <option>۰۰۲۲۴</option>
-                                                </optgroup>
-                                                <optgroup label=" گینه استوایی">
-                                                    <option>۰۰۲۴۰</option>
-                                                </optgroup>
-                                                <optgroup label=" گینه بیسائو">
-                                                    <option>۰۰۲۴۵</option>
-                                                </optgroup>
-                                                <optgroup label=" لائوس">
-                                                    <option>۰۰۸۵۶</option>
-                                                </optgroup>
-                                                <optgroup label=" لبنان">
-                                                    <option>۰۰۹۶۱</option>
-                                                </optgroup>
-                                                <optgroup label=" لسوتو">
-                                                    <option>۰۰۲۶۶</option>
-                                                </optgroup>
-                                                <optgroup label=" لهستان">
-                                                    <option>۰۰۴۸</option>
-                                                </optgroup>
-                                                <optgroup label=" لوکزامبورگ">
-                                                    <option>۰۰۳۵۲</option>
-                                                </optgroup>
-                                                <optgroup label=" لیبری">
-                                                    <option>۰۰۲۳۱</option>
-                                                </optgroup>
-                                                <optgroup label=" لیبی ">
-                                                    <option>۰۰۲۱۸</option>
-                                                </optgroup>
-                                                <optgroup label=" مالاوی">
-                                                    <option>۰۰۲۶۵</option>
-                                                </optgroup>
-                                                <optgroup label=" مالت ">
-                                                    <option>۰۰۳۵۶</option>
-                                                </optgroup>
-                                                <optgroup label=" مالدیو">
-                                                    <option>۰۰۹۶۰</option>
-                                                </optgroup>
-                                                <optgroup label=" مالزی">
-                                                    <option>۰۰۶۰</option>
-                                                </optgroup>
-                                                <optgroup label=" مالی">
-                                                    <option>۰۰۲۳۳</option>
-                                                </optgroup>
-                                                <optgroup label=" مجارستان">
-                                                    <option>۰۰۳۶</option>
-                                                </optgroup>
-                                                <optgroup label=" مراکش ">
-                                                    <option>۰۰۲۱۲</option>
-                                                </optgroup>
-                                                <optgroup label=" مصر">
-                                                    <option>۰۰۲۰</option>
-                                                </optgroup>
-                                                <optgroup label=" مغولستان">
-                                                    <option>۰۰۹۷۶</option>
-                                                </optgroup>
-                                                <optgroup label=" مقدونیه">
-                                                    <option>۰۰۳۸۹</option>
-                                                </optgroup>
-                                                <optgroup label=" موریتانی">
-                                                    <option>۰۰۲۲۲</option>
-                                                </optgroup>
-                                                <optgroup label=" موریس ">
-                                                    <option>۰۰۲۳۰</option>
-                                                </optgroup>
-                                                <optgroup label=" موزامبیک">
-                                                    <option>۰۰۲۵۸</option>
-                                                </optgroup>
-                                                <optgroup label=" میانمار">
-                                                    <option>۰۰۹۵</option>
-                                                </optgroup>
-                                                <optgroup label=" مکزیک ">
-                                                    <option>۰۰۵۲</option>
-                                                </optgroup>
-                                                <optgroup label=" نائورا">
-                                                    <option>۰۰۶۷۴</option>
-                                                </optgroup>
-                                                <optgroup label=" نامیبیا">
-                                                    <option>۰۰۲۶۴</option>
-                                                </optgroup>
-                                                <optgroup label=" نپال">
-                                                    <option>۰۰۹۷۷</option>
-                                                </optgroup>
-                                                <optgroup label=" نروژ">
-                                                    <option>۰۰۴۷</option>
-                                                </optgroup>
-                                                <optgroup label=" نگاراپرونئی دارالسلام">
-                                                    <option>۰۰۲۶۷</option>
-                                                </optgroup>
-                                                <optgroup label=" نیجر">
-                                                    <option>۰۰۲۲۷</option>
-                                                </optgroup>
-                                                <optgroup label=" نیکاراگوئه ">
-                                                    <option>۰۰۵۰۵</option>
-                                                </optgroup>
-                                                <optgroup label=" هائیتی ">
-                                                    <option>۰۰۵۰۹</option>
-                                                </optgroup>
-                                                <optgroup label=" هلند ">
-                                                    <option>۰۰۳۱</option>
-                                                </optgroup>
-                                                <optgroup label=" هند ">
-                                                    <option>۰۰۹۱</option>
-                                                </optgroup>
-                                                <optgroup label=" هندوراس ">
-                                                    <option>۰۰۵۰۴</option>
-                                                </optgroup>
-                                                <optgroup label=" هنگ کنگ">
-                                                    <option>۰۰۷۵۲</option>
-                                                </optgroup>
-                                                <optgroup label=" واتیکان">
-                                                    <option>۰۰۳۹</option>
-                                                </optgroup>
-                                                <optgroup label=" ونزوئلا ">
-                                                    <option>۰۰۵۸</option>
-                                                </optgroup>
-                                                <optgroup label=" ویتنام">
-                                                    <option>۰۰۸۴</option>
-                                                </optgroup>
-                                                <optgroup label=" یمن جنوبی">
-                                                    <option>۰۰۹۶۹</option>
-                                                </optgroup>
-                                                <optgroup label=" یمن شمالی">
-                                                    <option>۰۰۹۶۷</option>
-                                                </optgroup>
-                                                <optgroup label=" یوگوسلاوی ">
-                                                    <option>۰۰۳۸۱</option>
-                                                </optgroup>
-                                                <optgroup label=" یونان">
-                                                    <option>۰۰۳۰</option>
-                                                </optgroup>
+                        <form action="{{ url('register') }}" method="post">
+                            {{ csrf_field() }}
+                            <div id="log-out">
 
-                                            </select>
+                                <div class="modal-body pb-0">
+                                    <input type="text" class="form-control my-2 font-weight-lighter font-13 a" name="name"
+                                           placeholder="نام کاربری" value="{{ old('name') }}">
+                                    <p class="text-danger">... را درست وارد کنید</p>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <input type="email" name="email" class="form-control my-2 font-weight-lighter font-13 a"
+                                                   placeholder="ایمیل" value="{{ old('email') }}">
+                                            <p class="text-danger">... را درست وارد کنید</p>
                                         </div>
-                                        <p class="text-danger">... را درست وارد کنید</p>
+                                        <div class="col-6">
+                                            <div class="d-flex w-100 phone-number" style="direction: rtl">
+                                                <input type="text" name="mobile" class="form-control my-2 font-weight-lighter text-center font-13 a w-75"
+                                                       placeholder="شماره تلفن همراه " value="{{ old('mobile') }}">
+                                                <select name="prefix_id" class="form-control text-center mt-2 w-25 font11 px-0">
+                                                    @foreach($prefixes as $prefix)
+                                                        <optgroup value="{{$prefix->id}}" label="{{$prefix->name}}">
+                                                            <option>{{$prefix->phoneCode}}</option>
+                                                        </optgroup>
+
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <p class="text-danger">... را درست وارد کنید</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row my-2">
-                                    <div class="col-6">
-                                        <input type="password" class="form-control font-weight-lighter font-13 a mb-2"
-                                               placeholder="رمز عبور">
-                                        <p class="text-danger">... را درست وارد کنید</p>
-                                        <span class="text-decoration-none font font-10 text-nowrap d-flex align-items-center">
+                                    <div class="row my-2">
+                                        <div class="col-6">
+                                            <input type="password" name="password" class="form-control font-weight-lighter font-13 a mb-2"
+                                                   placeholder="رمز عبور">
+                                            <p class="text-danger">... را درست وارد کنید</p>
+                                            <span class="text-decoration-none font font-10 text-nowrap d-flex align-items-center">
                                            <span class=""> قوانین سایت را مطالعه کرده و پذیرفتم</span>
                                             <input type="checkbox" class="mx-2 ">
                                         </span>
-                                        <span class="d-block mb-2" style="font-size: 9px;">
+                                            <span class="d-block mb-2" style="font-size: 9px;">
                                                 قوانین سایت را
                                                 <a href="#"
                                                    class="text-decoration-none text-muted-red d-inline font-10">اینجا</a>
                                             مطالعه کنید
                                         </span>
+                                        </div>
+                                        <div class="col-6">
+                                            <input  type="password" name="password_confirmation" class="form-control mb-2 font-weight-lighter font-13 a"
+                                                    placeholder="تکراررمز عبور">
+                                            <p class="text-danger">... را درست وارد کنید</p>
+                                            {{--<h6 class="font-weight-lighter font-13 py-3">جایگاه کپچ گوگل</h6>--}}
+                                        </div>
                                     </div>
-                                    <div class="col-6">
-                                        <input type="password" class="form-control mb-2 font-weight-lighter font-13 a"
-                                               placeholder="تکراررمز عبور">
-                                        <p class="text-danger">... را درست وارد کنید</p>
-                                        <h6 class="font-weight-lighter font-13 py-3">جایگاه کپچ گوگل</h6>
+                                    <div class="d-flex justify-content-center my-2">
+                                        {{--<button class="btn btn-model w-25 a" onclick="f3()">ثبت نام</button>--}}
+                                        <button type="submit" class="btn btn-model w-25 a">ثبت نام</button>
+                                    </div>
+
+                                    <h6 class="font font-weight-bold text-center mb-2">یا</h6>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <button class="w-100 btn  mb-2 font btn1-footer-modal font-13 a">ورود با حساب کاربری
+                                                گوگل
+                                            </button>
+                                        </div>
+                                        <div class="col-12">
+                                            <button class="w-100 btn  font btn2-footer-modal font-13 a">ورود با حساب کاربری
+                                                مایکروسافت
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-center my-2">
-                                    <button class="btn btn-model w-25 a" onclick="f3()">ثبت نام</button>
+                                <div class="modal-footer border-top-0 d-block text-center mb-3">
+                                    <span class="font-10 font text-muted">آیا حساب کاربری دارید؟</span>
+                                    <a class="text-decoration-none font-10 font text-muted-red" href="#mymodal">ورود</a>
                                 </div>
-                                <h6 class="font font-weight-bold text-center mb-2">یا</h6>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <button class="w-100 btn  mb-2 font btn1-footer-modal font-13 a">ورود با حساب کاربری
-                                            گوگل
-                                        </button>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="w-100 btn  font btn2-footer-modal font-13 a">ورود با حساب کاربری
-                                            مایکروسافت
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer border-top-0 d-block text-center mb-3">
-                                <span class="font-10 font text-muted">آیا حساب کاربری دارید؟</span>
-                                <a class="text-decoration-none font-10 font text-muted-red" href="#mymodal">ورود</a>
-                            </div>
-                        </div>
-                        <form id="confrim">
-                            <div class="modal-body pb-0">
-                                <p class="text-muted pt-2 font14">حساب کاربری شما ساخته شد. لطفا کدی که
-                                    برای
-                                    شما پیامک شده است را وارد کنید و وارد
-                                    حساب
-                                    کاربری خود شوید.</p>
-                                <input type="text" name="" value="" placeholder="کد فعالسازی"
-                                       class="form-control font-weight-lighter font-13 col-12  my-2 a">
-                                <p class="text-danger">... را درست وارد کنید</p>
-                                <div class="d-flex justify-content-between ">
-                                    <button type="submit"
-                                            class="form-control btn my-2 text-white rounded-0 text-center font border-0  a"
-                                            id="send-conf">
-                                        ارسال مجدد
-                                    </button>
-                                    <button type="submit"
-                                            class="form-control btn my-2 text-white rounded-0 text-center font border-0  a"
-                                            id="change-num">
-                                        تغییر شماره
-                                    </button>
-                                </div>
-                                <button type="submit" id="acount-conf"
-                                        class="form-control btn my-2 col-12 text-white rounded-0 text-center font border-0 a mb-3">
-                                    تایید حساب کاربری
-                                </button>
                             </div>
                         </form>
+                        {{--<form id="confrim">--}}
+                            {{--<div class="modal-body pb-0">--}}
+                                {{--<p class="text-muted pt-2 font14">حساب کاربری شما ساخته شد. لطفا کدی که--}}
+                                    {{--برای--}}
+                                    {{--شما پیامک شده است را وارد کنید و وارد--}}
+                                    {{--حساب--}}
+                                    {{--کاربری خود شوید.</p>--}}
+                                {{--<input type="text" name="" value="" placeholder="کد فعالسازی"--}}
+                                       {{--class="form-control font-weight-lighter font-13 col-12  my-2 a">--}}
+                                {{--<p class="text-danger">... را درست وارد کنید</p>--}}
+                                {{--<div class="d-flex justify-content-between ">--}}
+                                    {{--<button type="submit"--}}
+                                            {{--class="form-control btn my-2 text-white rounded-0 text-center font border-0  a"--}}
+                                            {{--id="send-conf">--}}
+                                        {{--ارسال مجدد--}}
+                                    {{--</button>--}}
+                                    {{--<button type="submit"--}}
+                                            {{--class="form-control btn my-2 text-white rounded-0 text-center font border-0  a"--}}
+                                            {{--id="change-num">--}}
+                                        {{--تغییر شماره--}}
+                                    {{--</button>--}}
+                                {{--</div>--}}
+                                {{--<button type="submit" id="acount-conf"--}}
+                                        {{--class="form-control btn my-2 col-12 text-white rounded-0 text-center font border-0 a mb-3">--}}
+                                    {{--تایید حساب کاربری--}}
+                                {{--</button>--}}
+                            {{--</div>--}}
+                        {{--</form>--}}
                     </div>
                 </div>
             </div>
@@ -1886,24 +1247,8 @@
                         <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services">
                             ترجمه
                         </button>
-                        <p id="collapse_paragraph3" class="collapse my-3 ">
-                            اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را بشناسند؟ تبلیغات یک راهکار زودبازده و خوب برای
-                            افزایش فروش در این لحظه است. به علاوه، تبلیغات درست باعث شناخته شدن برند شما می‌شود و در آینده
-                            می‌توانید تاثیر مستقیم آن را در فروش احساس کنید.
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                            چاپگرها
-                            و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
-                            و
-                            کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال
-                            و
-                            آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان
-                            رایانه
-                            ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت
-                            که
-                            تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل
-                            حروفچینی
-                            دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                        </p>
+                        <p id="collapse_paragraph3" class="collapse my-3">{{$textTrans}}</p>
+
                         <a class="btn-nyn05 moretxt-btn-nyn05 collapsed w-100 text-decoration-none" role="button"
                            data-toggle="collapse" href="#collapse_paragraph3" aria-expanded="false"
                            aria-controls="collapse_paragraph3">
@@ -1920,24 +1265,8 @@
                         <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services">
                             تایپ
                         </button>
-                        <p id="collapse_paragraph1" class="collapse my-3">
-                            اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را بشناسند؟ تبلیغات یک راهکار زودبازده و خوب برای
-                            افزایش فروش در این لحظه است. به علاوه، تبلیغات درست باعث شناخته شدن برند شما می‌شود و در آینده
-                            می‌توانید تاثیر مستقیم آن را در فروش احساس کنید.
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                            چاپگرها
-                            و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
-                            و
-                            کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال
-                            و
-                            آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان
-                            رایانه
-                            ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت
-                            که
-                            تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل
-                            حروفچینی
-                            دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                        </p>
+                        <p id="collapse_paragraph1" class="collapse my-3">{{$textType}}</p>
+
                         <a class="btn-nyn05 moretxt-btn-nyn05 collapsed w-100 text-decoration-none" role="button"
                            data-toggle="collapse" href="#collapse_paragraph1" aria-expanded="false"
                            aria-controls="collapse_paragraph1">
@@ -1960,24 +1289,8 @@
                         <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services">
                             تایپ
                         </button>
-                        <p id="collapse_paragraph1" class="collapse my-3">
-                            اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را بشناسند؟ تبلیغات یک راهکار زودبازده و خوب برای
-                            افزایش فروش در این لحظه است. به علاوه، تبلیغات درست باعث شناخته شدن برند شما می‌شود و در آینده
-                            می‌توانید تاثیر مستقیم آن را در فروش احساس کنید.
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                            چاپگرها
-                            و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
-                            و
-                            کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال
-                            و
-                            آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان
-                            رایانه
-                            ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت
-                            که
-                            تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل
-                            حروفچینی
-                            دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                        </p>
+                        <p id="collapse_paragraph1" class="collapse my-3">{{$textType}}</p>
+
                         <a class="btn-nyn05 moretxt-btn-nyn05 collapsed w-100 text-decoration-none" role="button"
                            data-toggle="collapse" href="#collapse_paragraph1" aria-expanded="false"
                            aria-controls="collapse_paragraph1">
@@ -1997,24 +1310,7 @@
                         <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services text-nowrap">
                             ویرایش و بازخوانی
                         </button>
-                        <p id="collapse_paragraph2" class="collapse my-3 ">
-                            اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را بشناسند؟ تبلیغات یک راهکار زودبازده و خوب برای
-                            افزایش فروش در این لحظه است. به علاوه، تبلیغات درست باعث شناخته شدن برند شما می‌شود و در آینده
-                            می‌توانید تاثیر مستقیم آن را در فروش احساس کنید.
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                            چاپگرها
-                            و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
-                            و
-                            کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال
-                            و
-                            آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان
-                            رایانه
-                            ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت
-                            که
-                            تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل
-                            حروفچینی
-                            دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                        </p>
+                        <p id="collapse_paragraph1" class="collapse my-3">{{$textType}}</p>
                         <a class="btn-nyn05 moretxt-btn-nyn05 collapsed w-100 text-decoration-none" role="button"
                            data-toggle="collapse" href="#collapse_paragraph2">
                             <span class="text-muted">متن کامل</span>
@@ -2092,22 +1388,47 @@
                 </div>
                 <div class="col-xl-2 col-lg-1 d-none d-lg-flex"></div>
 
-                <form class="col-xl-6 col-md-6 col-12 col-lg-6 ">
+                <form action="{{ url('/subscribe') }}" method="post" id="leadscreate" class="col-xl-6 col-md-6 col-12 col-lg-6 ">
+                    {{ csrf_field() }}
+
+
+                    {{--<form class="col-xl-6 col-md-6 col-12 col-lg-6 ">--}}
                     <div class="emji-comment my-4 d-flex justify-content-sm-start">
-                        <i class="fa fa-laugh-beam font35 mx-2"></i>
-                        <i class="fa fa-laugh font35 mx-2"></i>
-                        <i class="fa fa-smile-wink font35 mx-2"></i>
-                        <i class="fa fa-smile-beam font35 mx-2"></i>
-                        <i class="fa fa-smile font35 mx-2" style="color: #33cc33"></i>
+                        <label>
+                            <input  type="radio" name="emoji" value="/home/img/1.svg" checked>
+                            <img class="mx-3" src="/home/img/1.svg">
+                        </label>
+                        <label>
+                            <input  type="radio" name="emoji" value="/home/img/2.svg">
+                            <img class="mx-3" src="/home/img/2.svg">
+                        </label>
+
+                        <label>
+                            <input  type="radio" name="emoji" value="/home/img/3.svg">
+                            <img class="mx-3" src="/home/img/3.svg">
+                        </label>
+                        <label>
+                            <input  type="radio" name="emoji" value="/home/img/4.svg">
+                            <img class="mx-3" src="/home/img/4.svg">
+                        </label>
+
+                        <label>
+                            <input  type="radio" name="emoji" value="/home/img/5.svg">
+                            <img class="mx-3" src="/home/img/5.svg">
+                        </label>
                     </div>
                     <div class="form-group my-4 comment-box mx-0">
-                        <div data-emojiarea data-type="unicode" data-global-picker="false">
-                    <textarea class="form-control border-0 text-dark" id="input1" rows="8"
-                              placeholder="متنی با بیش از 50 کاراکتر وارد کنید"> </textarea>
+                        <div data-emojiarea data-type="unicode" rows="8">
+                            <textarea class="form-control border-0 text-dark" rows="8" id="comment" name="description" placeholder="متنی با بیش از 50 کارکتر وارد کنید">{{old('description')}}</textarea>
+                            @if($errors->has('description'))
+                                <span style="font-size: 12px;padding-right: 10px;color: red;background-color: #ffe6eb;float: right;" class="help-block sub-error">
+                                {{$errors->first('description')}}
+                            </span>
+                            @endif
                         </div>
                     </div>
-                    <button class="btn border-0 btn-success sub d-flex mx-0 text-white">
-                        <i class="fa fa-check-square m-auto"></i>
+                    <button id="submitComment" class="btn border-0 btn-success sub d-flex mx-0 text-white">
+                        <i class="fa fa-check-square-o m-auto"></i>
                         <span class="px-4">ثبت</span>
                     </button>
                 </form>
@@ -2588,6 +1909,33 @@ console.log(type);
             });
 
 
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#submitComment").click(function (e) {
+//                console.log("tsst");
+                e.preventDefault(); // this prevents the form from submitting
+                $.ajax({
+                    url:"/subscribe",
+                    type:"post",
+                    data:{
+                        '_token': $('input[name=_token]').val(),
+
+                        'emoji': $('input[type="radio"]:checked').val(),
+                        'description':$( '#comment' ).val()
+                    },
+                    dataType: 'JSON',
+
+                    success:function(result_search){
+                        console.log(result_search);
+                        $('#lang').html(result_search['result_search']);
+
+                    }
+                });
+
+            });
         });
     </script>
 
