@@ -856,25 +856,23 @@
                 <div class="col-12 col-xl-6 col-md-12 col-lg-6 box-header-left my-lg-auto my-2 ">
                     <div class="box-header-left-content px-2 px-lg-0">
                         <h5 class="font mb-3 text-white ">
-                            <span class="Orange "> ترجمه تخصصی</span>
-                            با کیفیت با انتخاب
-                            <span class="blue my-auto">مناسب‌ترین</span>
-                            مترجم</h5>
-                        <p class="text-white">در سایت ترجمه تخصصی ترنسیس می‌توانید سفارش ترجمه خود را ایجاد کنید، مترجمین
-                            متخصص و
-                            مرتبط با
-                            زمینه
-                            ترجمه، پیشنهاد خود را برای انجام آن اعلام می‌کنند و شما بهترین پیشنهاد را انتخاب می‌کنید، ترنسیس
-                            نیز
-                            کیفیت ترجمه ها را تضمین خواهد کرد</p>
+
+                                {{trans('sentence.Quality') }}
+                                <span class="Orange ">{{trans('sentence.specialized') }}</span>
+                        {{trans('sentence.by choosing')}}
+                        <span class="blue my-auto">{{trans('sentence.the most suitable')}}</span>
+                        {{trans('sentence.translator') }}</h5>
+
+
+                        <p class="text-white">{{trans('sentence.explanation') }}</p>
                         <div class="d-flex justify-content-center">
                             <button type="btn" class="btn btn-header-right btn-en mx-1 rounded text-nowrap">
                                 <i class="fa fa-sort-alpha-down-alt mx-2"></i>
-                                ثبت سفارش
+                                {{trans('sentence.Order') }}
                             </button>
                             <button type="btn" class="btn btn-header-left btn-en mx-1 rounded text-nowrap">
                                 <i class="fa fa-exchange-alt mx-2"></i>
-                                اطلاعات بیشتر
+                                {{trans('sentence.more information') }}
                             </button>
                         </div>
                     </div>
@@ -960,18 +958,22 @@
                                             <p>
                                                 <span id="{{$price->level->en_name.'_main'}}" >
                                                {{trans('sentence.From')}}
-                                                <span id="{{$price->level->en_name.'min'}}" class="text-success">{{'$'.$price->value_min}}</span>
+                                                    $
+                                                <span id="{{$price->level->en_name.'min'}}" class="text-success">{{$price->value_min}}</span>
                                                  {{trans('sentence.to')}}
-                                                <span id="{{$price->level->en_name.'max'}}" class="text-success">{{'$'.$price->value_max}}</span>
+                                                    $
+                                                <span id="{{$price->level->en_name.'max'}}" class="text-success">{{$price->value_max}}</span>
 
                                                  </span>
                                                 <br>
                                                 <span id="{{$price->level->en_name.'_dis'}}" style="display: none">
                                                     {{trans('sentence.From')}}
+                                                    $
                                         <span id="{{$price->level->en_name.'_dis_min'}}" class="text-success"></span>
-                                        $ {{trans('sentence.to')}}
+                                         {{trans('sentence.to')}}
+                                                    $
                                         <span id="{{$price->level->en_name.'_dis_max'}}"class="text-success"></span>
-                                        $
+
                                         </span>
                                             </p>
                                         </div>
@@ -995,9 +997,10 @@
 
         <!--start How-wed-box-->
         <div class="container my-5 " onclick="closeNav()">
-            <h4 class="text-center  m-sm-4 pb-3 font-weight-bold font">سایت
-                <mark class="text-white bg-shadow">چگونه</mark>
-                کار می کند؟
+            <h4 class="text-center  m-sm-4 pb-3 font-weight-bold font">
+
+                <mark class="text-white bg-shadow">{{trans('sentence.How')}}</mark>
+                {{trans('sentence.the site work?')}}
             </h4>
             <div class="row ">
                 <div class="col-lg-4 col-xl-4 col-12   text-right w-100 d-flex justify-content-center">
@@ -1008,12 +1011,12 @@
                         <div class="w-100 px-2">
                             <h5 class="font text-center ">
                     <span style="border-bottom: 2px solid #ccc;">
-                    <span class="blue">1.</span>ثبت سفارش
+                    <span class="blue">1.</span>{{trans('sentence.Order registration')}}
                     </span>
                             </h5>
                             <br>
                             <p class="text-muted text-center text-answer mx-auto">
-                                ابتدا در سایت ثبت نام و سپس از طریق پنل کاربری اقدام به ثبت سفارش نمایید.
+                                {{trans('sentence.First, register')}}
                             </p>
                         </div>
                     </div>
@@ -1023,12 +1026,12 @@
                         <img class="img-thumbnail border-0 img-How-box" src="/home/img/follow.svg">
                         <h5 class="font text-center">
                     <span style="border-bottom: 2px solid #ccc;">
-                    <span class="blue">2.</span>پیگیری مراحل انجام پروژه
+                    <span class="blue">2.</span>{{trans('sentence.Follow the steps')}}
                     </span>
                         </h5>
                         <br>
                         <p class="text-muted text-center text-answer mx-auto">
-                            میزان پیشرفت پروژه تان را در پنل کاربری خود مشاهده کنید.
+                            {{trans('sentence.See the progress')}}
                         </p>
                     </div>
                 </div>
@@ -1037,13 +1040,13 @@
                         <img class="img-thumbnail border-0 img-How-box" src="/home/img/fileـdelivery.svg">
                         <h5 class="font text-center">
                     <span style="border-bottom: 2px solid #ccc;">
-                    <span class="blue">3.</span>تحویل فایل
+                    <span class="blue">3.</span>{{trans('sentence.File delivery')}}
                     </span>
 
                         </h5>
                         <br>
                         <p class="text-muted text-center text-answer mx-auto">
-                            فایل نهایی را دریافت و در صورت تایید در نظرسنجی شرکت کنید.
+                            {{trans('sentence.Download the final')}}
                         </p>
                     </div>
                 </div>
@@ -1060,9 +1063,9 @@
                             <div class="child-project ">
                                 <div class="container d-flex justify-content-between">
                                     <div class="p-1">
-                                        <ul class="text-right mr-4 list-unstyled font pr-0 py-2">
+                                        <ul class="text-right mr-9 list-unstyled font pr-0 py-2">
                                             <li class="num-size">481+</li>
-                                            <li class="font-li text-nowrap">پروژه موفق</li>
+                                            <li class="font-li text-nowrap">{{trans('sentence.Successful projects')}}</li>
                                         </ul>
                                     </div>
                                     <div class="p-1">
@@ -1079,7 +1082,7 @@
                                     <div class="p-1">
                                         <ul class="text-right list-unstyled mr-4  font pr-0 py-2">
                                             <li class="num-size">481+</li>
-                                            <li class="font-li">متخصص</li>
+                                            <li class="font-li">{{trans('sentence.Expert')}}</li>
                                         </ul>
                                     </div>
                                     <div class="p-1">
@@ -1104,7 +1107,7 @@
                                 style="stroke-dashoffset: 39.58406743523136;"></circle>
                         <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">82%</text>
                     </svg>
-                    <h6 class="text-center text-white d-block progress-txt">میزان رضایت از کیفیت ترجمه</h6>
+                    <h6 class="text-center text-white d-block progress-txt">{{trans('sentence.Satisfaction')}}</h6>
                 </div>
                 <div class="col-4 col-xl-2 mx-0 px-0 ">
                     <svg class="radial-progress px-2  px-sm-4" data-percentage="33" viewBox="0 0 80 80">
@@ -1113,7 +1116,7 @@
                                 style="stroke-dashoffset: 147.3406954533613;"></circle>
                         <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">33%</text>
                     </svg>
-                    <h6 class="text-center text-white d-block progress-txt">میزان رضایت از زمان تحویل</h6>
+                    <h6 class="text-center text-white d-block progress-txt">{{trans('sentence.Satisfaction rate')}}</h6>
                 </div>
                 <div class="col-4 mx-0 px-0 align-content-start">
                     <svg class="radial-progress px-2  px-sm-4" data-percentage="71" viewBox="0 0 80 80">
@@ -1122,7 +1125,7 @@
                                 style="stroke-dashoffset: 63.774330867872806;"></circle>
                         <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">71%</text>
                     </svg>
-                    <h6 class="text-center text-white d-block progress-txt">میزان رضایت از پشتیبانی</h6>
+                    <h6 class="text-center text-white d-block progress-txt">{{trans('sentence.Satisfaction rate of support')}}</h6>
                 </div>
 
             </section>
@@ -1136,12 +1139,8 @@
             <div class="row ">
                 <div class="col-xl-3 col-12 ">
                     <div class="my-3 text-muted Advertising-text justify-content-center tabligh">
-                        <button class="btn d-flex justify-content-center btn-primary text-white px-4 my-4">تبلیغات</button>
-                        <p class="px-4 font14">اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را بشناسند؟
-                            تبلیغات یک راهکار زودبازده و
-                            خوب برای افزایش فروش در این لحظه است. به علاوه، تبلیغات درست باعث شناخته شدن برند شما می‌شود و
-                            در
-                            آینده می‌توانید تاثیر مستقیم آن را در فروش احساس کنید.</p>
+                        <button class="btn d-flex justify-content-center btn-primary text-white px-4 my-4">{{trans('sentence.Advertising')}}</button>
+                        <p class="px-4 font14">{{trans('sentence.If you do not have an ad,')}}</p>
                     </div>
                 </div>
                 <div class="col-xl-9 col-12">
@@ -1152,10 +1151,9 @@
                                     <div class="box-title-text-in-Advertising">
                                         <img class="px-3" src="/home/img/ticket2.svg">
                                         <br>
-                                        <h6 class="mx-3 px-xl-5 px-3">تضمین کیفیت پروژه ها</h6>
+                                        <h6 class="mx-3 px-xl-5 px-3">{{trans('sentence.Quality assurance')}}</h6>
                                     </div>
-                                    <p class="text-center text-muted">اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را
-                                        بشناسند؟</p>
+                                    <p class="text-center text-muted">{{trans('sentence.If you do not have an ad')}}</p>
                                 </a>
                             </div>
                         </div>
@@ -1165,10 +1163,9 @@
                                     <div class="box-title-text-in-Advertising">
                                         <img class="px-3" src="/home/img/price.svg">
                                         <br>
-                                        <h6 class="mx-3 px-xl-5 px-3">قیمیت بصرفه و پرداخت آنلاین</h6>
+                                        <h6 class="mx-3 px-xl-5 px-3">{{trans('sentence.Affordable prices')}}</h6>
                                     </div>
-                                    <p class="text-center text-muted">اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را
-                                        بشناسند؟</p>
+                                    <p class="text-center text-muted">{{trans('sentence.If you do not have an ad')}}</p>
                                 </a>
                             </div>
                         </div>
@@ -1178,10 +1175,9 @@
                                     <div class="box-title-text-in-Advertising">
                                         <img class="px-3 connection" src="/home/img/connection.png">
                                         <br>
-                                        <h6 class="mx-3 px-xl-5 px-3">شبکه ای از متخصصین</h6>
+                                        <h6 class="mx-3 px-xl-5 px-3">{{trans('sentence.A network of specialists')}}</h6>
                                     </div>
-                                    <p class="text-center text-muted">اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را
-                                        بشناسند؟</p>
+                                    <p class="text-center text-muted">{{trans('sentence.If you do not have an ad')}}</p>
                                 </a>
                             </div>
                         </div>
@@ -1191,10 +1187,9 @@
                                     <div class="box-title-text-in-Advertising">
                                         <img class="px-3" src="/home/img/support.svg">
                                         <br>
-                                        <h6 class="mx-3 px-xl-5 px-3">پشتیبانی 24/7</h6>
+                                        <h6 class="mx-3 px-xl-5 px-3">{{trans('sentence.24/7 support')}}</h6>
                                     </div>
-                                    <p class="text-center text-muted">اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را
-                                        بشناسند؟</p>
+                                    <p class="text-center text-muted">{{trans('sentence.If you do not have an ad')}}</p>
                                 </a>
                             </div>
                         </div>
@@ -1204,10 +1199,9 @@
                                     <div class="box-title-text-in-Advertising">
                                         <img class="px-3" src="/home/img/key.svg">
                                         <br>
-                                        <h6 class="mx-3 px-xl-5 px-3">امنیت بالای فایل ها</h6>
+                                        <h6 class="mx-3 px-xl-5 px-3">{{trans('sentence.High file security')}}</h6>
                                     </div>
-                                    <p class="text-center text-muted">اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را
-                                        بشناسند؟</p>
+                                    <p class="text-center text-muted">{{trans('sentence.If you do not have an ad')}}</p>
                                 </a>
                             </div>
                         </div>
@@ -1217,10 +1211,9 @@
                                     <div class="box-title-text-in-Advertising">
                                         <img class="px-3" src="/home/img/price.svg">
                                         <br>
-                                        <h6 class="mx-3 px-xl-5 px-3">تحویل سریع در زمان مشخص</h6>
+                                        <h6 class="mx-3 px-xl-5 px-3">{{trans('sentence.Fast delivery on time')}}</h6>
                                     </div>
-                                    <p class="text-center text-muted">اگر تبلیغ نداشته باشید، چطور مشتریان باید شما را
-                                        بشناسند؟</p>
+                                    <p class="text-center text-muted">{{trans('sentence.If you do not have an ad')}}</p>
                                 </a>
                             </div>
                         </div>
@@ -1445,21 +1438,18 @@
                         <div class="content-footer">
                             <h6 class="font">
                                 <img class="bg-blue m-2 img-abut" src="/home/img/abut2.svg">
-                                درباره ما
+                                {{trans('sentence.about us')}}
                             </h6>
                             <p class="mb-lg-5 px-4">
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                                چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                                تکنولوژی
-                                مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </p>
+                                {{trans('sentence.Epsom Lorem ipsum')}}</p>
                             <div class="d-flex justify-content-end mt-4">
                                 <button type="button" class="btn bg-green text-white footer-btn">
                                     <i class="fa fa-headphones text-white px-2"></i>
-                                    پشتیبانی
+                                    {{trans('sentence.Support')}}
                                 </button>
                                 <button type="button" class="btn mr-3 bg-blue text-white footer-btn">
                                     <i class="fa fa-send-o text-white px-2"></i>
-                                    نحوه ثبت سفارش
+                                    {{trans('sentence.How to register an order')}}
                                 </button>
                             </div>
                         </div>
@@ -1470,7 +1460,7 @@
                                 <div class="content-footer2 ">
                                     <h6 class="text-white font">
                                         <img class="bg-green m-2 img-abut" src="/home/img/contact.svg">
-                                        ارتباط با ما
+                                        {{trans('sentence.Contact us')}}
                                     </h6>
                                     <div class="list-footer mt-4">
                                         <img src="/home/img/phone.svg" class="text-white">
@@ -1490,23 +1480,23 @@
                                 <div class="content-footer2 ">
                                     <h6 class="text-white font">
                                         <img class="bg-Orange m-2 img-abut" src="/home/img/access.svg">
-                                        دسترسی سریع
+                                        {{trans('sentence.quick access')}}
                                     </h6>
                                     <a href="#" class="list-footer mt-4">
                                         <img src="/home/img/point.svg" class="text-white">
-                                        <span class="mx-2 content-footer2-text">قوانین و مقررات</span>
+                                        <span class="mx-2 content-footer2-text">{{trans('sentence.Terms')}}</span>
                                     </a>
                                     <a href="#" class="list-footer mt-4">
                                         <img src="/home/img/point.svg" class="text-white">
-                                        <span class="mx-2 content-footer2-text">حریم خصوصی</span>
+                                        <span class="mx-2 content-footer2-text">{{trans('sentence.Privacy')}}</span>
                                     </a>
                                     <a href="#" class="list-footer mt-4">
                                         <img src="/home/img/point.svg" class="text-white">
-                                        <span class="mx-2 content-footer2-text">سولات متداول</span>
+                                        <span class="mx-2 content-footer2-text">{{trans('sentence.Frequently Questions')}}</span>
                                     </a>
                                     <a href="#" class="list-footer mt-4">
                                         <img src="/home/img/point.svg" class="text-white">
-                                        <span class="mx-2 content-footer2-text">بلاگ</span>
+                                        <span class="mx-2 content-footer2-text">{{trans('sentence.blog')}}</span>
                                     </a>
                                 </div>
                             </div>
@@ -1518,9 +1508,9 @@
                 <form class="col-lg-6 col-sm-8 col-10">
                     <div class="input-group custom-input-group py-3" id="email">
                         <input id="email2" type="email" class="p-3 text-muted form-control footer-input "
-                               placeholder="ایمیل خود را وارد کنید...">
+                               placeholder="{{trans('sentence.Enter your Email')}}">
                         <div class="input-group-append " id="submit-em">
-                            <button type="submit" class="btn  bg-green px-lg-5 p-lg-3 text-white">عضوم کن!
+                            <button type="submit" class="btn  bg-green px-lg-5 p-lg-3 text-white">{{trans('sentence.Join')}}
                             </button>
                         </div>
                     </div>

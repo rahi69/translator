@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c89089d2-c5d1-4747-8a01-5397220a6975" name="Default" comment="new price">
+    <list default="true" id="c89089d2-c5d1-4747-8a01-5397220a6975" name="Default" comment="estimation price">
+      <change beforePath="$PROJECT_DIR$/.idea/translator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/translator.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/ar/sentence.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/sentence.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/en/sentence.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/sentence.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +48,6 @@
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
       <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
       <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
       <path value="$PROJECT_DIR$/vendor/symfony/debug" />
       <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
@@ -109,6 +107,17 @@
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
       <path value="$PROJECT_DIR$/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
+      <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gGICVSYx4F3sF6i3Qdw2FJA5OZ" />
@@ -237,7 +246,10 @@
       <workItem from="1606547879167" duration="11174000" />
       <workItem from="1606632242802" duration="12866000" />
       <workItem from="1606721872953" duration="4887000" />
-      <workItem from="1606804643471" duration="6097000" />
+      <workItem from="1606804643471" duration="10114000" />
+      <workItem from="1606835877800" duration="24000" />
+      <workItem from="1606890979357" duration="13670000" />
+      <workItem from="1606978683450" duration="12274000" />
     </task>
     <task id="LOCAL-00001" summary="database1">
       <created>1596975492886</created>
@@ -309,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606403000378</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="estimation price">
+      <created>1606821724660</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1606821724660</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,17 +345,18 @@
     <MESSAGE value="new index3" />
     <MESSAGE value="new index4" />
     <MESSAGE value="new price" />
-    <option name="LAST_COMMIT_MESSAGE" value="new price" />
+    <MESSAGE value="estimation price" />
+    <option name="LAST_COMMIT_MESSAGE" value="estimation price" />
   </component>
   <component name="WindowStateProjectService">
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606049504164">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1606049504164" />
-    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1606402999188">
+    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1606821722196">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1606402999188" />
+    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1606821722196" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1606722063077">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -349,10 +369,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1599144738846" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1606403008918">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1606821730578">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1606403008918" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1606821730578" />
+    <state x="492" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606832868232">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="492" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1606832868232" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1606571270567">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
