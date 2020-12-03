@@ -1338,8 +1338,12 @@
                 <div class="col-xl-4 col-md-6 col-12 col-lg-5 d-block h-100 mt-4 mt-md-5 pt-3">
                 @foreach($comments as $comment)
                     <div class="box-comment2 mySlides">
-                        <img class="ax " src="/photo/users/{{$comment->user->img_user}}">
-                        <div class="emji-comment d-flex flex-wrap justify-content-end comment">
+                        @if($comment->user->img_user==null)
+                        <img class="ax " src="/photo/users/2.svg">
+                        @else
+                            <img class="ax " src="/photo/users/{{$comment->user->img_user}}">
+                        @endif
+                            <div class="emji-comment d-flex flex-wrap justify-content-end comment">
                             <img class="em-com" src="{{$comment->emoji}}">
                         </div>
                         <div class="d-flex justify-content-center ">
