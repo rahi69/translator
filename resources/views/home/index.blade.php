@@ -91,12 +91,12 @@
                         <div class="col-10 px-0 mx-0">
                             <a data-toggle="modal" data-target="#exampleModalCenter" onclick="f1();closeNav()"
                                class="px-3 c-pointer">
-                                ورود
+                                {{trans('sentence.login')}}
                             </a>
                             <span>/</span>
                             <a data-toggle="modal" data-target="#exampleModalCenter" onclick="f2();closeNav()"
                                class="px-3 c-pointer">
-                                ثبت نام
+                                {{trans('sentence.register')}}
                             </a>
                         </div>
                         <span class=" d-sm-header d-lg-none mx-auto">
@@ -269,7 +269,7 @@
                          data-target="#menu2">
                         <div>
                             <a class="text-decoration-none font d-inline text-white">
-                                خدمات
+                                     {{trans('sentence.Services')}}
                             </a>
                         </div>
                         <div>
@@ -311,7 +311,7 @@
                          data-target="#menu3">
                         <div>
                             <a class="text-decoration-none font d-inline text-white">
-                                راهنما
+
                             </a>
                         </div>
                         <div>
@@ -347,7 +347,7 @@
                          data-target="#menu4">
                         <div>
                             <a class="text-decoration-none font d-inline text-white">
-                                درباره ما
+                                {{trans('sentence.about')}}
                             </a>
                         </div>
                         <div>
@@ -417,7 +417,8 @@
                                        class="custom-menu-item my-0 d-block text-decoration-none text-nowrap px-0 li-1-a"
                                        onclick="closeNav()"
                                        data-toggle="dropdown">
-                                        خدمات
+                                        {{trans('sentence.Services')}}
+
                                         <i class="fa fas fa-angle-down "></i>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-nav1">
@@ -426,7 +427,14 @@
                                                 <li class="dropdown dropdown2" href="#">
                                                     <a class="p-2  dropdown-item dropdown-item-menu text-right d-flex" href="#">
                                                         <i class="fa {{$menuItem->icon}} px-1 d-sm-header"></i>
-                                                        {{$menuItem->name}}
+                                                        @switch($locale)
+                                                            @case('ar')
+                                                            {{$menuItem->name}}
+                                                            @break
+                                                            @default
+                                                            {{$menuItem->en_name}}
+                                                        @endswitch
+
                                                         <i class="fa fa-angle-left mr-auto ar"></i>
                                                         <i class="fa fa-angle-right ml-auto en"></i>
                                                     </a>
@@ -436,7 +444,13 @@
                                                             @foreach($menuItem->children as $subMenuItem)
                                                                 <a class="dropdown-item dropdown-item-menu text-lg-right d-flex" href="#">
                                                                     <i class="d-sm-header mt-1 fa fa-check-circle icon-menu11"></i>
-                                                                    {{$subMenuItem->name}}
+                                                                    @switch($locale)
+                                                                        @case('ar')
+                                                                        {{$subMenuItem->name}}
+                                                                        @break
+                                                                        @default
+                                                                        {{$subMenuItem->en_name}}
+                                                                    @endswitch
                                                                 </a>
                                                             @endforeach
                                                         </ul>
@@ -454,7 +468,7 @@
                                        onclick="closeNav()"
                                        id="services"
                                        data-toggle="dropdown">
-                                        راهنما
+                                        {{trans('sentence.guide')}}
                                         <i class="fa fas fa-angle-down "></i>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-nav1">
@@ -491,7 +505,7 @@
                                        class="custom-menu-item my-0  d-block text-decoration-none text-nowrap px-0 li-1-a"
                                        onclick="closeNav()"
                                        data-toggle="dropdown">
-                                        درباره ما
+                                        {{trans('sentence.about')}}
                                         <i class="fa fas fa-angle-down"></i>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-nav1">
@@ -548,7 +562,7 @@
                                 <li class="nav-item col-6 px-0 d-sm-header  d-lg-flex align-items-center justify-content-start d-none">
                                     <button class="btn btn-logo">
                                         <i class="fa fa fa-pen font15"></i>
-                                        <span class="pr-1 pl-2 pb-2 pt-2">ثبت سفارش</span>
+                                        <span class="pr-1 pl-2 pb-2 pt-2">{{trans('sentence.order')}}</span>
                                     </button>
                                 </li>
 
@@ -616,12 +630,12 @@
                                     id="register" onclick="closeNav()">
                                     <a class="c-pointer" data-toggle="modal" data-target="#exampleModalCenter"
                                        onclick="f1()">
-                                        ورود
+                                        {{trans('sentence.login')}}
                                     </a>
                                     <span class="mx-2">/</span>
                                     <a class="c-pointer" data-toggle="modal" data-target="#exampleModalCenter"
                                        onclick="f2()">
-                                        ثبت نام
+                                        {{trans('sentence.register')}}
                                     </a>
                                 </li>
                                 <!--End Register And Login-->
@@ -676,10 +690,10 @@
                             </div>
                             <div class="col-12 d-flex px-0">
                                 <div class="col-6 conf text-muted c-pointer" id="login-border" onclick="f1()"><p id="login">
-                                        ورود</p></div>
+                                        {{trans('sentence.login')}}</p></div>
                                 <div class="col-6 conf text-muted c-pointer" id="logout-border" onclick="f2()"><p
                                         id="logout">
-                                        ثبت نام</p></div>
+                                        {{trans('sentence.register')}}</p></div>
                             </div>
                         </div>
 
@@ -688,8 +702,8 @@
                                 <div class="row my-2 d-flex justify-content-center">
                                     <div class="col-3"></div>
                                     <div class="col-6">
-                                        <input type="tel" class="form-control mb-2 font-weight-lighter font-13 a"
-                                               placeholder="شماره تلفن همراه یا ایمیل">
+                                        <input type="email" class="form-control mb-2 font-weight-lighter font-13 a"
+                                               placeholder="{{trans('sentence.email')}}">
                                         <p class="text-danger">... را درست وارد کنید</p>
                                     </div>
                                     <div class="col-3"></div>
@@ -698,10 +712,10 @@
                                     <div class="col-3"></div>
                                     <div class="col-6  ">
                                         <input type="password" class="form-control mb-2 font-weight-lighter font-13 a"
-                                               placeholder="رمز عبور">
+                                               placeholder="{{trans('sentence.pass')}}">
                                         <p class="text-danger">... را درست وارد کنید</p>
                                         <a class="text-decoration-none text-muted font font10" href="#">
-                                            رمز عبور خود را فراموش کرده اید؟
+{{trans('sentence.Forgot')}}
                                         </a>
                                     </div>
                                     <div class="col-3"></div>
@@ -709,27 +723,24 @@
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-center">
                                         <button onclick="show_profile()"
-                                                class="btn mb-2 w-25 btn-model font-13 a text-nowrap">
-                                            ورود به
-                                            سایت
-                                        </button>
+                                                class="btn mb-2 w-25 btn-model font-13 a text-nowrap">{{trans('sentence.sing_in')}}</button>
                                     </div>
                                 </div>
-                                <h6 class="font font-weight-bold text-center mb-2">یا</h6>
+                                <h6 class="font font-weight-bold text-center mb-2">{{trans('sentence.or')}}</h6>
                                 <div class="row">
                                     <div class="col-12">
-                                        <a href="{{ url('auth/google') }}" class="btn w-100 btn  mb-2 font btn1-footer-modal font-13 a">ورود با حساب کاربری گوگل</a>
+                                        <a href="{{ url('auth/google') }}" class="btn w-100 btn  mb-2 font btn1-footer-modal font-13 a">{{trans('sentence.login_google')}}</a>
 
                                     </div>
                                     <div class="col-12">
-                                        <a href="{{ route('azure.login') }}" class="btn w-100 btn  font btn2-footer-modal font-13 a">ورود با حساب کاربری مایکروسافت</a>
+                                        <a href="{{ route('azure.login') }}" class="btn w-100 btn  font btn2-footer-modal font-13 a">{{trans('sentence.login_microsoft')}}</a>
 
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-footer border-top-0 d-block text-center mb-3">
-                                <span class="font-10 font text-muted">حساب کاربری ندارید؟</span>
-                                <a href="#" class="text-decoration-none font-10 font text-muted-red">ثبت نام کنید</a>
+                                <span class="font-10 font text-muted">{{trans('sentence.doNot_account')}}</span>
+                                <a href="#" class="text-decoration-none font-10 font text-muted-red">{{trans('sentence.register')}}</a>
                             </div>
                         </div>
                         <form action="{{ url('register') }}" method="post">
@@ -737,22 +748,19 @@
                             <div id="log-out">
 
                                 <div class="modal-body pb-0">
-                                    <input type="text" class="form-control my-2 font-weight-lighter font-13 a" name="name"
-                                           placeholder="نام کاربری" value="{{ old('name') }}">
-                                    <p class="text-danger">... را درست وارد کنید</p>
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-12">
                                             <input type="email" name="email" class="form-control my-2 font-weight-lighter font-13 a"
-                                                   placeholder="ایمیل" value="{{ old('email') }}">
+                                                   placeholder="{{trans('sentence.email')}}" value="{{ old('email') }}">
                                             <p class="text-danger">... را درست وارد کنید</p>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-12">
                                             <div class="d-flex w-100 phone-number" style="direction: rtl">
                                                 <input type="text" name="mobile" class="form-control my-2 font-weight-lighter text-center font-13 a w-75"
-                                                       placeholder="شماره تلفن همراه " value="{{ old('mobile') }}">
-                                                <select name="prefix_id" class="form-control text-center mt-2 w-25 font11 px-0">
+                                                       placeholder="{{trans('sentence.mobile')}}" value="{{ old('mobile') }}">
+                                                <select name="prefix_id" class="form-control text-center mt-2 w-25 font11 px-3">
                                                     @foreach($prefixes as $prefix)
-                                                        <optgroup value="{{$prefix->id}}" label="{{$prefix->name}}">
+                                                        <optgroup value="{{$prefix->id}}" label="{{$locale=='ar'? $prefix->name:$prefix->en_name }}">
                                                             <option>{{$prefix->phoneCode}}</option>
                                                         </optgroup>
 
@@ -765,79 +773,48 @@
                                     <div class="row my-2">
                                         <div class="col-6">
                                             <input type="password" name="password" class="form-control font-weight-lighter font-13 a mb-2"
-                                                   placeholder="رمز عبور">
+                                                   placeholder="{{trans('sentence.pass')}}">
                                             <p class="text-danger">... را درست وارد کنید</p>
                                             <span class="text-decoration-none font font-10 text-nowrap d-flex align-items-center">
-                                           <span class=""> قوانین سایت را مطالعه کرده و پذیرفتم</span>
+                                           <span class=""> {{trans('sentence.accept')}}</span>
                                             <input type="checkbox" class="mx-2 ">
                                         </span>
                                             <span class="d-block mb-2" style="font-size: 9px;">
-                                                قوانین سایت را
+                                                {{trans('sentence.Terms')}}
                                                 <a href="#"
-                                                   class="text-decoration-none text-muted-red d-inline font-10">اینجا</a>
-                                            مطالعه کنید
+                                                   class="text-decoration-none text-muted-red d-inline font-10">{{trans('sentence.here')}}</a>
+                                                {{trans('sentence.read')}}
                                         </span>
                                         </div>
                                         <div class="col-6">
-                                            <input  type="password" name="password_confirmation" class="form-control mb-2 font-weight-lighter font-13 a"
-                                                    placeholder="تکراررمز عبور">
+                                            <input type="password" name="password_confirmation" class="form-control mb-2 font-weight-lighter font-13 a"
+                                                    placeholder="{{trans('sentence.Repeat_pass')}}">
                                             <p class="text-danger">... را درست وارد کنید</p>
-                                            {{--<h6 class="font-weight-lighter font-13 py-3">جایگاه کپچ گوگل</h6>--}}
+                                            <h6 class="font-weight-lighter font-13 py-3">جایگاه کپچ گوگل</h6>
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-center my-2">
-                                        {{--<button class="btn btn-model w-25 a" onclick="f3()">ثبت نام</button>--}}
-                                        <button type="submit" class="btn btn-model w-25 a">ثبت نام</button>
+                                        {{--<button type="submit" class="btn btn-model w-25 a">ثبت نام</button>--}}
+                                        <a class="btn btn-model a" target="_blank" href="index1.html">{{trans('sentence.sing_up')}}</a>
                                     </div>
 
-                                    <h6 class="font font-weight-bold text-center mb-2">یا</h6>
+                                    <h6 class="font font-weight-bold text-center mb-2">{{trans('sentence.or')}}</h6>
                                     <div class="row">
                                         <div class="col-12">
-                                            <button class="w-100 btn  mb-2 font btn1-footer-modal font-13 a">ورود با حساب کاربری
-                                                گوگل
-                                            </button>
+                                            <button class="w-100 btn  mb-2 font btn1-footer-modal font-13 a">{{trans('sentence.register_google')}}</button>
                                         </div>
                                         <div class="col-12">
-                                            <button class="w-100 btn  font btn2-footer-modal font-13 a">ورود با حساب کاربری
-                                                مایکروسافت
-                                            </button>
+                                            <button class="w-100 btn  font btn2-footer-modal font-13 a">{{trans('sentence.register_microsoft')}}</button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer border-top-0 d-block text-center mb-3">
-                                    <span class="font-10 font text-muted">آیا حساب کاربری دارید؟</span>
-                                    <a class="text-decoration-none font-10 font text-muted-red" href="#mymodal">ورود</a>
+                                    <span class="font-10 font text-muted">{{trans('sentence.do_account')}}</span>
+                                    <a class="text-decoration-none font-10 font text-muted-red" href="#mymodal">{{trans('sentence.login')}}</a>
                                 </div>
                             </div>
                         </form>
-                        {{--<form id="confrim">--}}
-                            {{--<div class="modal-body pb-0">--}}
-                                {{--<p class="text-muted pt-2 font14">حساب کاربری شما ساخته شد. لطفا کدی که--}}
-                                    {{--برای--}}
-                                    {{--شما پیامک شده است را وارد کنید و وارد--}}
-                                    {{--حساب--}}
-                                    {{--کاربری خود شوید.</p>--}}
-                                {{--<input type="text" name="" value="" placeholder="کد فعالسازی"--}}
-                                       {{--class="form-control font-weight-lighter font-13 col-12  my-2 a">--}}
-                                {{--<p class="text-danger">... را درست وارد کنید</p>--}}
-                                {{--<div class="d-flex justify-content-between ">--}}
-                                    {{--<button type="submit"--}}
-                                            {{--class="form-control btn my-2 text-white rounded-0 text-center font border-0  a"--}}
-                                            {{--id="send-conf">--}}
-                                        {{--ارسال مجدد--}}
-                                    {{--</button>--}}
-                                    {{--<button type="submit"--}}
-                                            {{--class="form-control btn my-2 text-white rounded-0 text-center font border-0  a"--}}
-                                            {{--id="change-num">--}}
-                                        {{--تغییر شماره--}}
-                                    {{--</button>--}}
-                                {{--</div>--}}
-                                {{--<button type="submit" id="acount-conf"--}}
-                                        {{--class="form-control btn my-2 col-12 text-white rounded-0 text-center font border-0 a mb-3">--}}
-                                    {{--تایید حساب کاربری--}}
-                                {{--</button>--}}
-                            {{--</div>--}}
-                        {{--</form>--}}
+
                     </div>
                 </div>
             </div>
@@ -1225,8 +1202,8 @@
 
             <!--start Services-box-header -->
             <h4 class="text-center Title-Services pt-5 mt-4 mb-md-5 mb-lg-0">
-                <span class="bg-primary text-white pl-2 pr-2 ">خدمات</span>
-                وسرویس ها
+                <span class="bg-primary text-white pl-2 pr-2 ">{{trans('sentence.Services')}}</span>
+                {{trans('sentence.and')}}   {{trans('sentence.information')}}
             </h4>
             <!--end Services-box-header -->
 
@@ -1238,15 +1215,24 @@
                 <div class="col-12 col-xl-6 col-md-6 Services-box d-flex" style="margin-bottom: 60px">
                     <div class="moretxt-tpl-nyn05 context-nyn05 set-nyn05 ">
                         <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services">
-                            ترجمه
+                            {{trans('sentence.translation')}}
                         </button>
-                        <p id="collapse_paragraph3" class="collapse my-3">{{$textTrans}}</p>
+                        <p id="collapse_paragraph3" class="collapse my-3">
+                            @switch($locale)
+                                @case('ar')
+                                {{$textTrans}}
+                                @break
+                                @default
+                                {{$textTransEn}}
+                            @endswitch
+                        </p>
+                        {{--<p id="collapse_paragraph3" class="collapse my-3">{{$textTrans}}</p>--}}
 
                         <a class="btn-nyn05 moretxt-btn-nyn05 collapsed w-100 text-decoration-none" role="button"
                            data-toggle="collapse" href="#collapse_paragraph3" aria-expanded="false"
                            aria-controls="collapse_paragraph3">
-                            <span class="text-muted">متن کامل</span>
-                            <span class="morebtn-nyn05 text-muted">بستن</span>
+                            <span class="text-muted">{{trans('sentence.full')}}</span>
+                            <span class="morebtn-nyn05 text-muted">{{trans('sentence.close')}}</span>
                         </a>
                     </div>
                 </div>
@@ -1256,15 +1242,23 @@
                 <div class="col-12 col-xl-6 col-md-6 Services-box d-flex" style="margin-bottom: 60px ">
                     <div class="moretxt-tpl-nyn05 context-nyn05 set-nyn05">
                         <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services">
-                            تایپ
+                            {{trans('sentence.type')}}
                         </button>
-                        <p id="collapse_paragraph1" class="collapse my-3">{{$textType}}</p>
+                        <p id="collapse_paragraph1" class="collapse my-3">
+                              @switch($locale)
+                                @case('ar')
+                                {{$textType}}
+                                @break
+                                @default
+                                {{$textTypeEn}}
+                            @endswitch
+                        </p>
 
                         <a class="btn-nyn05 moretxt-btn-nyn05 collapsed w-100 text-decoration-none" role="button"
                            data-toggle="collapse" href="#collapse_paragraph1" aria-expanded="false"
                            aria-controls="collapse_paragraph1">
-                            <span class="text-muted">متن کامل</span>
-                            <span class="morebtn-nyn05 text-muted">بستن</span>
+                            <span class="text-muted">{{trans('sentence.full')}}</span>
+                            <span class="morebtn-nyn05 text-muted">{{trans('sentence.close')}}</span>
                         </a>
                     </div>
                 </div>
@@ -1280,15 +1274,23 @@
                 <div class="col-12 col-xl-6 col-md-6 Services-box d-flex mt-5 mt-md-0" style=" margin-bottom: 40px">
                     <div class="moretxt-tpl-nyn05 context-nyn05 set-nyn05">
                         <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services">
-                            تایپ
+                            {{trans('sentence.type')}}
                         </button>
-                        <p id="collapse_paragraph1" class="collapse my-3">{{$textType}}</p>
+                        <p id="collapse_paragraph1" class="collapse my-3">
+                              @switch($locale)
+                                @case('ar')
+                                {{$textType}}
+                                @break
+                                @default
+                                {{$textTypeEn}}
+                            @endswitch
+                        </p>
 
                         <a class="btn-nyn05 moretxt-btn-nyn05 collapsed w-100 text-decoration-none" role="button"
                            data-toggle="collapse" href="#collapse_paragraph1" aria-expanded="false"
                            aria-controls="collapse_paragraph1">
-                            <span class="text-muted">متن کامل</span>
-                            <span class="morebtn-nyn05 text-muted">بستن</span>
+                            <span class="text-muted">{{trans('sentence.full')}}</span>
+                            <span class="morebtn-nyn05 text-muted">{{trans('sentence.close')}}</span>
                         </a>
                     </div>
                 </div>
@@ -1301,13 +1303,21 @@
                 <div class="col-12 col-xl-6 col-md-6 Services-box d-flex " style="margin-bottom: 100px">
                     <div class="moretxt-tpl-nyn05 context-nyn05 set-nyn05">
                         <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services text-nowrap">
-                            ویرایش و بازخوانی
+                            {{trans('sentence.edit')}}
                         </button>
-                        <p id="collapse_paragraph1" class="collapse my-3">{{$textType}}</p>
+                        <p id="collapse_paragraph1" class="collapse my-3">
+                            @switch($locale)
+                                @case('ar')
+                                {{$textEdit}}
+                                @break
+                                @default
+                                {{$textEditEn}}
+                            @endswitch
+                        </p>
                         <a class="btn-nyn05 moretxt-btn-nyn05 collapsed w-100 text-decoration-none" role="button"
                            data-toggle="collapse" href="#collapse_paragraph2">
-                            <span class="text-muted">متن کامل</span>
-                            <span class="morebtn-nyn05 text-muted">بستن</span>
+                            <span class="text-muted">{{trans('sentence.full')}}</span>
+                            <span class="morebtn-nyn05 text-muted">{{trans('sentence.close')}}</span>
                         </a>
                     </div>
                 </div>
@@ -1319,7 +1329,7 @@
 
             <div class="px-3">
                 <h5 class=" Title-Services d-flex">
-                    نظرات، پیشنهادات و انتقادات خود را برای ما ارسال کنید
+                    {{trans('sentence.Send_commend')}}
                 </h5>
             </div>
             <!--end comment-header-->
@@ -1328,51 +1338,19 @@
             <div class="d-flex flex-wrap ">
 
                 <div class="col-xl-4 col-md-6 col-12 col-lg-5 d-block h-100 mt-4 mt-md-5 pt-3">
+                @foreach($comments as $comment)
                     <div class="box-comment2 mySlides">
-                        <img class="ax " src="/home/img/ax.svg">
+                        <img class="ax " src="/photo/users/{{$comment->user->img_user}}">
                         <div class="emji-comment d-flex flex-wrap justify-content-end comment">
-                            <img class="em-com" src="/home/img/6.svg">
+                            <img class="em-com" src="{{$comment->emoji}}">
                         </div>
                         <div class="d-flex justify-content-center ">
-                            <p class="box-comment2-text ">
-                                اگر ترجمه دقیق میخواید این سایت
-                                رو پیشنهاد میدم کار رو به موقع و
-                                دقیق تحویل دادن
-                                اگر ترجمه دقیق میخواید این سایت
-                                رو پیشنهاد میدم کار رو به موقع و
-                                دقیق تحویل دادن
-                                اگر ترجمه دقیق میخواید این سایت
-                                رو پیشنهاد میدم کار رو به موقع و
-                                دقیق تحویل دادن
-                                اگر ترجمه دقیق میخواید این سایت
-                                رو پیشنهاد میدم کار رو به موقع و
-                                دقیق تحویل دادن
-                            </p>
+                            <p class="box-comment2-text ">{{$comment->description}}</p>
                         </div>
                     </div>
-                    <div class="box-comment2 mySlides ">
-                        <img class="ax" src="/home/img/2.svg">
-                        <div class="emji-comment d-flex flex-wrap justify-content-end  comment">
-                            <img class="em-com" src="/home/img/6.svg">
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <p class="box-comment2-text ">
-                                اگر ترجمه دقیق میخواید این
-                            </p>
-                        </div>
-                    </div>
-                    <div class="box-comment2 mySlides ">
-                        <img class="ax" src="/home/img/1.svg">
-                        <div class="emji-comment d-flex flex-wrap justify-content-end comment">
-                            <img class="em-com" src="/home/img/6.svg">
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <p class="box-comment2-text ">
-                                اگر ترجمه دقیق میخواید این
-                                اگر ترجمه دقیق میخواید این
-                            </p>
-                        </div>
-                    </div>
+
+                    @endforeach
+
                     <div class="d-flex dot-wrapper mt-4 justify-content-end" id="dot-en">
                         <img class="nt-1 dot" src="/home/img/nt.svg" onclick="currentSlide(1)">
                         <img class="nt-1 dot" src="/home/img/nt.svg" onclick="currentSlide(2)">
@@ -1412,7 +1390,7 @@
                     </div>
                     <div class="form-group my-4 comment-box mx-0">
                         <div data-emojiarea data-type="unicode" rows="8">
-                            <textarea class="form-control border-0 text-dark" rows="8" id="comment" name="description" placeholder="متنی با بیش از 50 کارکتر وارد کنید">{{old('description')}}</textarea>
+                            <textarea class="form-control border-0 text-dark" rows="8" id="comment" name="description" placeholder="{{trans('sentence.enter_commend')}}">{{old('description')}}</textarea>
                             @if($errors->has('description'))
                                 <span style="font-size: 12px;padding-right: 10px;color: red;background-color: #ffe6eb;float: right;" class="help-block sub-error">
                                 {{$errors->first('description')}}
@@ -1422,7 +1400,7 @@
                     </div>
                     <button id="submitComment" class="btn border-0 btn-success sub d-flex mx-0 text-white">
                         <i class="fa fa-check-square-o m-auto"></i>
-                        <span class="px-4">ثبت</span>
+                        <span class="px-4">{{trans('sentence.record')}}</span>
                     </button>
                 </form>
             </div>
@@ -1570,7 +1548,6 @@
             document.getElementById('logout').style.color = "#6c757d";
             document.getElementById('log-in').style.display = "inline-block";
             document.getElementById('log-out').style.display = "none";
-            document.getElementById('confrim').style.display = "none";
         }
 
         function f2() {
@@ -1580,17 +1557,8 @@
             document.getElementById('logout').style.color = "#fdba04";
             document.getElementById('log-in').style.display = "none";
             document.getElementById('log-out').style.display = "inline-block";
-            document.getElementById('confrim').style.display = "none";
         }
 
-        function f3() {
-            document.getElementById('login-border').style.borderBottom = "solid 1px lightgray";
-            document.getElementById('logout-border').style.borderBottom = "solid 2px #fdba04";
-            document.getElementById('login').style.color = "#6c757d";
-            document.getElementById('logout').style.color = "#fdba04";
-            document.getElementById('log-out').style.display = "none";
-            document.getElementById('confrim').style.display = "inline-block";
-        }
 
         var prof = document.getElementById("profile");
         var register = document.getElementById("register");

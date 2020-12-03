@@ -25,11 +25,14 @@ class MainController extends Controller
         $textTrans = Category::where('id',1)->value('text');
         $textType = Category::where('id',3)->value('text');
         $textEdit = Category::where('id',4)->value('text');
-//      $comments = Comment::where('active',1)->orderBy('id')->get();
+        $textTransEn = Category::where('id',1)->value('en_text');
+        $textTypeEn = Category::where('id',3)->value('en_text');
+        $textEditEn = Category::where('id',4)->value('en_text');
+        $comments = Comment::where('active',1)->orderBy('id')->get();
 
         $prefixes = Prefix::all();
 
-        return view('home.index',compact('categories','languages','types','prices','menuItems','textTrans','textEdit','textType','prefixes','comments'));
+        return view('home.index',compact('categories','languages','types','prices','menuItems','textTrans','textEdit','textType','textEditEn','textTransEn','textTypeEn','prefixes','comments'));
     }
 
     public function language_search(Request $request){
@@ -118,7 +121,8 @@ class MainController extends Controller
         }
     }
 
-    public function postSubscribeAjax(Request $request) {
+    public function postSubscribeAjax(Request $request)
+    {
 
         if ($request->ajax()) {
             $input = $request->all();
