@@ -1295,7 +1295,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row px-3 px-md-0 Services">
                 <div class="col-12 col-xl-6 mb-auto col-md-6">
                     <img class="" src="/home/img/edit.svg">
@@ -1305,7 +1304,7 @@
                         <button type="button" class="btn btn-dark Title-Services my-2 custom-btn-Services text-nowrap">
                             {{trans('sentence.edit')}}
                         </button>
-                        <p id="collapse_paragraph1" class="collapse my-3">
+                        <p id="collapse_paragraph2" class="collapse my-3 ">
                             @switch($locale)
                                 @case('ar')
                                 {{$textEdit}}
@@ -1323,7 +1322,6 @@
                 </div>
             </div>
 
-            <!--end Services-box -->
 
             <!--start comment-header-->
 

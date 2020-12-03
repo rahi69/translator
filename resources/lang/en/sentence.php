@@ -18,6 +18,7 @@ return [
     'translation'=>'Translation',
     'type'=>'Type',
     'edit'=>'Edit Reread',
+    'full'=>'Full',
     'close'=>'To Close',
     'Send_commend'=>'Send us your comments, suggestions and criticisms',
     'enter_commend'=>'Enter text with more than 50 characters',
